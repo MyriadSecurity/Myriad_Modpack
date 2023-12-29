@@ -1,0 +1,140 @@
+{
+	"Author": "Olimacam",
+	"RequireAll": true,
+	"Patches":
+		[
+			{
+				"Path": "$.ItemInfo",
+				"Action": "AppendAll",
+				"Value": 
+					[
+						{
+							"Type": "Swords",
+							"Fallback": "AxeFlint",
+							"Items": [ "BlackMetalGreatSwordHTD","BoneGreatSwordHTD","BronzeGreatSwordHTD","DragonSlayerSwordHTD","ObsidianGreatSwordHTD","SilverGreatSwordHTD","IronGreatSwordHTD","IronHeavyGreatSwordHTD" ],
+							"ItemsByBoss": 
+								{
+									"defeated_eikthyr": [ "BoneGreatSwordHTD" ],
+									"defeated_gdking": [ "BronzeGreatSwordHTD" ],
+									"defeated_bonemass": [ "IronGreatSwordHTD","IronHeavyGreatSwordHTD" ],
+									"defeated_dragon": [ "DragonSlayerSwordHTD","ObsidianGreatSwordHTD","SilverGreatSwordHTD" ],
+									"defeated_goblinking": [ "BlackMetalGreatSwordHTD" ],
+									"defeated_queen": [  ]
+								}
+						},
+						{
+							"Type": "TwoHandAxes",
+							"Fallback": "Axes",
+							"Items": [ "BlackMetalBattleaxeHTD","SilverBattleaxeHTD","BronzeBattleaxeHTD" ],
+							"ItemsByBoss": 
+								{
+									"defeated_eikthyr": [  ],
+									"defeated_gdking": [ "BronzeBattleaxeHTD" ],
+									"defeated_bonemass": [ "SilverBattleaxeHTD" ],
+									"defeated_dragon": [ "BlackMetalBattleaxeHTD" ],
+									"defeated_goblinking": [  ],
+									"defeated_queen": [  ]
+								}
+						},
+						{
+							"Type": "Fists",
+							"Fallback": "Knives",
+							"Items": [ "BlackMetalFistsHTD","SilverFistsHTD","IronFistsHTD","BronzeFistsHTD" ],
+							"ItemsByBoss": 
+								{
+									"defeated_eikthyr": [  ],
+									"defeated_gdking": [ "BronzeFistsHTD" ],
+									"defeated_bonemass": [ "IronFistsHTD" ],
+									"defeated_dragon": [ "SilverFistsHTD" ],
+									"defeated_goblinking": [ "BlackMetalFistsHTD" ],
+									"defeated_queen": [  ]
+								}
+						},
+						{
+							"Type": "Clubs",
+							"Fallback": "",
+							"Items": [ "BronzeCrowbillHTD" ],
+							"ItemsByBoss": 
+								{
+									"defeated_eikthyr": [  ],
+									"defeated_gdking": [ "BronzeCrowbillHTD" ],
+									"defeated_bonemass": [  ],
+									"defeated_dragon": [  ],
+									"defeated_goblinking": [  ],
+									"defeated_queen": [  ]
+								}
+						},
+						{
+							"Type": "Sledges",
+							"Fallback": "Clubs",
+							"Items": [ "BoneGreatMaceHTD","BronzeHammerHTD","SilverGreatMaceHTD" ],
+							"ItemsByBoss": 
+								{
+									"defeated_eikthyr": [ "BoneGreatMaceHTD" ],
+									"defeated_gdking": [ "BronzeHammerHTD" ],
+									"defeated_bonemass": [  ],
+									"defeated_dragon": [ "SilverGreatMaceHTD" ],
+									"defeated_goblinking": [  ],
+									"defeated_queen": [  ]
+								}
+						},
+						{
+							"Type": "HeadArmor",
+							"Fallback": "ArmorRagsChest",
+							"Items": [ "ArmorHelmetBoarHTD"],
+							"ItemsByBoss" : 
+								{
+									"defeated_eikthyr"    : [ "ArmorHelmetBoarHTD" ],
+									"defeated_gdking"     : [  ],
+									"defeated_bonemass"   : [  ],
+									"defeated_dragon"     : [  ],
+									"defeated_goblinking" : [  ],
+									"defeated_queen"      : [  ]
+								}
+						},
+						{
+							"Type": "ChestArmor",
+							"Fallback": "",
+							"Items": [ "ArmorChestBoarHTD" ],
+							"ItemsByBoss" : 
+								{
+									"defeated_eikthyr"    : [ "ArmorChestBoarHTD" ],
+									"defeated_gdking"     : [  ],
+									"defeated_bonemass"   : [  ],
+									"defeated_dragon"     : [  ],
+									"defeated_goblinking" : [  ],
+									"defeated_queen"      : [  ]
+								}
+						},
+						{
+							"Type": "LegsArmor",
+							"Fallback": "",
+							"Items": [ "ArmorLegsBoarHTD" ],
+							"ItemsByBoss" : 
+								{
+									"defeated_eikthyr"    : [ "ArmorLegsBoarHTD" ],
+									"defeated_gdking"     : [  ],
+									"defeated_bonemass"   : [  ],
+									"defeated_dragon"     : [  ],
+									"defeated_goblinking" : [  ],
+									"defeated_queen"      : [  ]
+								}
+						},
+						{
+							"Type": "ShouldersArmor",
+							"Fallback": "ArmorRagsLegs",
+							"Items": [ "ArmorShoulderBoarHTD" ],
+							"ItemsByBoss" : 
+								{
+									"defeated_eikthyr"    : [ "ArmorShoulderBoarHTD" ],
+									"defeated_gdking"     : [  ],
+									"defeated_bonemass"   : [  ],
+									"defeated_dragon"     : [  ],
+									"defeated_goblinking" : [  ],
+									"defeated_queen"      : [  ]
+								}
+						}
+					]
+			}
+		]
+}
