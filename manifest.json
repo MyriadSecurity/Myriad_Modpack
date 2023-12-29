@@ -1,7 +1,7 @@
 {
     "name": "Myriad_Modpack",
     "version_number": "1.0.1",
-    "website_url": "None",
+    "website_url": "https://github.com/ScottMnemonic/Myriad_Modpack",
     "description": "WIP Modpack focused around lots of building, new encounters, and a balanced approach to enchanted equipment.",
     "dependencies": [
         "denikson-BepInExPack_Valheim-5.4.2202",
