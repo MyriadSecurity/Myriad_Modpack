@@ -1,0 +1,28 @@
+{
+    "TargetFile": "loottables.json",
+    "Author": "Nullex, Majestic",
+    "RequireAll": true,
+    "Priority": 700,
+    "Patches": [
+    	{
+        	"Path": "$.LootTables",
+			"Action": "AppendAll",
+            "Value": [
+            	{
+                	"Object": "TreasureMapChest_AshLands",
+                    "Drops": [ [3, 80], [4, 15], [5, 5] ],
+					"Loot": [
+                    	{ "Item": "TierAshlandsEverything", "Weight": 1, "Rarity": [ 0, 5, 70, 25] }
+                    ]
+                },
+                {
+                    "Object": "TreasureMapChest_DeepNorth",
+                    "Drops": [ [3, 80], [4, 15], [5, 5] ],
+					"Loot": [
+                    	{ "Item": "TierDeepNorthEverything", "Weight": 1, "Rarity": [ 0, 5, 70, 25] }
+                    ]
+                }
+            ]
+        }
+    ]
+}

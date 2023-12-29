@@ -1,0 +1,6 @@
+{
+    "TargetFile": "adventuredata.json",
+    "Author": "Nullex",
+    "RequireAll": true,
+    "Patches": []
+}
