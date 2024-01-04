@@ -203,6 +203,8 @@
     prefab: kg_EnchantScroll_Weapon_Blessed_F
     amount: 1
   Items:
+  - WoodPolearmHTD
+  - WoodSwordHTD
   - MaceFlint_TW
   - GreatClub_TW
   - AtgeirFlint_TW

@@ -1,0 +1,169 @@
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_S
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_Blessed_S
+    amount: 1
+  Items:
+  -	ArmorRagsChestT7_Terraheim_AddNewSets_AddBeotesArmor
+  -	ArmorRagsLegsT7_Terraheim_AddNewSets_AddBeotesArmor
+  -	HelmetLeatherT7_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherChestT7_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherLegsT7_Terraheim_AddNewSets_AddFyrdArmor
+  -	HelmetBronzeT7_Terraheim_AddNewSets_AddEorlArmor
+  -	ArmorBronzeChestT7_Terraheim_AddNewSets_AddEorlArmor
+  -	ArmorBronzeLegsT7_Terraheim_AddNewSets_AddEorlArmor
+  -	HelmetIronT7_Terraheim_AddNewSets_AddThegnArmor
+  -	ArmorIronChestT7_Terraheim_AddNewSets_AddThegnArmor
+  -	ArmorIronLegsT7_Terraheim_AddNewSets_AddThegnArmor
+  -	HelmetRootT7_Terraheim_AddNewSets_AddRootArmor
+  -	ArmorRootChestT7_Terraheim_AddNewSets_AddRootArmor
+  -	ArmorRootLegsT7_Terraheim_AddNewSets_AddRootArmor
+  -	HelmetDrakeT7_Terraheim_AddNewSets_AddWyrdwulfArmor
+  -	ArmorWolfChestT7_Terraheim_AddNewSets_AddWyrdwulfArmor
+  -	ArmorWolfLegsT7_Terraheim_AddNewSets_AddWyrdwulfArmor
+  -	HelmetFenringT7_Terraheim_AddNewSets_AddFenrisArmor
+  -	ArmorFenringChestT7_Terraheim_AddNewSets_AddFenrisArmor
+  -	ArmorFenringLegsT7_Terraheim_AddNewSets_AddFenrisArmor
+  -	HelmetPaddedT7_Terraheim_AddNewSets_AddHuscarlArmor
+  -	ArmorPaddedCuirassT7_Terraheim_AddNewSets_AddHuscarlArmor
+  -	ArmorPaddedGreavesT7_Terraheim_AddNewSets_AddHuscarlArmor
+  -	HelmetCarapaceT7_Terraheim_AddNewSets_AddGesithArmor
+  -	ArmorCarapaceChestT7_Terraheim_AddNewSets_AddGesithArmor
+  -	ArmorCarapaceLegsT7_Terraheim_AddNewSets_AddGesithArmor
+  -	HelmetMageT7_Terraheim_AddNewSets_AddAlneArmor
+  -	ArmorMageChestT7_Terraheim_AddNewSets_AddAlneArmor
+  -	ArmorMageLegsT7_Terraheim_AddNewSets_AddAlneArmor
+  -	HelmetTrollLeatherT7_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherChestT7_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherLegsT7_Terraheim_AddNewSets_AddJotunnArmor
+# Plains
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_A
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_Blessed_A
+    amount: 1
+  Items:
+  -	ArmorRagsChestT6_Terraheim_AddNewSets_AddBeotesArmor
+  -	ArmorRagsLegsT6_Terraheim_AddNewSets_AddBeotesArmor
+  -	HelmetLeatherT6_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherChestT6_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherLegsT6_Terraheim_AddNewSets_AddFyrdArmor
+  -	HelmetBronzeT6_Terraheim_AddNewSets_AddEorlArmor
+  -	ArmorBronzeChestT6_Terraheim_AddNewSets_AddEorlArmor
+  -	ArmorBronzeLegsT6_Terraheim_AddNewSets_AddEorlArmor
+  -	HelmetIronT6_Terraheim_AddNewSets_AddThegnArmor
+  -	ArmorIronChestT6_Terraheim_AddNewSets_AddThegnArmor
+  -	ArmorIronLegsT6_Terraheim_AddNewSets_AddThegnArmor
+  -	HelmetRootT6_Terraheim_AddNewSets_AddRootArmor
+  -	ArmorRootChestT6_Terraheim_AddNewSets_AddRootArmor
+  -	ArmorRootLegsT6_Terraheim_AddNewSets_AddRootArmor
+  -	HelmetDrakeT6_Terraheim_AddNewSets_AddWyrdwulfArmor
+  -	ArmorWolfChestT6_Terraheim_AddNewSets_AddWyrdwulfArmor
+  -	ArmorWolfLegsT6_Terraheim_AddNewSets_AddWyrdwulfArmor
+  -	HelmetFenringT6_Terraheim_AddNewSets_AddFenrisArmor
+  -	ArmorFenringChestT6_Terraheim_AddNewSets_AddFenrisArmor
+  -	ArmorFenringLegsT6_Terraheim_AddNewSets_AddFenrisArmor
+  -	HelmetPaddedT6_Terraheim_AddNewSets_AddHuscarlArmor
+  -	ArmorPaddedCuirassT6_Terraheim_AddNewSets_AddHuscarlArmor
+  -	ArmorPaddedGreavesT6_Terraheim_AddNewSets_AddHuscarlArmor
+  -	HelmetTrollLeatherT6_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherChestT6_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherLegsT6_Terraheim_AddNewSets_AddJotunnArmor
+# Mountain
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_B
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_Blessed_B
+    amount: 1
+  Items:
+  -	ArmorRagsChestT5_Terraheim_AddNewSets_AddBeotesArmor
+  -	ArmorRagsLegsT5_Terraheim_AddNewSets_AddBeotesArmor
+  -	HelmetLeatherT5_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherChestT5_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherLegsT5_Terraheim_AddNewSets_AddFyrdArmor
+  -	HelmetBronzeT5_Terraheim_AddNewSets_AddEorlArmor
+  -	ArmorBronzeChestT5_Terraheim_AddNewSets_AddEorlArmor
+  -	ArmorBronzeLegsT5_Terraheim_AddNewSets_AddEorlArmor
+  -	HelmetIronT5_Terraheim_AddNewSets_AddThegnArmor
+  -	ArmorIronChestT5_Terraheim_AddNewSets_AddThegnArmor
+  -	ArmorIronLegsT5_Terraheim_AddNewSets_AddThegnArmor
+  -	HelmetRootT5_Terraheim_AddNewSets_AddRootArmor
+  -	ArmorRootChestT5_Terraheim_AddNewSets_AddRootArmor
+  -	ArmorRootLegsT5_Terraheim_AddNewSets_AddRootArmor
+  -	HelmetDrakeT5_Terraheim_AddNewSets_AddWyrdwulfArmor
+  -	ArmorWolfChestT5_Terraheim_AddNewSets_AddWyrdwulfArmor
+  -	ArmorWolfLegsT5_Terraheim_AddNewSets_AddWyrdwulfArmor
+  -	HelmetFenringT5_Terraheim_AddNewSets_AddFenrisArmor
+  -	ArmorFenringChestT5_Terraheim_AddNewSets_AddFenrisArmor
+  -	ArmorFenringLegsT5_Terraheim_AddNewSets_AddFenrisArmor
+  -	HelmetTrollLeatherT5_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherChestT5_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherLegsT5_Terraheim_AddNewSets_AddJotunnArmor
+# Swamp
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_C
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_Blessed_C
+    amount: 1
+  Items:
+  -	ArmorRagsChestT4_Terraheim_AddNewSets_AddBeotesArmor
+  -	ArmorRagsLegsT4_Terraheim_AddNewSets_AddBeotesArmor
+  -	HelmetLeatherT4_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherChestT4_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherLegsT4_Terraheim_AddNewSets_AddFyrdArmor
+  -	HelmetBronzeT4_Terraheim_AddNewSets_AddEorlArmor
+  -	ArmorBronzeChestT4_Terraheim_AddNewSets_AddEorlArmor
+  -	ArmorBronzeLegsT4_Terraheim_AddNewSets_AddEorlArmor
+  -	HelmetIronT4_Terraheim_AddNewSets_AddThegnArmor
+  -	ArmorIronChestT4_Terraheim_AddNewSets_AddThegnArmor
+  -	ArmorIronLegsT4_Terraheim_AddNewSets_AddThegnArmor
+  -	HelmetRootT4_Terraheim_AddNewSets_AddRootArmor
+  -	ArmorRootChestT4_Terraheim_AddNewSets_AddRootArmor
+  -	ArmorRootLegsT4_Terraheim_AddNewSets_AddRootArmor
+  -	HelmetTrollLeatherT4_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherChestT4_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherLegsT4_Terraheim_AddNewSets_AddJotunnArmor
+# blackForest
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_D
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_Blessed_D
+    amount: 1
+  Items:
+  -	ArmorRagsChestT2_Terraheim_AddNewSets_AddBeotesArmor
+  -	ArmorRagsLegsT2_Terraheim_AddNewSets_AddBeotesArmor
+  -	HelmetLeatherT2_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherChestT2_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherLegsT2_Terraheim_AddNewSets_AddFyrdArmor
+  -	HelmetTrollLeatherT2_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherChestT2_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherLegsT2_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorRagsChestT3_Terraheim_AddNewSets_AddBeotesArmor
+  -	ArmorRagsLegsT3_Terraheim_AddNewSets_AddBeotesArmor
+  -	HelmetLeatherT3_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherChestT3_Terraheim_AddNewSets_AddFyrdArmor
+  -	ArmorLeatherLegsT3_Terraheim_AddNewSets_AddFyrdArmor
+  -	HelmetBronzeT3_Terraheim_AddNewSets_AddEorlArmor
+  -	ArmorBronzeChestT3_Terraheim_AddNewSets_AddEorlArmor
+  -	ArmorBronzeLegsT3_Terraheim_AddNewSets_AddEorlArmor
+  -	HelmetTrollLeatherT3_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherChestT3_Terraheim_AddNewSets_AddJotunnArmor
+  -	ArmorTrollLeatherLegsT3_Terraheim_AddNewSets_AddJotunnArmor
+# Meadows
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_F
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_Blessed_F
+    amount: 1
+  Items:
+  - ArmorRagsChestT1_Terraheim_AddNewSets_AddBeotesArmor
+  - ArmorRagsLegsT1_Terraheim_AddNewSets_AddBeotesArmor
+  - HelmetLeatherT1_Terraheim_AddNewSets_AddFyrdArmor
+  - ArmorLeatherChestT1_Terraheim_AddNewSets_AddFyrdArmor
+  - ArmorLeatherLegsT1_Terraheim_AddNewSets_AddFyrdArmor

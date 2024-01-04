@@ -1,0 +1,80 @@
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Weapon_S
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Weapon_Blessed_S
+    amount: 1
+  Items:
+  - DragonSlayerSwordHTD
+  - FlametalAxeHTD
+  - FlametalGreatAxeHTD
+  - FlametalGreatMaceHTD
+  - FlametalGreatSwordHTD
+  - FlametalMaceHTD
+# Plains
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Weapon_A
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Weapon_Blessed_A
+    amount: 1
+  Items:
+  - BlackMetalBattleaxeHTD
+  - BlackMetalFistsHTD
+  - BlackMetalGreatSwordHTD
+# Mountain
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Weapon_B
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Weapon_Blessed_B
+    amount: 1
+  Items:
+  - ObsidianGreatSwordHTD
+  - SilverBattleaxeHTD
+  - SilverFistsHTD
+  - SilverGreatMaceHTD
+  - SilverGreatSwordHTD
+# Swamp
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Weapon_C
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Weapon_Blessed_C
+    amount: 1
+  Items:
+  - IronFistsHTD
+  - IronGreatSwordHTD
+  - IronHeavyGreatSwordHTD
+# Meadows
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Weapon_F
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Weapon_Blessed_F
+    amount: 1
+  Items:
+  - WoodPolearmHTD
+  - WoodSwordHTD
+  - LeatherFistsHTD
+  - BoneGreatMaceHTD
+  - BoneGreatSwordHTD
+  - BronzeBattleaxeHTD
+  - BronzeCrowbillHTD
+  - BronzeFistsHTD
+  - BronzeGreatSwordHTD
+  - BronzeHammerHTD
+  - DeerFistsHTD
+
+# Meadows
+- enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_F
+    amount: 1
+  blessed_enchant_prefab:
+    prefab: kg_EnchantScroll_Armor_Blessed_F
+    amount: 1
+  Items: 
+  - ArmorChestBoarHTD
+  - ArmorHelmetBoarHTD
+  - ArmorLegsBoarHTD
+  - ArmorShoulderBoarHTD
