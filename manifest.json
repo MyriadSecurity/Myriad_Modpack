@@ -1,11 +1,10 @@
 {
     "name": "Myriad_Modpack",
-    "version_number": "1.1.1",
+    "version_number": "1.1.2",
     "website_url": "https://github.com/ScottMnemonic/Myriad_Modpack",
     "description": "WIP Modpack focused around lots of building, new encounters, and a balanced approach to enchanted equipment.",
     "dependencies": [
         "denikson-BepInExPack_Valheim-5.4.2202",
-        "RandyKnapp-EquipmentAndQuickSlots-2.1.13",
         "RandyKnapp-EpicLoot-0.9.37",
         "Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock-1.4.5",
         "Advize-PlantEverything-1.16.2",	
