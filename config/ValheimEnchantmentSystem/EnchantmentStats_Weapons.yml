@@ -1,40 +1,40 @@
 1:
-  damage_percentage: 2
-2:
   damage_percentage: 4
-3:
-  damage_percentage: 6
-4:
+2:
   damage_percentage: 8
-5:
-  damage_percentage: 10
-6:
+3:
   damage_percentage: 12
-7:
+4:
   damage_percentage: 16
-8:
+5:
   damage_percentage: 20
-9:
+6:
   damage_percentage: 24
-10:
-  damage_percentage: 28
-11:
+7:
   damage_percentage: 32
-12:
-  damage_percentage: 36
-13:
+8:
   damage_percentage: 40
+9:
+  damage_percentage: 48
+10:
+  damage_percentage: 56
+11:
+  damage_percentage: 64
+12:
+  damage_percentage: 72
+13:
+  damage_percentage: 80
 14:
-  damage_percentage: 45
+  damage_percentage: 90
 15:
-  damage_percentage: 50
-16:
-  damage_percentage: 55
-17:
-  damage_percentage: 60
-18:
-  damage_percentage: 70
-19:
-  damage_percentage: 85
-20:
   damage_percentage: 100
+16:
+  damage_percentage: 110
+17:
+  damage_percentage: 120
+18:
+  damage_percentage: 140
+19:
+  damage_percentage: 170
+20:
+  damage_percentage: 200
