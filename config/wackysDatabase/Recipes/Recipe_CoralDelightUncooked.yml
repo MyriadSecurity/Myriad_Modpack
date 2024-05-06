@@ -1,0 +1,14 @@
+name: CoralDelightUncooked
+clonePrefabName: 
+craftingStation: Prep Table
+minStationLevel: 2
+maxStationLevelCap: 
+repairStation: 
+amount: 1
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- Fish8:1:0:True
+- mc_rawegg:1:0:True
+- BarleyFlour:10:0:True

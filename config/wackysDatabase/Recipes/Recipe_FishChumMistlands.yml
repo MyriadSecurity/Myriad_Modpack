@@ -1,0 +1,15 @@
+name: FishChumMistlands
+clonePrefabName: 
+craftingStation: $piece_cauldron
+minStationLevel: 3
+maxStationLevelCap: 
+repairStation: 
+amount: 10
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- FishingBait:5:0:True
+- mc_rawegg:1:0:True
+- HareMeat:1:0:True
+- LinenThread:2:0:True

@@ -1,0 +1,42 @@
+name: Winter
+modifiers:
+  Attack: 1
+  HealthRegen: 0.9
+  StaminaRegen: 0.9
+  RaiseSkills: 1
+  Speed: 0.9
+  Noise: 1
+  MaxCarryWeight: 0
+  Stealth: 1
+  RunStaminaDrain: 1
+  DamageReduction: 0
+  FallDamage: 0.9
+  EitrRegen: 1
+resistances:
+- m_type: Fire
+  m_modifier: Resistant
+- m_type: Frost
+  m_modifier: Normal
+- m_type: Lightning
+  m_modifier: Normal
+- m_type: Poison
+  m_modifier: Normal
+- m_type: Spirit
+  m_modifier: Normal
+startMessage: Winter is coming!
+tooltip: The air is cold
+meadowWeather:
+- WarmSnow
+blackForestWeather:
+- WarmSnow
+swampWeather:
+- WarmSnow
+mountainWeather: []
+plainWeather:
+- WarmSnow
+mistLandWeather:
+- WarmSnow
+ashLandWeather: []
+deepNorthWeather: []
+oceanWeather:
+- WarmSnow

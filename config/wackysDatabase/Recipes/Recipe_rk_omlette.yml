@@ -1,0 +1,15 @@
+name: rk_omlette
+clonePrefabName: 
+craftingStation: Stone Griddle
+minStationLevel: 1
+maxStationLevelCap: 
+repairStation: 
+amount: 1
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- mc_rawegg:2:0:False
+- Thistle:2:0:False
+- rk_pork:1:0:False
+- rk_butter:1:0:False

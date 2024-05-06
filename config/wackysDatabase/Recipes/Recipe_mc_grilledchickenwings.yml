@@ -1,0 +1,12 @@
+name: mc_grilledchickenwings
+clonePrefabName: 
+craftingStation: Prep Table
+minStationLevel: 2
+maxStationLevelCap: 
+repairStation: 
+amount: 2
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- mc_grilledchicken:1:0:True

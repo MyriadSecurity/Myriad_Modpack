@@ -1,0 +1,12 @@
+name: PoultryLeg_FYA
+clonePrefabName: 
+craftingStation: $piece_butchersbench_fya
+minStationLevel: 1
+maxStationLevelCap: 
+repairStation: 
+amount: 2
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- mc_rawchickenmeat:1:0:False

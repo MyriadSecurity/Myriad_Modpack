@@ -1,0 +1,40 @@
+m_name: Twilight_Clear
+m_default: false
+m_isWet: false
+m_isFreezing: false
+m_isFreezingAtNight: false
+m_isCold: true
+m_isColdAtNight: true
+m_alwaysDark: false
+m_ambColorNight: RGBA(0.205, 0.196, 0.228, 1.000)
+m_ambColorDay: RGBA(0.345, 0.355, 0.426, 1.000)
+m_fogColorNight: RGBA(0.078, 0.078, 0.078, 1.000)
+m_fogColorMorning: RGBA(0.246, 0.255, 0.272, 1.000)
+m_fogColorDay: RGBA(0.335, 0.379, 0.500, 1.000)
+m_fogColorEvening: RGBA(0.272, 0.268, 0.331, 1.000)
+m_fogColorSunNight: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunMorning: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunDay: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunEvening: RGBA(0.684, 0.353, 0.251, 1.000)
+m_fogDensityNight: 0.02
+m_fogDensityMorning: 0.03
+m_fogDensityDay: 0.01
+m_fogDensityEvening: 0.01
+m_sunColorNight: RGBA(0.735, 0.779, 1.000, 1.000)
+m_sunColorMorning: RGBA(0.971, 0.427, 0.364, 1.000)
+m_sunColorDay: RGBA(1.000, 0.483, 0.331, 1.000)
+m_sunColorEvening: RGBA(1.000, 0.096, 0.096, 1.000)
+m_lightIntensityDay: 0.5
+m_lightIntensityNight: 0.3
+m_sunAngle: 8
+m_windMin: 0.2
+m_windMax: 0.6
+m_psystemsOutsideOnly: false
+m_rainCloudAlpha: 0.1
+m_ambientLoop: SW008_Wendland_Autumn_Wind_In_Reeds_Medium_Distance_Leaves_Only
+m_ambientVol: 0.3
+m_ambientList: ''
+m_musicMorning: ''
+m_musicEvening: ''
+m_musicDay: ''
+m_musicNight: ''

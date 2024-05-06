@@ -1,0 +1,18 @@
+defaultSettings:
+  TextureFormat: BC7
+  TextureFilter: Trilinear
+GrassSettings:
+  TextureFormat: DXT1
+  TextureFilter: Trilinear
+CreatureSettings:
+  TextureFormat: BC7
+  TextureFilter: Trilinear
+PieceSettings:
+  TextureFormat: BC7
+  TextureFilter: Trilinear
+PickableSettings:
+  TextureFormat: BC7
+  TextureFilter: Trilinear
+ArmorSettings:
+  TextureFormat: BC7
+  TextureFilter: Trilinear

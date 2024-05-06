@@ -1,0 +1,15 @@
+name: mc_grilledchickenburger
+clonePrefabName: 
+craftingStation: Prep Table
+minStationLevel: 4
+maxStationLevelCap: 
+repairStation: 
+amount: 1
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- mc_grilledchicken:1:0:True
+- mc_boiledegg:1:0:True
+- Onion:2:0:True
+- Bread:1:0:True

@@ -1,0 +1,40 @@
+m_name: SwampRain
+m_default: false
+m_isWet: true
+m_isFreezing: false
+m_isFreezingAtNight: false
+m_isCold: false
+m_isColdAtNight: true
+m_alwaysDark: true
+m_ambColorNight: RGBA(0.295, 0.316, 0.272, 1.000)
+m_ambColorDay: RGBA(0.309, 0.338, 0.281, 1.000)
+m_fogColorNight: RGBA(0.089, 0.213, 0.143, 1.000)
+m_fogColorMorning: RGBA(0.208, 0.219, 0.192, 1.000)
+m_fogColorDay: RGBA(0.331, 0.331, 0.331, 1.000)
+m_fogColorEvening: RGBA(0.208, 0.221, 0.193, 1.000)
+m_fogColorSunNight: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunMorning: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunDay: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunEvening: RGBA(0.331, 0.267, 0.200, 1.000)
+m_fogDensityNight: 0.02
+m_fogDensityMorning: 0.02
+m_fogDensityDay: 0.02
+m_fogDensityEvening: 0.02
+m_sunColorNight: RGBA(0.739, 0.859, 0.890, 1.000)
+m_sunColorMorning: RGBA(0.937, 1.000, 0.765, 1.000)
+m_sunColorDay: RGBA(0.938, 1.000, 0.765, 1.000)
+m_sunColorEvening: RGBA(1.000, 0.930, 0.640, 1.000)
+m_lightIntensityDay: 0.6
+m_lightIntensityNight: 0.5
+m_sunAngle: 45
+m_windMin: 0.1
+m_windMax: 0.3
+m_psystemsOutsideOnly: false
+m_rainCloudAlpha: 2
+m_ambientLoop: Rain_Loop11
+m_ambientVol: 0.2
+m_ambientList: ''
+m_musicMorning: ''
+m_musicEvening: ''
+m_musicDay: ''
+m_musicNight: ''

@@ -1,0 +1,36 @@
+name: Summer
+modifiers:
+  Attack: 1
+  HealthRegen: 1
+  StaminaRegen: 1
+  RaiseSkills: 1
+  Speed: 1.1
+  Noise: 1
+  MaxCarryWeight: 50
+  Stealth: 1
+  RunStaminaDrain: 1
+  DamageReduction: 0
+  FallDamage: 1
+  EitrRegen: 1
+resistances:
+- m_type: Fire
+  m_modifier: Weak
+- m_type: Frost
+  m_modifier: Normal
+- m_type: Lightning
+  m_modifier: Normal
+- m_type: Poison
+  m_modifier: Normal
+- m_type: Spirit
+  m_modifier: Normal
+startMessage: Summer has landed
+tooltip: The air is warm
+meadowWeather: []
+blackForestWeather: []
+swampWeather: []
+mountainWeather: []
+plainWeather: []
+mistLandWeather: []
+ashLandWeather: []
+deepNorthWeather: []
+oceanWeather: []

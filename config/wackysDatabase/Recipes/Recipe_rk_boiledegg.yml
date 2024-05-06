@@ -1,0 +1,12 @@
+name: rk_boiledegg
+clonePrefabName: 
+craftingStation: Prep Table
+minStationLevel: 1
+maxStationLevelCap: 
+repairStation: 
+amount: 1
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- rk_egg:2:0:False
