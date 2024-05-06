@@ -1,0 +1,15 @@
+name: TavernPlatter_Food_FF
+clonePrefabName: 
+craftingStation: $piece_cauldron
+minStationLevel: 1
+maxStationLevelCap: 
+repairStation: 
+amount: 3
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- mc_grilledchicken:3:0:False
+- BowlSaladVegetables_Item_FF:1:0:False
+- Bread:3:0:False
+- TinTray_Item_FF:3:0:False

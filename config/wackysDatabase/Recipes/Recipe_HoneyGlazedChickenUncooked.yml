@@ -1,0 +1,14 @@
+name: HoneyGlazedChickenUncooked
+clonePrefabName: 
+craftingStation: Prep Table
+minStationLevel: 5
+maxStationLevelCap: 
+repairStation: 
+amount: 1
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- mc_rawchickenmeat:1:1:True
+- Honey:3:1:True
+- MushroomJotunPuffs:2:1:True

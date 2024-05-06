@@ -1,0 +1,4 @@
+name: ChickenBW_FYA
+mob_display_name: $animal_chicken_fya
+clone_creature: 
+creature_replacer: 

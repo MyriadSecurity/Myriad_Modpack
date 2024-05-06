@@ -1,0 +1,40 @@
+m_name: SnowStorm
+m_default: false
+m_isWet: false
+m_isFreezing: true
+m_isFreezingAtNight: false
+m_isCold: false
+m_isColdAtNight: true
+m_alwaysDark: false
+m_ambColorNight: RGBA(0.390, 0.381, 0.381, 1.000)
+m_ambColorDay: RGBA(0.860, 0.860, 0.860, 1.000)
+m_fogColorNight: RGBA(0.184, 0.184, 0.184, 1.000)
+m_fogColorMorning: RGBA(0.000, 0.000, 0.000, 1.000)
+m_fogColorDay: RGBA(0.728, 0.728, 0.728, 1.000)
+m_fogColorEvening: RGBA(0.419, 0.419, 0.419, 1.000)
+m_fogColorSunNight: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunMorning: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunDay: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunEvening: RGBA(0.522, 0.334, 0.334, 1.000)
+m_fogDensityNight: 0.05
+m_fogDensityMorning: 0.05
+m_fogDensityDay: 0.05
+m_fogDensityEvening: 0.05
+m_sunColorNight: RGBA(0.367, 0.377, 0.426, 1.000)
+m_sunColorMorning: RGBA(0.985, 0.874, 0.790, 1.000)
+m_sunColorDay: RGBA(1.000, 1.000, 1.000, 1.000)
+m_sunColorEvening: RGBA(1.000, 0.820, 0.765, 1.000)
+m_lightIntensityDay: 0.7
+m_lightIntensityNight: 0.2
+m_sunAngle: 45
+m_windMin: 0.8
+m_windMax: 1
+m_psystemsOutsideOnly: false
+m_rainCloudAlpha: 2
+m_ambientLoop: Wind_BlowingLoop3
+m_ambientVol: 0.6
+m_ambientList: ''
+m_musicMorning: ''
+m_musicEvening: ''
+m_musicDay: ''
+m_musicNight: ''

@@ -1,0 +1,14 @@
+name: MagicallyStuffedShroomUncooked
+clonePrefabName: 
+craftingStation: Prep Table
+minStationLevel: 5
+maxStationLevelCap: 
+repairStation: 
+amount: 1
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- MushroomMagecap:3:1:True
+- GiantBloodSack:1:1:True
+- Turnip:2:1:True

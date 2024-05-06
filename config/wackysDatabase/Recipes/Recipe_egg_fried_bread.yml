@@ -1,0 +1,14 @@
+name: egg_fried_bread
+clonePrefabName: 
+craftingStation: Prep Table
+minStationLevel: 1
+maxStationLevelCap: 
+repairStation: 
+amount: 1
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- Bread:1:0:False
+- Thistle:3:0:False
+- mc_rawegg:2:0:False

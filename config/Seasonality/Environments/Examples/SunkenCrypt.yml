@@ -1,0 +1,40 @@
+m_name: SunkenCrypt
+m_default: false
+m_isWet: false
+m_isFreezing: false
+m_isFreezingAtNight: false
+m_isCold: false
+m_isColdAtNight: false
+m_alwaysDark: true
+m_ambColorNight: RGBA(0.102, 0.235, 0.243, 1.000)
+m_ambColorDay: RGBA(0.102, 0.235, 0.243, 1.000)
+m_fogColorNight: RGBA(0.102, 0.235, 0.243, 1.000)
+m_fogColorMorning: RGBA(0.102, 0.235, 0.243, 1.000)
+m_fogColorDay: RGBA(0.102, 0.235, 0.243, 1.000)
+m_fogColorEvening: RGBA(0.102, 0.235, 0.243, 1.000)
+m_fogColorSunNight: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunMorning: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunDay: RGBA(1.000, 1.000, 1.000, 1.000)
+m_fogColorSunEvening: RGBA(0.102, 0.235, 0.243, 1.000)
+m_fogDensityNight: 0.2
+m_fogDensityMorning: 0.2
+m_fogDensityDay: 0.2
+m_fogDensityEvening: 0.2
+m_sunColorNight: RGBA(0.420, 0.441, 0.544, 1.000)
+m_sunColorMorning: RGBA(0.941, 0.882, 0.727, 1.000)
+m_sunColorDay: RGBA(0.949, 0.949, 0.949, 1.000)
+m_sunColorEvening: RGBA(1.000, 0.743, 0.743, 1.000)
+m_lightIntensityDay: 0
+m_lightIntensityNight: 0
+m_sunAngle: 60
+m_windMin: 0
+m_windMax: 0
+m_psystemsOutsideOnly: false
+m_rainCloudAlpha: 0
+m_ambientLoop: Amb_Eerie_CaveLoop3
+m_ambientVol: 1
+m_ambientList: SunkenCrypt
+m_musicMorning: '-'
+m_musicEvening: '-'
+m_musicDay: '-'
+m_musicNight: '-'

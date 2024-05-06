@@ -1,0 +1,14 @@
+name: LoxPieUncooked
+clonePrefabName: 
+craftingStation: $piece_cauldron
+minStationLevel: 4
+maxStationLevelCap: 
+repairStation: 
+amount: 1
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- Cloudberry:2:1:True
+- LoxMeat:2:1:True
+- BarleyFlour:4:1:True

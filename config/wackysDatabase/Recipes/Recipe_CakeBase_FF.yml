@@ -1,0 +1,15 @@
+name: CakeBase_FF
+clonePrefabName: 
+craftingStation: $piece_cauldron
+minStationLevel: 1
+maxStationLevelCap: 
+repairStation: 
+amount: 1
+disabled: false
+requireOnlyOneIngredient: false
+upgrade_reqs: []
+reqs:
+- SugarPowder_SC:2:0:False
+- EggG_FYA:2:0:False
+- Butter_FF:2:0:False
+- CornFlour_FF:3:0:False
