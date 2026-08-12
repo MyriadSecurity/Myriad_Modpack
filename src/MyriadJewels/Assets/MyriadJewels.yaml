@@ -1,0 +1,409 @@
+# MyriadJewels — sockets, synergies, gem spawns
+# Effect names must match API.AddGemEffect registrations.
+
+Spirit Wolf:
+  slot: cloak
+  gem: howlite
+  power: [15, 25, 40]
+Combat Crow:
+  slot: utility
+  gem: howlite
+  power: [15, 25, 40]
+Summon Potency:
+  slot: head
+  gem: howlite
+  power: [10, 18, 28]
+Trophy Hunter:
+  slot: necklace
+  gem: howlite
+  power:
+    power: [5, 10, 15]
+    chance: [5, 10, 15]
+
+Second Wind:
+  slot: legs
+  gem: carnelian
+  power: [10, 18, 28]
+Combat Breath:
+  slot: [necklace, shield]
+  gem: carnelian
+  power: [8, 14, 22]
+Eitr Reservoir:
+  slot: head
+  gem: carnelian
+  power: [15, 30, 50]
+Clear Head:
+  slot: magic
+  gem: carnelian
+  power: [10, 18, 28]
+
+Manic Cycle:
+  slot: weapon
+  gem: bloodstone
+  power: [10, 18, 28]
+Surge Detonate:
+  slot: chest
+  gem: bloodstone
+  power: [12, 20, 32]
+Overcharge Lean:
+  slot: trinket
+  gem: bloodstone
+  power: [10, 18, 28]
+High-Water Anchor:
+  slot: cloak
+  gem: bloodstone
+  power: [12, 20, 30]
+Crest Amp:
+  slot: head
+  gem: bloodstone
+  power: [8, 14, 22]
+Trinket Resonance:
+  slot: necklace
+  gem: bloodstone
+  power: [8, 14, 22]
+
+Lightning Proc:
+  slot: weapon
+  gem: pyrite
+  power:
+    power: [20, 35, 50]
+    chance: [8, 12, 18]
+Spirit Hex:
+  slot: magic
+  gem: pyrite
+  power:
+    power: [20, 35, 50]
+    chance: [8, 12, 18]
+Physical Burst:
+  slot: [axe, club]
+  gem: pyrite
+  power:
+    power: [25, 40, 55]
+    chance: [8, 12, 18]
+Stamina Siphon:
+  slot: shield
+  gem: pyrite
+  power:
+    power: [8, 14, 22]
+    chance: [12, 18, 25]
+Eitr Siphon:
+  slot: elementalmagic
+  gem: pyrite
+  power:
+    power: [6, 10, 16]
+    chance: [10, 15, 22]
+Adrenal Spike:
+  slot: trinket
+  gem: pyrite
+  power:
+    power: [5, 8, 12]
+    chance: [10, 15, 22]
+
+Add Slash:
+  slot: sword
+  gem: hematite
+  power:
+    power: [8, 14, 22]
+    chance: [30, 45, 55]
+Add Blunt:
+  slot: club
+  gem: hematite
+  power:
+    power: [8, 14, 22]
+    chance: [30, 45, 55]
+Add Pierce:
+  slot: [spear, knife]
+  gem: hematite
+  power:
+    power: [8, 14, 22]
+    chance: [30, 45, 55]
+Add Lightning:
+  slot: elementalmagic
+  gem: hematite
+  power:
+    power: [8, 14, 22]
+    chance: [30, 45, 55]
+Add Spirit:
+  slot: bloodmagic
+  gem: hematite
+  power:
+    power: [8, 14, 22]
+    chance: [30, 45, 55]
+Add Chop Pick:
+  slot: tool
+  gem: hematite
+  power:
+    power: [10, 16, 24]
+    chance: [30, 45, 55]
+Resist Slash:
+  slot: chest
+  gem: hematite
+  power: [3, 6, 10]
+Resist Blunt:
+  slot: legs
+  gem: hematite
+  power: [3, 6, 10]
+Resist Pierce:
+  slot: cloak
+  gem: hematite
+  power: [3, 6, 10]
+Resist Fire:
+  slot: head
+  gem: hematite
+  power: [3, 6, 10]
+Resist Frost:
+  slot: shield
+  gem: hematite
+  power: [3, 6, 10]
+Resist Lightning:
+  slot: necklace
+  gem: hematite
+  power: [3, 6, 10]
+Resist Poison:
+  slot: utility
+  gem: hematite
+  power: [3, 6, 10]
+Resist Spirit:
+  slot: trinket
+  gem: hematite
+  power: [3, 6, 10]
+
+Twin Blade Aptitude:
+  slot: head
+  gem: tourmaline
+  power: [5, 9, 14]
+Off-Hand Catch-Up:
+  slot: legs
+  gem: tourmaline
+  power: [8, 14, 22]
+Paired Rhythm:
+  slot: weapon
+  gem: tourmaline
+  power: [8, 14, 22]
+Claw Rake:
+  slot: fist
+  gem: tourmaline
+  power: [10, 16, 24]
+Kick Thunder:
+  slot: axe
+  gem: tourmaline
+  power: [10, 16, 24]
+Sledge Quake:
+  slot: club
+  gem: tourmaline
+  power: [10, 16, 24]
+Great Weapon Poise:
+  slot: chest
+  gem: tourmaline
+  power: [10, 16, 24]
+Great Weapon Economy:
+  slot: cloak
+  gem: tourmaline
+  power: [8, 14, 22]
+Great Weapon Special:
+  slot: necklace
+  gem: tourmaline
+  power: [10, 16, 24]
+Great Weapon Commit:
+  slot: trinket
+  gem: tourmaline
+  power: [8, 14, 22]
+
+Well Fed Grace:
+  slot: head
+  gem: mossagate
+  power: [8, 14, 22]
+Fieldcraft:
+  slot: tool
+  gem: mossagate
+  power: [5, 9, 14]
+Outrider:
+  slot: utility
+  gem: mossagate
+  power: [5, 9, 14]
+Craftmaster:
+  slot: necklace
+  gem: mossagate
+  power: [5, 9, 14]
+Expert Runeforger:
+  slot: cloak
+  gem: mossagate
+  power: [5, 9, 14]
+Expert Atgeir:
+  slot: chest
+  gem: mossagate
+  power: [5, 9, 14]
+Expert Unarmed:
+  slot: legs
+  gem: mossagate
+  power: [5, 9, 14]
+Expert Sledge:
+  slot: club
+  gem: mossagate
+  power: [5, 9, 14]
+
+# --- Synergies ---
+Familiar Bond:
+  conditions:
+    - howlite > 3
+  effect:
+    Familiar Bond: 20
+Moon Hunt:
+  conditions:
+    - howlite >= 2
+    - black >= 3
+  effect:
+    Moon Hunt: 15
+Manic Engine:
+  conditions:
+    - bloodstone >= 4
+    - red >= 2
+    - red > yellow
+  effect:
+    Manic Engine: 18
+Crest Sovereign:
+  conditions:
+    - bloodstone >= 4
+    - yellow >= 2
+    - yellow > red
+  effect:
+    Crest Sovereign: 18
+Fused Pulse:
+  conditions:
+    - bloodstone >= 3
+    - orange >= 2
+  effect:
+    Fused Pulse: 15
+Opposed Hearts:
+  conditions:
+    - bloodstone >= 3
+    - purple >= 3
+  effect:
+    Opposed Hearts: 12
+Twin Tempest:
+  conditions:
+    - tourmaline >= 4
+    - black < 2
+  effect:
+    Twin Tempest: 15
+Great Oath:
+  conditions:
+    - tourmaline >= 4
+    - black >= 2
+  effect:
+    Great Oath: 15
+Warpath:
+  conditions:
+    - tourmaline >= 3
+    - bloodstone >= 3
+  effect:
+    Warpath: 4
+Second Lung:
+  conditions:
+    - carnelian >= 4
+  effect:
+    Second Lung: 12
+Orange Reservoir:
+  conditions:
+    - carnelian >= 3
+    - orange >= 3
+  effect:
+    Orange Reservoir: 10
+Cascade:
+  conditions:
+    - pyrite >= 4
+  effect:
+    Cascade: 8
+Iron Lattice:
+  conditions:
+    - hematite >= 5
+  effect:
+    Iron Lattice: 4
+Rooted Craft:
+  conditions:
+    - mossagate >= 4
+  effect:
+    Rooted Craft: 8
+Green Thumb:
+  conditions:
+    - mossagate >= 2
+    - green >= 2
+  effect:
+    Green Thumb: 10
+Full Larder:
+  conditions:
+    - mossagate >= 3
+    - purple >= 2
+  effect:
+    Full Larder: 12
+Rune Grove:
+  conditions:
+    - mossagate >= 3
+    - orange >= 2
+  effect:
+    Rune Grove: 10
+Pack & Pulse:
+  conditions:
+    - howlite >= 2
+    - bloodstone >= 2
+  effect:
+    Pack & Pulse: 20
+
+# --- Spawns (conservative vs stock JC) ---
+gems:
+  meadows:
+    howlite: 0.04
+    carnelian: 0.03
+    mossagate: 0.05
+    hematite: 0.02
+    pyrite: 0.02
+    bloodstone: 0.0
+    tourmaline: 0.0
+  black forest:
+    howlite: 0.03
+    carnelian: 0.04
+    mossagate: 0.04
+    hematite: 0.04
+    pyrite: 0.03
+    bloodstone: 0.02
+    tourmaline: 0.02
+  swamp:
+    howlite: 0.02
+    carnelian: 0.03
+    mossagate: 0.03
+    hematite: 0.05
+    pyrite: 0.04
+    bloodstone: 0.05
+    tourmaline: 0.02
+  mountain:
+    howlite: 0.05
+    carnelian: 0.02
+    mossagate: 0.02
+    hematite: 0.04
+    pyrite: 0.05
+    bloodstone: 0.03
+    tourmaline: 0.04
+  plains:
+    howlite: 0.02
+    carnelian: 0.05
+    mossagate: 0.03
+    hematite: 0.03
+    pyrite: 0.04
+    bloodstone: 0.04
+    tourmaline: 0.05
+  mistlands:
+    howlite: 0.04
+    carnelian: 0.04
+    mossagate: 0.03
+    hematite: 0.04
+    pyrite: 0.05
+    bloodstone: 0.05
+    tourmaline: 0.06
+  ash lands:
+    howlite: 0.02
+    carnelian: 0.05
+    mossagate: 0.02
+    hematite: 0.05
+    pyrite: 0.06
+    bloodstone: 0.06
+    tourmaline: 0.04

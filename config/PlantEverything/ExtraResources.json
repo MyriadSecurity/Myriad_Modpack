@@ -1,0 +1,152 @@
+{
+  "prefabName": "IceberryBush_bal",
+  "resourceName": "Iceberry_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Iceberry Bush",
+  "pieceDescription": "Plant iceberries to grow an iceberry bush."
+};
+
+{
+  "prefabName": "Pickable_Seaberry_bal",
+  "resourceName": "Seaberries_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Seaberry Bush",
+  "pieceDescription": "Plant seaberries to grow a seaberry bush."
+};
+
+{
+  "prefabName": "Pickable_Bloodvine_bal",
+  "resourceName": "Bloodfruit_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Bloodvine",
+  "pieceDescription": "Plant bloodfruit to grow more pickable bloodvine."
+};
+
+{
+  "prefabName": "Pickable_Kelp_bal",
+  "resourceName": "RedKelp_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Red Kelp",
+  "pieceDescription": "Plant red kelp to grow more pickable kelp."
+};
+
+{
+  "prefabName": "Pickable_Lavender_bal",
+  "resourceName": "Lavender_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Lavender",
+  "pieceDescription": "Plant lavender to grow more pickable lavender."
+};
+
+{
+  "prefabName": "Pickable_Mint_bal",
+  "resourceName": "Mint_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Mint",
+  "pieceDescription": "Plant mint to grow more pickable mint."
+};
+
+{
+  "prefabName": "Pickable_Mugwort_bal",
+  "resourceName": "Mugwort_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Mugwort",
+  "pieceDescription": "Plant mugwort to grow more pickable mugwort."
+};
+
+{
+  "prefabName": "Pickable_Nettle_bal",
+  "resourceName": "Nettle_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Nettle",
+  "pieceDescription": "Plant nettle to grow more pickable nettle."
+};
+
+{
+  "prefabName": "Pickable_Plantain_bal",
+  "resourceName": "Plantain_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Plantain",
+  "pieceDescription": "Plant plantain to grow more pickable plantain."
+};
+
+{
+  "prefabName": "Pickable_Sage_bal",
+  "resourceName": "Sage_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Sage",
+  "pieceDescription": "Plant sage to grow more pickable sage."
+};
+
+{
+  "prefabName": "Pickable_Yarrow_bal",
+  "resourceName": "Yarrow_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Yarrow",
+  "pieceDescription": "Plant yarrow to grow more pickable yarrow."
+};
+
+{
+  "prefabName": "Pickable_Snowleaf_bal",
+  "resourceName": "Snowleaf_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Snowleaf",
+  "pieceDescription": "Plant snowleaf to grow more pickable snowleaf."
+};
+
+{
+  "prefabName": "Pickable_Ignicap_bal",
+  "resourceName": "Ignicap_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Ignicap",
+  "pieceDescription": "Plant ignicap to grow more pickable ignicap mushrooms."
+};
+
+{
+  "prefabName": "Pickable_Mushroom_Darkbul_bal",
+  "resourceName": "Darkbul_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Darkbul",
+  "pieceDescription": "Plant darkbul to grow more pickable darkbul mushrooms."
+};
+
+{
+  "prefabName": "Pickable_Mushroom_Icecap_bal",
+  "resourceName": "MushroomIcecap_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Icecap Mushroom",
+  "pieceDescription": "Plant icecap to grow more pickable icecap mushrooms."
+};
+
+{
+  "prefabName": "Pickable_Mushroom_Inkcap_bal",
+  "resourceName": "MushroomInkcap_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Inkcap Mushroom",
+  "pieceDescription": "Plant inkcap to grow more pickable inkcap mushrooms."
+};
+
+{
+  "prefabName": "Pickable_Mushroom_Random_bal",
+  "resourceName": "Moss_bal",
+  "resourceCost": 1,
+  "groundOnly": true,
+  "pieceName": "Moss",
+  "pieceDescription": "Plant moss to grow more pickable moss."
+};
