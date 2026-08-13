@@ -1,33 +1,53 @@
 # MyriadJewels — sockets, synergies, gem spawns
 # Effect names must match API.AddGemEffect registrations.
+# JC 2.0 has no neck/fist GemLocation — necklace effects use item: JC_Necklace_*;
+# 2H claw weapons map to knife. Multi-stat effects nest fields under power:.
+
+Trophy Hunter:
+  item:
+    - JC_Necklace_Red
+    - JC_Necklace_Green
+    - JC_Necklace_Blue
+    - JC_Necklace_Yellow
+    - JC_Necklace_Purple
+    - JC_Necklace_Black
+    - JC_Necklace_Orange
+  gem: howlite
+  power:
+    power: [5, 10, 15]
+    chance: [5, 10, 15]
 
 Spirit Wolf:
   slot: cloak
   gem: howlite
   power: [15, 25, 40]
 Combat Crow:
-  slot: utility
+  slot: trinket
   gem: howlite
   power: [15, 25, 40]
 Summon Potency:
   slot: head
   gem: howlite
   power: [10, 18, 28]
-Trophy Hunter:
-  slot: necklace
-  gem: howlite
-  power:
-    power: [5, 10, 15]
-    chance: [5, 10, 15]
 
 Second Wind:
   slot: legs
   gem: carnelian
   power: [10, 18, 28]
 Combat Breath:
-  slot: [necklace, shield]
-  gem: carnelian
-  power: [8, 14, 22]
+  - slot: shield
+    gem: carnelian
+    power: [8, 14, 22]
+  - item:
+      - JC_Necklace_Red
+      - JC_Necklace_Green
+      - JC_Necklace_Blue
+      - JC_Necklace_Yellow
+      - JC_Necklace_Purple
+      - JC_Necklace_Black
+      - JC_Necklace_Orange
+    gem: carnelian
+    power: [8, 14, 22]
 Eitr Reservoir:
   slot: head
   gem: carnelian
@@ -58,7 +78,14 @@ Crest Amp:
   gem: bloodstone
   power: [8, 14, 22]
 Trinket Resonance:
-  slot: necklace
+  item:
+    - JC_Necklace_Red
+    - JC_Necklace_Green
+    - JC_Necklace_Blue
+    - JC_Necklace_Yellow
+    - JC_Necklace_Purple
+    - JC_Necklace_Black
+    - JC_Necklace_Orange
   gem: bloodstone
   power: [8, 14, 22]
 
@@ -156,11 +183,24 @@ Resist Frost:
   gem: hematite
   power: [3, 6, 10]
 Resist Lightning:
-  slot: necklace
+  item:
+    - JC_Necklace_Red
+    - JC_Necklace_Green
+    - JC_Necklace_Blue
+    - JC_Necklace_Yellow
+    - JC_Necklace_Purple
+    - JC_Necklace_Black
+    - JC_Necklace_Orange
   gem: hematite
   power: [3, 6, 10]
 Resist Poison:
-  slot: utility
+  item:
+    - JC_Ring_Red
+    - JC_Ring_Green
+    - JC_Ring_Blue
+    - JC_Ring_Yellow
+    - JC_Ring_Purple
+    - JC_Ring_Black
   gem: hematite
   power: [3, 6, 10]
 Resist Spirit:
@@ -181,7 +221,7 @@ Paired Rhythm:
   gem: tourmaline
   power: [8, 14, 22]
 Claw Rake:
-  slot: fist
+  slot: knife
   gem: tourmaline
   power: [10, 16, 24]
 Kick Thunder:
@@ -201,7 +241,14 @@ Great Weapon Economy:
   gem: tourmaline
   power: [8, 14, 22]
 Great Weapon Special:
-  slot: necklace
+  item:
+    - JC_Necklace_Red
+    - JC_Necklace_Green
+    - JC_Necklace_Blue
+    - JC_Necklace_Yellow
+    - JC_Necklace_Purple
+    - JC_Necklace_Black
+    - JC_Necklace_Orange
   gem: tourmaline
   power: [10, 16, 24]
 Great Weapon Commit:
@@ -218,11 +265,18 @@ Fieldcraft:
   gem: mossagate
   power: [5, 9, 14]
 Outrider:
-  slot: utility
+  slot: trinket
   gem: mossagate
   power: [5, 9, 14]
 Craftmaster:
-  slot: necklace
+  item:
+    - JC_Necklace_Red
+    - JC_Necklace_Green
+    - JC_Necklace_Blue
+    - JC_Necklace_Yellow
+    - JC_Necklace_Purple
+    - JC_Necklace_Black
+    - JC_Necklace_Orange
   gem: mossagate
   power: [5, 9, 14]
 Expert Runeforger:

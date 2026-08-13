@@ -35,7 +35,17 @@ public class Plugin : BaseUnityPlugin
 		API.AddGemConfig(LoadEmbeddedYaml());
 
 		Harmony = new Harmony(PluginGuid);
-		Harmony.PatchAll(Assembly.GetExecutingAssembly());
+		foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
+		{
+			try
+			{
+				Harmony.CreateClassProcessor(type).Patch();
+			}
+			catch (Exception ex)
+			{
+				Log.LogError($"Harmony patch failed for {type.FullName}: {ex.Message}");
+			}
+		}
 		Effects.Howlite.FamiliarController.HookRecalc();
 
 		Log.LogInfo($"{PluginName} {PluginVersion} loaded (7 stones). SoftMods: {SoftMods.DumpAsmHint()}");

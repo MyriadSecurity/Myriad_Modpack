@@ -1,6 +1,6 @@
 {
     "name": "Myriad_Modpack",
-    "version_number": "4.0.9",
+    "version_number": "4.0.10",
     "website_url": "https://github.com/MyriadSecurity/Myriad_Modpack",
     "description": "Myriad 4.0: Nature + Arsenal + Mayehm, Balrond companions, JC + RF + Almanac; homestead UX (AAABuildMenu, Clutter/piles), AdventureBackpacks, TheFisher dock, perf optimizers.",
     "dependencies": [

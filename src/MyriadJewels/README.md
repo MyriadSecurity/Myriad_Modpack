@@ -4,6 +4,8 @@ In-pack BepInEx plugin that registers seven additive Jewelcrafting stones for My
 
 Config lives in `Assets/MyriadJewels.yaml` (sockets, synergy conditions, biome spawns). Power arrays are tier 1 / 2 / 3.
 
+**Pack JC layout:** Megingjord (utility belt) is for stock JC utility gems only — wisplight, wishbone, comfortable, etc. Myriad stones use armor, weapons, trinket, and JC ring/neck items. Pack ships `config/org.bepinex.plugins.jewelcrafting.cfg` with Wisplight Gem, Wishbone Gem, Ring Slot, and Necklace Slot enabled.
+
 ## Stones
 
 | Stone | Color key | Role |
@@ -21,9 +23,9 @@ Config lives in `Assets/MyriadJewels.yaml` (sockets, synergy conditions, biome s
 | Effect | Slot | Power (T1–T3) |
 |--------|------|----------------|
 | Spirit Wolf | Cloak | 15 / 25 / 40% familiar strength |
-| Combat Crow | Utility | 15 / 25 / 40% familiar strength |
+| Combat Crow | Trinket | 15 / 25 / 40% familiar strength |
 | Summon Potency | Head | 10 / 18 / 28% familiar HP/damage |
-| Trophy Hunter | Necklace | 5 / 10 / 15% drop chance; same for trophy weight cut |
+| Trophy Hunter | JC necklace | 5 / 10 / 15% drop chance; same for trophy weight cut |
 
 Chest does **not** get Summon Potency. Familiar duration is synergy-only (`Familiar Bond`).
 
@@ -32,7 +34,7 @@ Chest does **not** get Summon Potency. Familiar duration is synergy-only (`Famil
 | Effect | Slot | Power |
 |--------|------|-------|
 | Second Wind | Legs | 10 / 18 / 28% stamina regen delay cut |
-| Combat Breath | Necklace, Shield | 8 / 14 / 22% attack/block stam cost cut |
+| Combat Breath | JC necklace, Shield | 8 / 14 / 22% attack/block stam cost cut |
 | Eitr Reservoir | Head | +15 / 30 / 50 max eitr |
 | Clear Head | Magic | 10 / 18 / 28% eitr regen delay cut |
 
@@ -47,7 +49,7 @@ Two lanes: **Overdrive** (spend/cycle adrenaline) vs **Edge** (hold high adrenal
 | Overcharge Lean | Trinket | Overdrive | 10 / 18 / 28% Overcharge amp |
 | High-Water Anchor | Cloak | Edge | 12 / 20 / 30% decay resist while high |
 | Crest Amp | Head | Edge | 8 / 14 / 22% combat power while high |
-| Trinket Resonance | Necklace | Edge | 8 / 14 / 22% BF trinket scaling while high |
+| Trinket Resonance | JC necklace | Edge | 8 / 14 / 22% BF trinket scaling while high |
 
 ### Pyrite — procs
 
@@ -82,8 +84,8 @@ Two lanes: **Overdrive** (spend/cycle adrenaline) vs **Edge** (hold high adrenal
 | Resist Pierce | Cloak | 3 / 6 / 10% |
 | Resist Fire | Head | 3 / 6 / 10% |
 | Resist Frost | Shield | 3 / 6 / 10% |
-| Resist Lightning | Necklace | 3 / 6 / 10% |
-| Resist Poison | Utility | 3 / 6 / 10% |
+| Resist Lightning | JC necklace | 3 / 6 / 10% |
+| Resist Poison | JC ring | 3 / 6 / 10% |
 | Resist Spirit | Trinket | 3 / 6 / 10% |
 
 ### Tourmaline — DW / majsters / 2H
@@ -93,12 +95,12 @@ Two lanes: **Overdrive** (spend/cycle adrenaline) vs **Edge** (hold high adrenal
 | Twin Blade Aptitude | Head | 5 / 9 / 14% DualWield |
 | Off-Hand Catch-Up | Legs | 8 / 14 / 22% off-hand penalty ease |
 | Paired Rhythm | Weapon | 8 / 14 / 22% brief AS after dual hits |
-| Claw Rake | Fist | 10 / 16 / 24% fist secondary |
+| Claw Rake | Knife (2H claws) | 10 / 16 / 24% fist secondary |
 | Kick Thunder | Axe | 10 / 16 / 24% kick stagger/blunt |
 | Sledge Quake | Club | 10 / 16 / 24% sledge special |
 | Great Weapon Poise | Chest | 10 / 16 / 24% 2H stagger threshold |
 | Great Weapon Economy | Cloak | 8 / 14 / 22% 2H attack stam cut |
-| Great Weapon Special | Necklace | 10 / 16 / 24% 2H secondary |
+| Great Weapon Special | JC necklace | 10 / 16 / 24% 2H secondary |
 | Great Weapon Commit | Trinket | 8 / 14 / 22% damage after 2H secondary |
 
 ### Moss Agate — homestead
@@ -107,8 +109,8 @@ Two lanes: **Overdrive** (spend/cycle adrenaline) vs **Edge** (hold high adrenal
 |--------|------|-------|
 | Well Fed Grace | Head | 8 / 14 / 22% homestead bonuses while Well Fed |
 | Fieldcraft | Tool | 5 / 9 / 14% farming/mining/lumber/forage |
-| Outrider | Utility | 5 / 9 / 14% ranch/sail/packhorse |
-| Craftmaster | Necklace | 5 / 9 / 14% blacksmith/build |
+| Outrider | Trinket | 5 / 9 / 14% ranch/sail/packhorse |
+| Craftmaster | JC necklace | 5 / 9 / 14% blacksmith/build |
 | Expert Runeforger | Cloak | 5 / 9 / 14% Runeforging |
 | Expert Atgeir | Chest | 5 / 9 / 14% polearms |
 | Expert Unarmed | Legs | 5 / 9 / 14% fists |
