@@ -146,7 +146,8 @@ Conditions use socketed gem counts (`howlite`, `bloodstone`, …) and stock JC c
 | Path | Role |
 |------|------|
 | `src/MyriadJewels/` | Source (this folder) |
-| `plugins/MyriadJewels/` | Committed Release DLL (ships with pack) |
+| `mods/MyriadJewels/` | Thunderstore package manifest + README |
+| `plugins/MyriadJewels/` | Release DLL output from `dotnet build` |
 | `Assets/MyriadJewels.yaml` | Sockets, synergies, gem spawns |
 
 ## Build
@@ -163,12 +164,11 @@ Requires Valheim Managed assemblies and a BepInEx profile with Jewelcrafting 2.0
 ```
 
 ```bash
-cd src/MyriadJewels
-dotnet build -c Release
+python3 scripts/build_myriad_jewels_mod.py --build
 ```
 
-Release output is copied to `plugins/MyriadJewels/MyriadJewels.dll`.
+Release output is copied to `plugins/MyriadJewels/MyriadJewels.dll`. The script also writes `Releases/Myriad-MyriadJewels-<version>.zip` for Thunderstore upload.
 
 ## Install
 
-Copy `plugins/MyriadJewels/` into the profile `BepInEx/plugins/` (or include `plugins/` in the pack zip next to `config/`).
+Install **Myriad Modpack** from Thunderstore (pulls MyriadJewels as a dependency), or install **MyriadJewels** directly from Thunderstore / r2modman.

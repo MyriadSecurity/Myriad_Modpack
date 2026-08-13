@@ -1,6 +1,7 @@
 {
     "name": "Myriad_Modpack",
-    "version_number": "4.0.10",
+    "author": "Myriad",
+    "version_number": "4.0.11",
     "website_url": "https://github.com/MyriadSecurity/Myriad_Modpack",
     "description": "Myriad 4.0: Nature + Arsenal + Mayehm, Balrond companions, JC + RF + Almanac; homestead UX (AAABuildMenu, Clutter/piles), AdventureBackpacks, TheFisher dock, perf optimizers.",
     "dependencies": [
@@ -70,6 +71,7 @@
         "Korppis-Spearfishing-1.0.4",
         "MagicMike-CoreWoodExtras-2.1.8",
         "Marlthon-TheFisher-0.3.5",
+        "Myriad-MyriadJewels-0.1.0",
         "MSchmoecker-DynamicStoragePiles-0.8.0",
         "MSchmoecker-ItemHopper-2.0.0",
         "MSchmoecker-MultiUserChest-0.6.1",

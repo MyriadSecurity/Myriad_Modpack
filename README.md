@@ -2,7 +2,7 @@
 
 Wake up in a Valheim that has grown wild.
 
-**Version 4.0.10**
+**Version 4.0.11**
 
 Myriad brings Balrond's mods together as one long adventure. Amazing Nature reshapes the land and the way you live in it. Arsenal Reborn fills your hands with new weapons. Monster Mayehm makes the dark dangerous again. Build a homestead, learn a fighting style, and take your time crossing the world.
 
@@ -33,8 +33,9 @@ Start with a **fresh world** and preferably a new character.
 
 1. Install [r2modman](https://thunderstore.io/c/valheim/p/ebkr/r2modman/) or Thunderstore Mod Manager.
 2. Create a new Valheim profile and install **Myriad Modpack** from Thunderstore (or import this pack’s profile).
-3. Launch once so mods can write defaults.
-4. Start a **new world** (and ideally a new character).
+3. r2modman installs **MyriadJewels** automatically as a modpack dependency.
+4. Launch once so mods can write defaults.
+5. Start a **new world** (and ideally a new character).
 
 Dedicated servers need the same mod set and the pack’s `config/` overlay.
 
@@ -45,9 +46,9 @@ Dedicated servers need the same mod set and the pack’s `config/` overlay.
 
 ## Myriad Jewels
 
-Myriad adds seven stones of its own: Howlite, Carnelian, Bloodstone, Pyrite, Hematite, Tourmaline, and Moss Agate. Their effects cover familiars, stamina and eitr, Battle Flow, damage procs, resistances, dual-wielding, two-handed weapons, and homestead skills. Combining stones can awaken stronger synergies.
+**MyriadJewels** is a separate Thunderstore mod (`Myriad/MyriadJewels`) listed as a modpack dependency. It adds seven stones of its own: Howlite, Carnelian, Bloodstone, Pyrite, Hematite, Tourmaline, and Moss Agate. Their effects cover familiars, stamina and eitr, Battle Flow, damage procs, resistances, dual-wielding, two-handed weapons, and homestead skills. Combining stones can awaken stronger synergies.
 
-Full stone and synergy tables: `[src/MyriadJewels/README.md](src/MyriadJewels/README.md)`.
+Full stone and synergy tables: [`src/MyriadJewels/README.md`](src/MyriadJewels/README.md).
 
 ## Links
 
