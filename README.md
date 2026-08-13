@@ -2,7 +2,7 @@
 
 Wake up in a Valheim that has grown wild.
 
-**Version 4.0.9**
+**Version 4.0.10**
 
 Myriad brings Balrond's mods together as one long adventure. Amazing Nature reshapes the land and the way you live in it. Arsenal Reborn fills your hands with new weapons. Monster Mayehm makes the dark dangerous again. Build a homestead, learn a fighting style, and take your time crossing the world.
 

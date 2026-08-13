@@ -12,18 +12,6 @@ public static class SecondWind
 	{
 		[InverseMultiplicativePercentagePower] public float Power;
 	}
-
-	[HarmonyPatch(typeof(Player), nameof(Player.UpdateStats))]
-	private static class ReduceStaminaRegenDelay
-	{
-		private static void Prefix(Player __instance)
-		{
-			float power = __instance.GetEffectPower<Config>("Second Wind").Power
-				+ __instance.GetEffectPower<Synergies.SecondLung.Config>("Second Lung").Power;
-			if (power <= 0f) return;
-			__instance.m_staminaRegenDelay = Mathf.Max(0.1f, __instance.m_staminaRegenDelay * (100f - power) / 100f);
-		}
-	}
 }
 
 public static class CombatBreath
@@ -88,16 +76,21 @@ public static class ClearHead
 	{
 		[InverseMultiplicativePercentagePower] public float Power;
 	}
+}
 
-	[HarmonyPatch(typeof(Player), nameof(Player.UpdateStats))]
-	private static class ReduceEitrRegenDelay
+[HarmonyPatch(typeof(Player), nameof(Player.UpdateStats), new System.Type[0])]
+internal static class CarnelianUpdateStats
+{
+	private static void Prefix(Player __instance)
 	{
-		private static void Prefix(Player __instance)
-		{
-			float power = __instance.GetEffectPower<Config>("Clear Head").Power
-				+ __instance.GetEffectPower<Synergies.OrangeReservoir.Config>("Orange Reservoir").Power;
-			if (power <= 0f) return;
-			__instance.m_eitrRegenDelay = Mathf.Max(0.1f, __instance.m_eitrRegenDelay * (100f - power) / 100f);
-		}
+		float secondWind = __instance.GetEffectPower<SecondWind.Config>("Second Wind").Power
+			+ __instance.GetEffectPower<Synergies.SecondLung.Config>("Second Lung").Power;
+		if (secondWind > 0f)
+			__instance.m_staminaRegenDelay = Mathf.Max(0.1f, __instance.m_staminaRegenDelay * (100f - secondWind) / 100f);
+
+		float clearHead = __instance.GetEffectPower<ClearHead.Config>("Clear Head").Power
+			+ __instance.GetEffectPower<Synergies.OrangeReservoir.Config>("Orange Reservoir").Power;
+		if (clearHead > 0f)
+			__instance.m_eitrRegenDelay = Mathf.Max(0.1f, __instance.m_eitrRegenDelay * (100f - clearHead) / 100f);
 	}
 }
