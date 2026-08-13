@@ -1,0 +1,10 @@
+{
+    "name": "MyriadJewels",
+    "author": "Myriad",
+    "version_number": "0.1.0",
+    "website_url": "https://github.com/MyriadSecurity/Myriad_Modpack",
+    "description": "Seven custom Jewelcrafting stones for Myriad (Howlite, Carnelian, Bloodstone, Pyrite, Hematite, Tourmaline, Moss Agate) with synergies and biome spawns. Requires Jewelcrafting.",
+    "dependencies": [
+        "Smoothbrain-Jewelcrafting-2.0.1"
+    ]
+}
