@@ -2,15 +2,16 @@
 
 ## Homestead hammer + cultivator inventory
 
-Shipped in-repo:
+Live 4.0.13 profile dropped **Balrond hammerSorter** (and AAABuildMenu / PortalPreload). Sears Catalog is the build-HUD replacement. [`config/balrond-hammerconfig.json`](config/balrond-hammerconfig.json) is leftover unless we keep or delete it.
 
-- [`config/balrond-hammerconfig.json`](config/balrond-hammerconfig.json) — 8-tab sorter (reload **O**)
+Still shipped:
+
 - [`config/wackysDatabase/Pieces/`](config/wackysDatabase/Pieces/) — **42** Railway overlays → `piecehammer: Hammer` (restart or WackyDB reload). Plumga Clutter stays on the **Clutter Bucket**.
 - [`config/PlantEverything/ExtraResources.json`](config/PlantEverything/ExtraResources.json) + PE/Farming cfgs
 
 Rules: allowlist lanes; Balrond-disabled vanilla → neither; plants on cultivator only.
 
-Next: in-game smoke (Hammer has Rails; Clutter Bucket has Clutter; Cultivator ExtraResources). No further inventory authorship queued.
+Next: in-game smoke (Hammer has Rails; Clutter Bucket has Clutter; Cultivator ExtraResources). Decide whether to drop `balrond-hammerconfig.json`.
 
 ## Compat / content
 

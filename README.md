@@ -2,7 +2,7 @@
 
 Wake up in a Valheim that has grown wild.
 
-**Version 4.0.12**
+**Version 4.0.13**
 
 Myriad brings Balrond's mods together as one long adventure. Amazing Nature reshapes the land and the way you live in it. Arsenal Reborn fills your hands with new weapons. Monster Mayehm makes the dark dangerous again. Build a homestead, learn a fighting style, and take your time crossing the world.
 
@@ -23,7 +23,7 @@ Balrond's combat mods give you far more than another row of swords:
 
 ## Make somewhere worth returning to
 
-Build with Balrond's constructions, furniture, containers, shipyard, rails, wind chasers, and more. Placement tools help with large projects; the sorted hammer keeps all those pieces manageable. Fish from the dock, fill the storehouse, then shoulder a backpack and head out again.
+Build with Balrond's constructions, furniture, containers, shipyard, rails, wind chasers, and more. Placement tools help with large projects; Sears Catalog lets you resize and move the build panel. Fish from the dock, fill the storehouse, then shoulder a backpack and head out again.
 
 Crafting from nearby chests, auto-storage, plantables, profession skills, Almanac, and other small conveniences keep the chores moving without taking the work out of survival.
 
@@ -41,7 +41,7 @@ Dedicated servers need the same mod set and the pack’s `config/` overlay.
 
 ## First launch tips
 
-- **Hammer tabs:** Press **O** to reload the hammer sorter if tabs look wrong after an update.
+- **Build panel:** Drag the corner of the hammer HUD to resize it, or drag empty space to move it (Sears Catalog).
 - **Survival:** Food and sleep carry more weight here. Get comfortable with Amazing Nature before rushing the next biome.
 
 ## Myriad Jewels
