@@ -16,7 +16,7 @@ public class Plugin : BaseUnityPlugin
 {
 	public const string PluginGuid = "com.myriad.jewels";
 	public const string PluginName = "MyriadJewels";
-	public const string PluginVersion = "0.1.0";
+	public const string PluginVersion = "0.1.4";
 
 	internal static ManualLogSource Log = null!;
 	internal static Harmony Harmony = null!;
