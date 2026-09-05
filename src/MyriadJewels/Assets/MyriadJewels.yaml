@@ -406,7 +406,7 @@ Pack & Pulse:
 # --- Spawns (conservative vs stock JC) ---
 gems:
   meadows:
-    howlite: 0.04
+    howlite: 0.02
     carnelian: 0.03
     mossagate: 0.05
     hematite: 0.02

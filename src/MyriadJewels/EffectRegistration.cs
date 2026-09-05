@@ -15,8 +15,8 @@ internal static class EffectRegistration
 	internal static void Register()
 	{
 		// Howlite
-		API.AddGemEffect<SpiritWolf.Config>("Spirit Wolf", "Summons a combat wolf familiar.", "Spirit wolf familiar strength $1%.");
-		API.AddGemEffect<CombatCrow.Config>("Combat Crow", "Summons an attacking crow familiar.", "Combat crow familiar strength $1%.");
+		API.AddGemEffect<SpiritWolf.Config>("Spirit Wolf", "Summons a wolf cub that scales with your kit.", "Spirit wolf familiar; gem quality $1%.");
+		API.AddGemEffect<CombatCrow.Config>("Combat Crow", "Summons a crow nestling that scales with your kit.", "Combat crow familiar; gem quality $1%.");
 		API.AddGemEffect<SummonPotency.Config>("Summon Potency", "Familiar HP and damage up.", "Familiar power increased by $1%.");
 		API.AddGemEffect<TrophyHunter.Config>("Trophy Hunter", "Trophy drops come easier.", "$1% trophy drop chance; $2% trophy weight reduction.");
 

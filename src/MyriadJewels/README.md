@@ -22,12 +22,14 @@ Config lives in `Assets/MyriadJewels.yaml` (sockets, synergy conditions, biome s
 
 | Effect | Slot | Power (T1–T3) |
 |--------|------|----------------|
-| Spirit Wolf | Cloak | 15 / 25 / 40% familiar strength |
-| Combat Crow | Trinket | 15 / 25 / 40% familiar strength |
+| Spirit Wolf | Cloak | Cub familiar. Stats follow body armor (or half max eitr if that’s higher). Gem quality is an 0.85 / 1.0 / 1.2× multiplier |
+| Combat Crow | Trinket | Nestling familiar; same curve at 85% HP/damage |
 | Summon Potency | Head | 10 / 18 / 28% familiar HP/damage |
 | Trophy Hunter | JC necklace | 5 / 10 / 15% drop chance; same for trophy weight cut |
 
-Chest does **not** get Summon Potency. Familiar duration is synergy-only (`Familiar Bond`).
+Chest does **not** get Summon Potency. Familiars stay cubs/nestlings (no growth). Death still starts a respawn cooldown. Howlite is uncommon in Meadows and peaks in the Mountains.
+
+Kit curve (before gem/potency): leather ~30 HP / 10 dmg → iron ~75 / 30 → padded ~100 / 42, then a soft cap. Shield armor is ignored. Stats retune when you swap gear.
 
 ### Carnelian — stamina / eitr economy
 
