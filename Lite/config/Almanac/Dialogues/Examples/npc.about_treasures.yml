@@ -1,0 +1,10 @@
+UniqueID: npc.about_treasures
+Label: Tell me about treasure hunting
+Text: Treasure hunts lead you to hidden stashes of valuable loot. You must discover a biome before treasure hunts in that area become available.
+Dialogues:
+- npc.open_treasures
+- npc.cancel_treasure_example
+Action:
+  Type: OpenTreasures
+  Label: View Treasure Maps
+Requirements: 

@@ -1,0 +1,10 @@
+UniqueID: npc.about_bounties
+Label: What are bounties?
+Text: Bounties are hunting contracts for dangerous creatures. You must have killed the target at least once to see available bounties for that creature type.
+Dialogues:
+- npc.open_bounties
+- npc.start_bounty_example
+Action:
+  Type: OpenBounties
+  Label: View Bounty Board
+Requirements: 

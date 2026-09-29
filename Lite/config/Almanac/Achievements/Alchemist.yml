@@ -1,0 +1,7 @@
+UniqueID: Potions.001
+Name: Alchemist
+Lore: Mix, brew, and imbibe — your potions turn fate in your favor.
+Icon: bottle_empty
+TokenReward: 50
+Requirement:
+  Type: Potions

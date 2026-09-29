@@ -1,0 +1,25 @@
+Name: Swamps Stash
+Lore: Where the waters are dark and the ground treacherous, a hidden stash awaits.
+Icon: map
+Biome: Swamp
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Loot:
+- Item: IronScrap
+  Min: 10
+  Max: 20
+  Weight: 1
+- Item: Ooze
+  Min: 1
+  Max: 50
+  Weight: 1
+- Item: Bloodbag
+  Min: 1
+  Max: 50
+  Weight: 1
+- Item: Coins
+  Min: 50
+  Max: 100
+  Weight: 1

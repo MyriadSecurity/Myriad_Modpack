@@ -1,0 +1,12 @@
+Name: Silver Necklace
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Icon: SilverNecklace
+Items:
+- PrefabName: SilverNecklace
+  Amount: 1
+  Quality: 1
+Lore: Just a necklace
+RequiredDefeated: Dragon

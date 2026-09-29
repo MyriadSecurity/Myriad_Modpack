@@ -1,0 +1,12 @@
+Name: Queen Bee
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Icon: QueenBee
+Items:
+- PrefabName: QueenBee
+  Amount: 1
+  Quality: 1
+Lore: Just a queen bee
+RequiredDefeated: gd_king

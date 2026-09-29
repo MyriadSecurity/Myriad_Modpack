@@ -1,0 +1,10 @@
+UniqueID: npc.harvest_dandelion_intro
+Label: Tell me about gathering weeds
+Text: The meadows are overrun with dandelions! While some see them as mere weeds, I know their true value. These golden flowers have medicinal properties and can be used in brewing. I need 50 of them collected.
+Dialogues:
+- npc.harvest_dandelion_accept
+- npc.harvest_dandelion_info
+- npc.quest_hub
+Action: 
+Requirements:
+  NotCompletedQuests: 001.Dandelion

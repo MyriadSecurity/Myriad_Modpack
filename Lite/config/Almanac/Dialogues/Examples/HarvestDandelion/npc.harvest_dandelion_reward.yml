@@ -1,0 +1,7 @@
+UniqueID: npc.harvest_dandelion_reward
+Text: Your patience and thoroughness deserve recognition. Accept this blade as payment for your service to the land.
+Action:
+  Type: Give
+  Label: Accept Payment
+  Parameters: SwordIron, 1, 2, 0
+Requirements: 

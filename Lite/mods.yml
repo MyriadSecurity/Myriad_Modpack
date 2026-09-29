@@ -1,0 +1,695 @@
+- manifestVersion: 1
+  name: denikson-BepInExPack_Valheim
+  authorName: denikson
+  websiteUrl: https://thunderstore.io/c/valheim/p/denikson/BepInExPack_Valheim/
+  displayName: BepInExPack_Valheim
+  description: >-
+    BepInEx pack for Valheim. Preconfigured with the correct entry point for
+    mods and preferred defaults for the community.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440107147
+  loaders: []
+  dependencies: []
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 5
+    minor: 4
+    patch: 2351
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Nosferatu-SmoothServer
+  authorName: Nosferatu
+  websiteUrl: https://thunderstore.io/c/valheim/p/Nosferatu/SmoothServer/
+  displayName: SmoothServer
+  description: >-
+    Networking and performance tuning for Valheim dedicated servers: send
+    cadence, adaptive per-peer budgets, async save, telemetry. Optional client
+    half adds zstd compression and a shared map.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440246539
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 0
+    minor: 6
+    patch: 1
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Advize-PlantEverything
+  authorName: Advize
+  websiteUrl: https://thunderstore.io/c/valheim/p/Advize/PlantEverything/
+  displayName: PlantEverything
+  description: >-
+    Allows your cultivator to plant berry bushes, thistle, dandelions,
+    mushrooms, previously unavailable tree types, and other decorative flora.
+    Includes many other miscellaneous features (see description). Highly
+    configurable with localization support.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440311151
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2351
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 21
+    patch: 3
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: ValheimModding-JsonDotNET
+  authorName: ValheimModding
+  websiteUrl: https://thunderstore.io/c/valheim/p/ValheimModding/JsonDotNET/
+  displayName: JsonDotNET
+  description: >-
+    Shared version 13.0.3 of Json.NET from Newtonsoft, net45 package for use in
+    Valheim mods. Maintained by the ValheimModding team.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440315723
+  loaders: []
+  dependencies: []
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 13
+    minor: 0
+    patch: 4
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: ValheimModding-Jotunn
+  authorName: ValheimModding
+  websiteUrl: https://thunderstore.io/c/valheim/p/ValheimModding/Jotunn/
+  displayName: Jotunn
+  description: >-
+    Jötunn (/ˈjɔːtʊn/, 'giant'), the Valheim Library was created with the goal
+    of making the lives of mod developers easier. It enables you to create mods
+    for Valheim using an abstracted API so you can focus on the actual content
+    creation.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440315756
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2333
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 2
+    minor: 30
+    patch: 2
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: RandyKnapp-EpicLoot
+  authorName: RandyKnapp
+  websiteUrl: https://thunderstore.io/c/valheim/p/RandyKnapp/EpicLoot/
+  displayName: EpicLoot
+  description: Adds loot drops, magic items, and enchanting to Valheim.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440315814
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2333
+    - ValheimModding-Jotunn-2.29.2
+    - ValheimModding-JsonDotNET-13.0.4
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 0
+    minor: 14
+    patch: 13
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: JereKuusela-Server_devcommands
+  authorName: JereKuusela
+  websiteUrl: https://thunderstore.io/c/valheim/p/JereKuusela/Server_devcommands/
+  displayName: Server_devcommands
+  description: Enables devcommands and utilities for server admins.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440327355
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2351
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 115
+    patch: 0
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: ishid4-BetterArchery
+  authorName: ishid4
+  websiteUrl: https://thunderstore.io/c/valheim/p/ishid4/BetterArchery/
+  displayName: BetterArchery
+  description: Adds many features and changes to bow gameplay.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440375645
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.1501
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 2
+    minor: 0
+    patch: 2
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock
+  authorName: Goldenrevolver
+  websiteUrl: >-
+    https://thunderstore.io/c/valheim/p/Goldenrevolver/Quick_Stack_Store_Sort_Trash_Restock/
+  displayName: Quick_Stack_Store_Sort_Trash_Restock
+  description: Quick Stacking, Sorting, Trashing and more in one cohesive package
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440392357
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 4
+    patch: 15
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: ValheimModding-YamlDotNet
+  authorName: ValheimModding
+  websiteUrl: https://thunderstore.io/c/valheim/p/ValheimModding/YamlDotNet/
+  displayName: YamlDotNet
+  description: >-
+    Shared version 16.3.0 of YamlDotNet from Antoine Aubry and contributors,
+    net47 package for use in Valheim mods. Maintained by the ValheimModding
+    team.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440441410
+  loaders: []
+  dependencies: []
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 16
+    minor: 3
+    patch: 1
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: OdinPlus-OdinsFoodBarrels
+  authorName: OdinPlus
+  websiteUrl: https://thunderstore.io/c/valheim/p/OdinPlus/OdinsFoodBarrels/
+  displayName: OdinsFoodBarrels
+  description: >-
+    ModWish from OdinPlus Community - buildable dynamic storage containers for
+    seeds, fruits, and vegetables!
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790640093363
+  loaders: []
+  dependencies: []
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 3
+    patch: 6
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Nextek-SpeedyPaths
+  authorName: Nextek
+  websiteUrl: https://thunderstore.io/c/valheim/p/Nextek/SpeedyPaths/
+  displayName: SpeedyPaths
+  description: >-
+    Gives more purpose to paths. Increases player speed on paths and
+    constructions. Reduces stamina consumed while sprinting on paths. Exposes
+    optional modifiers for regular terrain in each biome. All values are
+    tuneable.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440509505
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2333
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 0
+    patch: 9
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: blacks7ar-VikingsDoSwim
+  authorName: blacks7ar
+  websiteUrl: https://thunderstore.io/c/valheim/p/blacks7ar/VikingsDoSwim/
+  displayName: VikingsDoSwim
+  description: >-
+    A simple mod that lets you configure Max Swim Speed at max swim skill level.
+    Scales your swim speed, stamina regen and stamina consumption to your swim
+    skill level. Adds a new diving mechanic that lets you swim underwater.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440513708
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 4
+    patch: 2
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: sighsorry-Homestead
+  authorName: sighsorry
+  websiteUrl: https://thunderstore.io/c/valheim/p/sighsorry/Homestead/
+  displayName: Homestead
+  description: >-
+    All-in-one construction mod with blueprints, blueprint shop to trade
+    blueprints, area save/dismantle, adjustable dvergr circlet light attached to
+    buildcamera and placement helpers
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790440712416
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2351
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 2
+    patch: 18
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: MagicMike-MyDirtyHoe
+  authorName: MagicMike
+  websiteUrl: https://thunderstore.io/c/valheim/p/MagicMike/MyDirtyHoe/
+  displayName: MyDirtyHoe
+  description: A dirty little hoe for your terrain modifications!
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790640093248
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+    - ValheimModding-Jotunn-2.30.1
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 2
+    minor: 2
+    patch: 1
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Smoothbrain-Backpacks
+  authorName: Smoothbrain
+  websiteUrl: https://thunderstore.io/c/valheim/p/Smoothbrain/Backpacks/
+  displayName: Backpacks
+  description: Adds a very nice backpack and Build Your Own Backpack™!
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790441630849
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2333
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 3
+    patch: 8
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: JamesJonesTV-EpicLoot_EnchantingPouch
+  authorName: JamesJonesTV
+  websiteUrl: https://thunderstore.io/c/valheim/p/JamesJonesTV/EpicLoot_EnchantingPouch/
+  displayName: EpicLoot_EnchantingPouch
+  description: Adds a backpack to store epicloot items.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790441630961
+  loaders: []
+  dependencies:
+    - RandyKnapp-EpicLoot-0.12.10
+    - Smoothbrain-Backpacks-1.3.8
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 2
+    minor: 0
+    patch: 1
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Advize-Spyglass
+  authorName: Advize
+  websiteUrl: https://thunderstore.io/c/valheim/p/Advize/Spyglass/
+  displayName: Spyglass
+  description: >-
+    Adds a craftable and functional spyglass that doubles as a weapon. Use it to
+    bash your enemies or to see their cowardly faces up close... but from a safe
+    distance! Uses custom mesh, textures, and logic. Configurable and includes
+    gamepad support.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790441858477
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 3
+    minor: 2
+    patch: 0
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: blacks7ar-WieldEquipmentWhileSwimming
+  authorName: blacks7ar
+  websiteUrl: https://thunderstore.io/c/valheim/p/blacks7ar/WieldEquipmentWhileSwimming/
+  displayName: WieldEquipmentWhileSwimming
+  description: >-
+    A simple mod that lets you wield your equipments while swimming/diving or in
+    water (Configurable).
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790441924536
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 1
+    patch: 4
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Korppis-Spearfishing
+  authorName: Korppis
+  websiteUrl: https://thunderstore.io/c/valheim/p/Korppis/Spearfishing/
+  displayName: Spearfishing
+  description: Catch fish with projectile weapons such as spear, harpoon and bow.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790441981904
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2105
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 0
+    patch: 5
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: OdinPlus-QuickTeleport
+  authorName: OdinPlus
+  websiteUrl: https://thunderstore.io/c/valheim/p/OdinPlus/QuickTeleport/
+  displayName: QuickTeleport
+  description: >-
+    Faster portal and instant dungeon teleports with Official OdinPlus Quick
+    Teleport. Compatible with Valheim 1.0 (Deep North) and Teleport Everything
+    ecosystem. No patches needed.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790442025457
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 2
+    minor: 0
+    patch: 4
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: RustyMods-Almanac
+  authorName: RustyMods
+  websiteUrl: https://thunderstore.io/c/valheim/p/RustyMods/Almanac/
+  displayName: Almanac
+  description: >-
+    Achievements, Bounties, Treasure Hunt, Player Metrics, Leaderboard,
+    Indexing, Marketplace, Lottery
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790442078010
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2333
+    - ValheimModding-YamlDotNet-16.3.1
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 3
+    minor: 8
+    patch: 0
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: TastyChickenLegs-NoSmokeStayLit
+  authorName: TastyChickenLegs
+  websiteUrl: https://thunderstore.io/c/valheim/p/TastyChickenLegs/NoSmokeStayLit/
+  displayName: NoSmokeStayLit
+  description: >-
+    Now works with Oven smoke. Takes away smoke and keeps everything lit. 
+    Torches, Ovens, Hottubs, Smelters and adds Timed Torches
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790442102197
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2101
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 2
+    minor: 4
+    patch: 2
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: shudnal-ConditionalConfigSync
+  authorName: shudnal
+  websiteUrl: https://thunderstore.io/c/valheim/p/shudnal/ConditionalConfigSync/
+  displayName: ConditionalConfigSync
+  description: >-
+    Shared config synchronization and server policy library for Valheim mods.
+    Installed as a dependency and compatible with Jotunn and ServerSync.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790442148977
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 0
+    patch: 9
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: UnderHeiz-CraftFromContainers
+  authorName: UnderHeiz
+  websiteUrl: https://thunderstore.io/c/valheim/p/UnderHeiz/CraftFromContainers/
+  displayName: CraftFromContainers
+  description: >-
+    Craft Build Smelt Cook Fuel Pull From Containers (written by aedenthorn on
+    Nexus).
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790550770330
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 4
+    minor: 0
+    patch: 62
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Vapok-BetterSleepBruh
+  authorName: Vapok
+  websiteUrl: https://thunderstore.io/c/valheim/p/Vapok/BetterSleepBruh/
+  displayName: BetterSleepBruh
+  description: >-
+    A Valheim Mod that Sleeps Like Enshrouded! Sleep on your own terms! Sleep
+    the night away faster without everyone having to be in a bed! Get Better
+    Sleep, Bruh!
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790627670959
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+    - ValheimModding-Jotunn-2.30.2
+    - ValheimModding-YamlDotNet-16.3.1
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 2
+    minor: 0
+    patch: 10
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: MSchmoecker-MultiUserChest
+  authorName: MSchmoecker
+  websiteUrl: https://thunderstore.io/c/valheim/p/MSchmoecker/MultiUserChest/
+  displayName: MultiUserChest
+  description: Allows multiple players to interact with the same chest at the same time
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790627851231
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+    - ValheimModding-Jotunn-2.30.0
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 0
+    minor: 6
+    patch: 2
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Smoothbrain-DarwinAwards
+  authorName: Smoothbrain
+  websiteUrl: https://thunderstore.io/c/valheim/p/Smoothbrain/DarwinAwards/
+  displayName: DarwinAwards
+  description: Adds a death feed to your server.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790627972630
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2200
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 0
+    patch: 6
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: MidnightMods-StarLevelSystem
+  authorName: MidnightMods
+  websiteUrl: https://thunderstore.io/c/valheim/p/MidnightMods/StarLevelSystem/
+  displayName: StarLevelSystem
+  description: We have two levels yes, but why not... MORE?
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790631893573
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+    - ValheimModding-Jotunn-2.30.0
+    - ValheimModding-YamlDotNet-16.3.1
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 19
+    patch: 1
+  enabled: true
+  onlineSource: true

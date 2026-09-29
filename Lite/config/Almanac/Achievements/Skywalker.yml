@@ -1,0 +1,8 @@
+UniqueID: DistanceInAir.001
+Name: Skywalker
+Lore: Whether leaping from cliffs or gliding with the wind, you master the skies.
+Icon: TrophyBlob
+TokenReward: 15
+Requirement:
+  Type: DistanceInAir
+  Threshold: 2000

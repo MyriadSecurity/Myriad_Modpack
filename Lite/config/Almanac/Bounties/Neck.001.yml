@@ -1,0 +1,15 @@
+UniqueID: Neck.001
+Creature: Neck
+Name: ''
+Icon: TrophyNeck
+Biome: Meadows
+Health: 1000
+Level: 3
+DamageMultiplier: 1.5
+AlmanacTokenReward: 1
+Items: []
+Lore: The meadows may seem calm, but when the rains fall, the Neck emerges to claim the unwary.
+Cost:
+  Items:
+  - PrefabName: Coins
+    Amount: 10

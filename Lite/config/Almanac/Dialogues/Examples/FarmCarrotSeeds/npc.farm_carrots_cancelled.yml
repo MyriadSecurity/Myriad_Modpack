@@ -1,0 +1,6 @@
+UniqueID: npc.farm_carrots_cancelled
+Text: The call of adventure runs strong in your blood. Perhaps the wilds suit you better than tilled soil and planted rows.
+Action:
+  Type: Exit
+  Label: Adventure calls
+Requirements: 

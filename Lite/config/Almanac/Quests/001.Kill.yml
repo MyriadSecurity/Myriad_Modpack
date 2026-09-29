@@ -1,0 +1,5 @@
+UniqueID: 001.Kill
+Name: Hunt Boars
+Type: Kill
+PrefabName: Boar
+Threshold: 10

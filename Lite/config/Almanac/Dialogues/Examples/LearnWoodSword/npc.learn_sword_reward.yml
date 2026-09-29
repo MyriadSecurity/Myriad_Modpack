@@ -1,0 +1,7 @@
+UniqueID: npc.learn_sword_reward
+Text: Knowledge itself is the greatest reward, but dedication deserves recognition. Accept these coins as payment for your scholarly efforts.
+Action:
+  Type: Give
+  Label: Accept Payment
+  Parameters: Coins, 75, 1, 0
+Requirements: 

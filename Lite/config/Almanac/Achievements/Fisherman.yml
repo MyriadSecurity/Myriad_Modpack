@@ -1,0 +1,7 @@
+UniqueID: Fisherman.001
+Name: Fisherman
+Lore: To live as a Viking is to honor the sea, for it feeds the clan and tests the soul
+Icon: fish
+TokenReward: 100
+Requirement:
+  Type: Fish

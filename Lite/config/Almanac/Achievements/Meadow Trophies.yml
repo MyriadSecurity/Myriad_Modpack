@@ -1,0 +1,8 @@
+UniqueID: MeadowTrophies.001
+Name: Meadow Trophies
+Lore: Collect the trophies of the meadows.
+Icon: TrophyEikthyr
+TokenReward: 10
+Requirement:
+  Type: CollectItems
+  PrefabName: TrophyDeer,5;TrophyNeck,5;TrophyBoar,5;TrophyEikthyr,1

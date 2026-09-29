@@ -1,0 +1,13 @@
+UniqueID: npc.intro
+Label: Greetings, traveler
+Text: Welcome to the world of Almanac! I'm here to help you navigate this realm and its many mysteries.
+Dialogues:
+- npc.about_almanac
+- npc.about_bounties
+- npc.about_treasures
+- npc.get_weapon
+- npc.teleport_example
+Action:
+  Type: Exit
+  Label: Farewell
+Requirements: 

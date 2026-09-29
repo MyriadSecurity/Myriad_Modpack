@@ -1,0 +1,7 @@
+UniqueID: Weapons.001
+Name: Warlord
+Lore: From axe to bow, from spear to sword — none escape your mastery.
+Icon: sword_blue
+TokenReward: 100
+Requirement:
+  Type: Weapons

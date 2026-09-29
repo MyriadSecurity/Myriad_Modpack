@@ -1,0 +1,15 @@
+UniqueID: Troll.001
+Creature: Troll
+Name: ''
+Icon: TrophyFrostTroll
+Biome: BlackForest
+Health: 1200
+Level: 3
+DamageMultiplier: 1.5
+AlmanacTokenReward: 5
+Items: []
+Lore: Lumbering through the Black Forest, the troll’s steps shake the earth as it smashes all in its path.
+Cost:
+  Items:
+  - PrefabName: Coins
+    Amount: 10

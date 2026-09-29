@@ -1,0 +1,7 @@
+UniqueID: PoleArms.001
+Name: Polearm Master
+Lore: Long reach, longer legacy — no foe escapes your strike.
+Icon: AtgeirIron
+TokenReward: 50
+Requirement:
+  Type: PoleArms

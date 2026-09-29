@@ -1,0 +1,39 @@
+UniqueID: guard.watchman
+Greets:
+- Halt! State your business.
+- Papers? Just kidding, enter freely.
+- Welcome, traveler.
+- All is well here.
+- Safe passage to you.
+- The watch greets you.
+- Peace be upon you.
+- Enter and be welcome.
+- No trouble on my watch.
+- You may pass, friend.
+Talk:
+- All quiet on the watch.
+- Seen any suspicious activity?
+- The perimeter is secure.
+- Night shifts are the longest.
+- Keep your weapons ready.
+- Heard wolves howling last night.
+- The walls won't defend themselves.
+- Standing guard builds character.
+- Weather's been strange lately.
+- Eyes open, sword ready.
+- Patrol routes never change.
+- Been standing here for hours.
+- The forest grows restless.
+- Dawn can't come soon enough.
+- Vigilance is our virtue.
+GoodBye:
+- Safe travels!
+- Watch the roads at night.
+- The realm is under protection.
+- May your journey be peaceful.
+- Until we meet again.
+- The watch continues.
+- Travel well, stay alert.
+- May no bandits find you.
+- Farewell, citizen.
+- The gates are always open.

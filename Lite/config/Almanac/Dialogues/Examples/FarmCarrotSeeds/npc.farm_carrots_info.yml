@@ -1,0 +1,8 @@
+UniqueID: npc.farm_carrots_info
+Label: How do I farm carrots?
+Text: Find carrot seeds in the Black Forest, then use a cultivator to prepare soil. Plant the seeds and tend them with care. Each seed will grow into a mature carrot plant that can be harvested for food.
+Dialogues:
+- npc.farm_carrots_accept
+- npc.farm_carrots_intro
+Action: 
+Requirements: 

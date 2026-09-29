@@ -1,0 +1,8 @@
+UniqueID: CE_Speed
+Name: Runner
+Tooltip: Increase movement speed and stamina regen
+Duration: 1000
+Icon: bottle_blue
+Modifiers:
+  Speed: 0.25
+  StaminaRegenModifier: 1.1

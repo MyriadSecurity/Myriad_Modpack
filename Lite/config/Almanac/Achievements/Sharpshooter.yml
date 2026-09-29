@@ -1,0 +1,8 @@
+UniqueID: ArrowsShot.001
+Name: Sharpshooter
+Lore: Each arrow released is a testament to your skill and precision.
+Icon: arrow
+TokenReward: 5
+Requirement:
+  Type: ArrowsShot
+  Threshold: 100

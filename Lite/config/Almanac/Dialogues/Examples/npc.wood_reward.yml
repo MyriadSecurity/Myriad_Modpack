@@ -1,0 +1,12 @@
+UniqueID: npc.wood_reward
+Label: About my crafting project
+Text: Excellent wood quality! As promised, here's a special reward for helping with my crafting project.
+MissingRequirementsText: I'm still working on something special for you. Bring me that fine wood first!
+CompletedText: A beautiful day to craft, isn't it ?
+Action:
+  Type: Give
+  Label: Accept Reward
+  Parameters: Coins, 50, 1, 0
+Requirements:
+  Dialogues: npc.take_items
+  NotDialogues: npc.wood_reward

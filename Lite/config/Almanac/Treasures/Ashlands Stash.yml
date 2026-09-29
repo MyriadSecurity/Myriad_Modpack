@@ -1,0 +1,25 @@
+Name: Ashlands Stash
+Lore: The Ashlands burn with secrets; only the fearless can claim their bounty
+Icon: map
+Biome: AshLands
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 10
+Loot:
+- Item: GemstoneRed
+  Min: 1
+  Max: 1
+  Weight: 1
+- Item: GemstoneGreen
+  Min: 1
+  Max: 1
+  Weight: 1
+- Item: GemstoneBlue
+  Min: 1
+  Max: 1
+  Weight: 1
+- Item: FlametalOreNew
+  Min: 10
+  Max: 30
+  Weight: 1

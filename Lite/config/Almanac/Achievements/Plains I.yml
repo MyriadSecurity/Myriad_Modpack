@@ -1,0 +1,9 @@
+UniqueID: Plains.001
+Name: Plains I
+Lore: Brave the open fields and confront the creatures roaming the Plains.
+Icon: TrophyGoblinKing
+TokenReward: 50
+Requirement:
+  Type: CreatureGroup
+  Group: Plains
+  Threshold: 5

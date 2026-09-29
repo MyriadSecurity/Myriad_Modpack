@@ -1,0 +1,9 @@
+UniqueID: npc.harvest_dandelion_complete
+Label: I've gathered all the dandelions
+Text: Wonderful! Let me see... yes, these are perfect specimens. Your dedication to this task shows true character.
+MissingRequirementsText: I can see you've made progress, but you haven't quite reached 50 dandelions yet. Keep at it!
+Action:
+  Type: CompleteQuest
+  Label: Complete Task
+  Parameters: 001.Dandelion, npc.harvest_dandelion_reward
+Requirements: 

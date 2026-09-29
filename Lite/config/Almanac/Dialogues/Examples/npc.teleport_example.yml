@@ -1,0 +1,8 @@
+UniqueID: npc.teleport_example
+Label: Can you transport me?
+Text: I know the ancient ways of travel. I can send you to a safe location if you need quick transport.
+Action:
+  Type: Teleport
+  Label: Transport me
+  Parameters: 0, 50, 0
+Requirements: 

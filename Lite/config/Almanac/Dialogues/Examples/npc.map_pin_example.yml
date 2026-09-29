@@ -1,0 +1,8 @@
+UniqueID: npc.map_pin_example
+Label: Where can I find rare mushrooms?
+Text: Ah, seeking the blue mushrooms of the Black Forest? I know a grove where they grow abundantly. Let me mark it on your map.
+Action:
+  Type: MapPin
+  Label: Mark Location
+  Parameters: 150, 25, -200, Mushroom Grove, 60
+Requirements: 

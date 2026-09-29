@@ -1,0 +1,8 @@
+UniqueID: npc.learn_sword_cancel
+Label: I'm not interested in studying
+Text: Not everyone appreciates the scholarly approach to crafting. Some prefer to learn by doing rather than systematic study. Shall I end your material research?
+Action:
+  Type: CancelQuest
+  Label: Yes, cancel studies
+  Parameters: 001.WoodenSword, npc.learn_sword_cancelled
+Requirements: 

@@ -1,0 +1,39 @@
+UniqueID: blacksmith.forge
+Greets:
+- Ah, a fellow who appreciates good steel!
+- Welcome to my forge!
+- Need something sharpened?
+- You have the look of a warrior.
+- Come, see what the fire has made!
+- Greetings! Mind the sparks.
+- Another blade to mend?
+- The forge welcomes you!
+- What brings you to my anvil?
+- Seeking quality craftsmanship?
+Talk:
+- The forge burns hot today.
+- This iron won't shape itself!
+- Heard hammering? That was me.
+- A dull blade is a dead warrior.
+- Quality over quantity, always.
+- The metal speaks to those who listen.
+- Been smithing since before you were born.
+- Fire and steel make the world turn.
+- That sword needs proper care.
+- Bronze is for beginners.
+- Silver? Now that's a noble metal.
+- The ancients knew their metalwork.
+- Each weapon has its own spirit.
+- Repair work keeps me busy.
+- A good hammer is worth its weight in gold.
+GoodBye:
+- Keep your blade sharp!
+- May your steel never break!
+- The forge will be here when you return.
+- Fight well, return safe!
+- Until the metal calls again!
+- May your enemies fear your blade!
+- Farewell, and strike true!
+- The gods favor sharp weapons.
+- Come back when you need repairs!
+- Stay strong, stay armed!

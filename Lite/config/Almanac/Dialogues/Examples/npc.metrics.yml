@@ -1,0 +1,7 @@
+UniqueID: npc.metrics
+Label: Show my statistics
+Text: Curious about your progress? Here are detailed metrics of your adventures.
+Action:
+  Type: OpenMetrics
+  Label: View Statistics
+Requirements: 

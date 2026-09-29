@@ -1,0 +1,7 @@
+UniqueID: Staves.001
+Name: Runestaff Adept
+Lore: With staff in hand, you channel the wild power of gods and storms.
+Icon: StaffFireball
+TokenReward: 50
+Requirement:
+  Type: Staves

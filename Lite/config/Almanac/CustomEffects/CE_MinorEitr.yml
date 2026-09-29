@@ -1,0 +1,7 @@
+UniqueID: CE_MinorEitr
+Name: Minor Eitr
+Tooltip: Increases Eitr temporarily
+Duration: 1800
+Icon: necklace
+Modifiers:
+  Eitr: 50

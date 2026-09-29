@@ -1,0 +1,7 @@
+UniqueID: npc.weapon_info
+Label: Tell me about this sword
+Text: This iron sword was forged in the old ways. Its quality should help you face the dangers ahead. May it serve you well!
+Action:
+  Type: Exit
+  Label: Thank you
+Requirements: 

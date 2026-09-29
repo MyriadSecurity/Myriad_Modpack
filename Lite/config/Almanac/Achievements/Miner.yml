@@ -1,0 +1,8 @@
+UniqueID: MineHits.001
+Name: Miner
+Lore: Every strike against stone and ore shapes your mastery over the earth.
+Icon: PickaxeIron
+TokenReward: 10
+Requirement:
+  Type: MineHits
+  Threshold: 1000

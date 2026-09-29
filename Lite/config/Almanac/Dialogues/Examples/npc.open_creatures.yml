@@ -1,0 +1,11 @@
+UniqueID: npc.open_creatures
+Label: Show me the creature catalog
+Text: Here you can study all the creatures of this world. Undiscovered creatures remain hidden until encountered.
+Dialogues:
+- npc.about_almanac
+- npc.open_items
+- npc.open_pieces
+Action:
+  Type: OpenCreatures
+  Label: Browse Creatures
+Requirements: 

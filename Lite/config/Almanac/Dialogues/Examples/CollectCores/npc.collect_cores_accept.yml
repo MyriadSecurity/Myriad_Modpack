@@ -1,0 +1,12 @@
+UniqueID: npc.collect_cores_accept
+Label: I'll gather the cores
+Text: Brave soul! Ten Surtling Cores should suffice for my needs. Be cautious in the burial chambers - the dead do not appreciate visitors.
+CompletedText: Any progress on those Surtling Cores? The chambers can be treacherous, so take your time.
+Dialogues:
+- npc.collect_cores_cancel
+- npc.collect_cores_complete
+Action:
+  Type: StartQuest
+  Label: Accept Task
+  Parameters: 001.SurtlingCores, npc.collect_cores_started
+Requirements: 

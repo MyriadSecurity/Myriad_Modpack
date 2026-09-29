@@ -1,0 +1,8 @@
+UniqueID: npc.advanced_example
+Label: Veteran's conversation
+Text: I see you're an experienced adventurer. You've proven yourself worthy of this knowledge.
+Action: 
+Requirements:
+  Keys: defeated_bonemass
+  Killed: Eikthyr, 1; gd_king, 1
+  Achievements: TreesChopped.001

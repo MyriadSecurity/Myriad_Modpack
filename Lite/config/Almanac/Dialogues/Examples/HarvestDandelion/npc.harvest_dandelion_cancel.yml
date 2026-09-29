@@ -1,0 +1,8 @@
+UniqueID: npc.harvest_dandelion_cancel
+Label: I want to abandon this task
+Text: Having second thoughts about the dandelion gathering? No shame in it - not every task suits every person. Shall I remove this from your obligations?
+Action:
+  Type: CancelQuest
+  Label: Yes, cancel it
+  Parameters: 001.Dandelion, npc.harvest_dandelion_cancelled
+Requirements: 

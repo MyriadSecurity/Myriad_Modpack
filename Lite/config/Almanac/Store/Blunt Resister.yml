@@ -1,0 +1,9 @@
+Name: Blunt Resister
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Icon: shield
+StatusEffect:
+  ID: CE_BluntReduction
+Lore: Increases blunt resistance

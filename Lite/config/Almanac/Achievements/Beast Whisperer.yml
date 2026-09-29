@@ -1,0 +1,8 @@
+UniqueID: CreatureTamed.001
+Name: Beast Whisperer
+Lore: Wild creatures bow to your will, for few can tame what you command.
+Icon: TrophyBoar
+TokenReward: 20
+Requirement:
+  Type: CreatureTamed
+  Threshold: 5

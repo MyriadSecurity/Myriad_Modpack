@@ -1,0 +1,7 @@
+UniqueID: npc.open_treasures
+Label: Show me available treasures
+Text: These are all known treasure locations in discovered biomes. Each map comes with clues to help you find the stash.
+Action:
+  Type: OpenTreasures
+  Label: Browse Treasures
+Requirements: 

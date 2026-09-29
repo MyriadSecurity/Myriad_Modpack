@@ -1,0 +1,9 @@
+UniqueID: npc.farm_carrots_complete
+Label: I've planted all the carrots
+Text: Excellent work! I can see the satisfaction of honest labor in your bearing. You've learned that civilization is built not just on conquest, but on cultivation.
+MissingRequirementsText: Your farming efforts are admirable, but you haven't quite reached 10 planted seedlings yet. Keep at it!
+Action:
+  Type: CompleteQuest
+  Label: Complete Farming
+  Parameters: 001.Farm, npc.farm_carrots_reward
+Requirements: 

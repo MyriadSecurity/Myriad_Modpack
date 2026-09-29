@@ -1,0 +1,11 @@
+UniqueID: npc.open_pieces
+Label: Show me building pieces
+Text: The Pieces section catalogs all buildable structures. Unknown pieces appear blacked out until you learn their recipes.
+Dialogues:
+- npc.about_almanac
+- npc.open_items
+- npc.open_creatures
+Action:
+  Type: OpenPieces
+  Label: Browse Pieces
+Requirements: 

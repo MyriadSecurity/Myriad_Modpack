@@ -1,0 +1,13 @@
+UniqueID: npc.get_weapon
+Label: I need a weapon
+Text: Ah, a warrior in need! Here, take this iron sword. It should serve you well in battle.
+MissingRequirementsText: I've already given you a sword, friend. One should be enough to start your journey!
+Dialogues:
+- npc.weapon_info
+Action:
+  Type: Give
+  Label: Take Sword
+  Parameters: SwordIron, 1, 2, 0
+Requirements:
+  Killed: Eikthyr, 1
+  NotDialogues: npc.get_weapon

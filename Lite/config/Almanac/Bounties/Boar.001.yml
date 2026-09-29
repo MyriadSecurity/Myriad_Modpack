@@ -1,0 +1,15 @@
+UniqueID: Boar.001
+Creature: Boar
+Name: ''
+Icon: TrophyBoar
+Biome: Meadows
+Health: 1000
+Level: 3
+DamageMultiplier: 1.5
+AlmanacTokenReward: 1
+Items: []
+Lore: The meadows have been wicked to the boars, hunted endlessly by ruthless vikings - it breeds true beasts
+Cost:
+  Items:
+  - PrefabName: Coins
+    Amount: 10

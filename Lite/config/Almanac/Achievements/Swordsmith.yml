@@ -1,0 +1,7 @@
+UniqueID: Swords.001
+Name: Swordsmith
+Lore: To forge and wield the sword is to shape the fate of warriors.
+Icon: SwordIron
+TokenReward: 50
+Requirement:
+  Type: Swords

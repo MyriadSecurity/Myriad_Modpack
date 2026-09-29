@@ -1,0 +1,6 @@
+UniqueID: npc.harvest_dandelion_cancelled
+Text: Very well, the task is lifted from your shoulders. Should you change your mind later, you know where to find me.
+Action:
+  Type: Exit
+  Label: Until next time
+Requirements: 

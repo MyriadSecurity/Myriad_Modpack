@@ -1,0 +1,7 @@
+UniqueID: Valuables.001
+Name: Gold Digger
+Lore: Gold, gems, relics — you know the worth of the world and claim it all.
+Icon: Amber
+TokenReward: 50
+Requirement:
+  Type: Valuables

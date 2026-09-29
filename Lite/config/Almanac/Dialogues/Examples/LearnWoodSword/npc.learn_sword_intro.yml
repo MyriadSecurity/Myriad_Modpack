@@ -1,0 +1,10 @@
+UniqueID: npc.learn_sword_intro
+Label: What about learning crafting?
+Text: Knowledge is the foundation of all crafting. To forge a wooden sword, one must first understand the materials. I challenge you to discover and learn about Wood, Fine Wood, and Round Log - the trinity of wooden weaponcraft.
+Dialogues:
+- npc.learn_sword_accept
+- npc.learn_sword_info
+- npc.quest_hub
+Action: 
+Requirements:
+  NotCompletedQuests: 001.WoodenSword

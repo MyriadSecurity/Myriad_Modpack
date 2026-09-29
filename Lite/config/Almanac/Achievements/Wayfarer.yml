@@ -1,0 +1,8 @@
+UniqueID: DistanceWalked.001
+Name: Wayfarer
+Lore: Miles tread and paths explored — the world is yours to roam.
+Icon: map
+TokenReward: 10
+Requirement:
+  Type: DistanceWalked
+  Threshold: 10000

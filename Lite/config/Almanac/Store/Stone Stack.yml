@@ -1,0 +1,11 @@
+Name: Stone Stack
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Icon: Stone
+Items:
+- PrefabName: Stone
+  Amount: 50
+  Quality: 1
+Lore: Just a pile of stone

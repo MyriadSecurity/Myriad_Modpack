@@ -1,0 +1,300 @@
+#################################################
+# Star Level System Expanded - Creature Modifier Configuration
+#
+# Tunes the creature modifiers (affixes): which ones can roll, how likely each
+# is, how strong it is, and which creatures/biomes it is allowed on. Server
+# authoritative; edits apply live.
+#
+# Modifiers come in three pools: MajorModifiers, MinorModifiers and
+# BossModifiers. How MANY a creature rolls (and the chance per slot) comes from
+# the main .cfg (MaxMajorModifiers etc.) and can be overridden per creature in
+# LevelSettings.yaml. This file configures the modifiers themselves.
+#
+# IMPORTANT: a NON-EMPTY pool section REPLACES the built-in list for that pool.
+# If you write a MajorModifiers section, list every major you want active - a
+# modifier you leave out stops rolling. An absent section keeps the defaults.
+# Valid modifier names are exactly the keys in the generated default sections
+# (Brutal, Fast, Big, Alert, Fire, Frost, Poison, Lightning, ElementalChaos,
+# StaminaDrain, EitrDrain, Resist*, SoulEater, LifeLink, Splitter, Lootbags,
+# FireNova, PoisonNova, Evolving, BossSummoner, ...). New modifiers can only be
+# added through the mod API, not from yaml.
+#
+# Each entry:
+#
+#   MajorModifiers:
+#     Fire:
+#       Enabled: true
+#       SelectionWeight: 10          # relative weight against the other entries
+#       Config:
+#         BasePower: 0.3             # meaning is per-modifier; for the damage
+#         PerlevelPower: 0.01        # affixes these are fractions of the hit
+#       UnallowedCreatures: [ Deer, Hare, Chicken, Hen ]
+#       AllowedCreatures: []         # non-empty = ONLY these creatures
+#       AllowedBiomes: []            # non-empty = ONLY these biomes
+#
+# Power semantics: effective power = BasePower + PerlevelPower * level. For
+# damage affixes (Fire, Frost, ElementalChaos, ...) that is a fraction of the
+# hit added as that element; for resists it is the damage reduction; for
+# SoulEater/LifeLink/Splitter it drives their growth/split/link strength.
+# Some modifiers read extra keys from Config (e.g. the drain modifiers accept
+# BlockReduction / ParryReduction / DodgeReduction), and BossSummoner uses
+# BiomeObjects to pick its summons per biome:
+#
+#   BossModifiers:
+#     BossSummoner:
+#       SelectionWeight: 10
+#       Config:
+#         BasePower: 10              # max concurrent summons
+#         PerlevelPower: 120         # seconds between summon waves
+#         BiomeObjects:
+#           Meadows: [ Greyling ]
+#           Plains: [ Goblin, GoblinShaman ]
+#
+# --- ModifierGlobalSettings ---
+#   ModifierGlobalSettings:
+#     GlobalIgnorePrefabList: [ piece_TrainingDummy ]   # never roll modifiers
+#
+# The console command sls-mod-give applies a modifier to nearby creatures for
+# testing.
+#################################################
+ModifierGlobalSettings:
+  GlobalIgnorePrefabList:
+  - piece_TrainingDummy
+MajorModifiers:
+  Brutal:
+    SelectionWeight: 10
+    Config:
+      BasePower: 0.07
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+  ElementalChaos:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.01
+      BasePower: 0.3
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+  Fire:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.01
+      BasePower: 0.3
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+  Frost:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.01
+      BasePower: 0.3
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+  Poison:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.05
+      BasePower: 1
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+  Lightning:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.05
+      BasePower: 0.3
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+  Splitter:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.1
+      BasePower: 2
+  SoulEater:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.05
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+  ResistPierce:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.02
+      BasePower: 0.5
+  ResistSlash:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.02
+      BasePower: 0.5
+  ResistBlunt:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.02
+      BasePower: 0.5
+MinorModifiers:
+  ResistFire:
+    SelectionWeight: 5
+    Config:
+      PerlevelPower: 0.02
+      BasePower: 0.5
+  ResistFrost:
+    SelectionWeight: 4
+    Config:
+      PerlevelPower: 0.02
+      BasePower: 0.5
+  ResistPoison:
+    SelectionWeight: 3
+    Config:
+      PerlevelPower: 0.02
+      BasePower: 0.5
+  ResistSpirit:
+    SelectionWeight: 2
+    Config:
+      PerlevelPower: 0.02
+      BasePower: 0.5
+  FireNova:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.1
+      BasePower: 2
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+  PoisonNova:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.2
+      BasePower: 2
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+  Lootbags:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.2
+      BasePower: 2
+  Alert:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.05
+      BasePower: 2
+  Big:
+    SelectionWeight: 10
+    Config:
+      BasePower: 0.3
+  Fast:
+    SelectionWeight: 10
+    Config:
+      BasePower: 0.2
+  StaminaDrain:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.1
+      BasePower: 0.1
+      Config:
+        BlockReduction: 0.25
+        ParryReduction: 0.75
+        DodgeReduction: 1
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+  Evolving:
+    SelectionWeight: 5
+    Config:
+      PerlevelPower: 1
+      BasePower: 10
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+  EitrDrain:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.1
+      BasePower: 0.2
+      Config:
+        BlockReduction: 0.25
+        ParryReduction: 0.75
+        DodgeReduction: 1
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+    AllowedBiomes:
+    - Mistlands
+    - AshLands
+BossModifiers:
+  BossSummoner:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 120
+      BasePower: 10
+      BiomeObjects:
+        Meadows:
+        - Greyling
+        BlackForest:
+        - Greydwarf_Shaman
+        Swamp:
+        - BlobElite
+        Mountain:
+        - Hatchling
+        Plains:
+        - Goblin
+        - GoblinShaman
+        - GoblinBrute
+        Mistlands:
+        - SeekerBrute
+        - Seeker
+        AshLands:
+        - Charred_Archer
+        - Charred_Melee
+  SoulEater:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.01
+  LifeLink:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.02
+      BasePower: 0.3
+  ResistPierce:
+    SelectionWeight: 10
+    Config:
+      PerlevelPower: 0.02
+      BasePower: 0.25
+  Brutal:
+    SelectionWeight: 10
+    Config:
+      BasePower: 0.05
+    UnallowedCreatures:
+    - Deer
+    - Hare
+    - Chicken
+    - Hen
+

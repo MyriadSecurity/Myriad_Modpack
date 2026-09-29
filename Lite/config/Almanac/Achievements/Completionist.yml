@@ -1,0 +1,8 @@
+UniqueID: Completionist.001
+Name: Completionist
+Lore: Complete over 10 achievements
+Icon: crown
+TokenReward: 20
+Requirement:
+  Type: Achievements
+  Threshold: 10

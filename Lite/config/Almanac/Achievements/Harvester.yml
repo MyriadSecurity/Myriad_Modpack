@@ -1,0 +1,8 @@
+UniqueID: Harvest.001
+Name: Harvester
+Lore: A true survivor knows the benefits of foraging
+Icon: Dandelion
+TokenReward: 1
+Requirement:
+  Type: ItemsPicked
+  Threshold: 50

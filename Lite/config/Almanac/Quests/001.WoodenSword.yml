@@ -1,0 +1,7 @@
+UniqueID: 001.WoodenSword
+Name: Wooden Sword
+Type: LearnItems
+PrefabNames:
+- Wood
+- FineWood
+- RoundLog

@@ -1,0 +1,7 @@
+UniqueID: CE_BluntReduction
+Name: Blunt Reduction
+Tooltip: Reduces blunt damage
+Duration: 1800
+Icon: shield
+Modifiers:
+  BluntResistance: 0.1

@@ -1,0 +1,12 @@
+UniqueID: npc.harvest_dandelion_accept
+Label: I'll gather the dandelions
+Text: Excellent! Remember, I need 50 dandelions total. Take your time and be thorough - quality gathering takes patience.
+CompletedText: How goes the dandelion gathering? The meadows can be quite peaceful for such work.
+Dialogues:
+- npc.harvest_dandelion_cancel
+- npc.harvest_dandelion_complete
+Action:
+  Type: StartQuest
+  Label: Accept Task
+  Parameters: 001.Dandelion, npc.harvest_dandelion_started
+Requirements: 

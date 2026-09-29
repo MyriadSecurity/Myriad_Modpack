@@ -1,0 +1,13 @@
+UniqueID: npc.quest_hub
+Label: What tasks do you have available?
+Text: Ah, a willing adventurer! I have several tasks that need capable hands. Each serves a different purpose in maintaining the balance of these lands.
+Dialogues:
+- npc.harvest_dandelion_intro
+- npc.collect_cores_intro
+- npc.learn_sword_intro
+- npc.farm_carrots_intro
+- npc.hunt_boars_intro
+Action:
+  Type: Exit
+  Label: I'll consider your offers
+Requirements: 

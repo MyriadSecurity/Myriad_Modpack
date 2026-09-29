@@ -1,0 +1,9 @@
+UniqueID: npc.collect_cores_complete
+Label: I have the Surtling Cores
+Text: Impressive! These cores still pulse with inner fire. You've risked much to obtain them, and that courage will not go unrewarded.
+MissingRequirementsText: I can see some cores in your possession, but I need the full 10 for my experiments to work properly.
+Action:
+  Type: CompleteQuest
+  Label: Complete Task
+  Parameters: 001.SurtlingCores, npc.collect_cores_reward
+Requirements: 

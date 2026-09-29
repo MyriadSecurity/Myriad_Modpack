@@ -1,0 +1,10 @@
+{
+    "name": "Lite_Client_Mods",
+    "author": "Myriad",
+    "version_number": "0.1.0",
+    "website_url": "https://github.com/MyriadSecurity/Myriad_Modpack",
+    "description": "Optional client-side extras for Myriad Lite (HUD, visuals, local tools). Not required on the dedicated server.",
+    "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.2351"
+    ]
+}

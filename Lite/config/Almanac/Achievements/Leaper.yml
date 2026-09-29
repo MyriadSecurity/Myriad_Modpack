@@ -1,0 +1,8 @@
+UniqueID: TotalJumps.001
+Name: Leaper
+Lore: Every leap shows your daring spirit and agility.
+Icon: mushroom
+TokenReward: 10
+Requirement:
+  Type: TotalJumps
+  Threshold: 100

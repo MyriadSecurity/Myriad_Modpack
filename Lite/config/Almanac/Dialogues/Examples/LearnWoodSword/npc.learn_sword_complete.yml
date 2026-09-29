@@ -1,0 +1,9 @@
+UniqueID: npc.learn_sword_complete
+Label: I've learned about all the materials
+Text: Wonderful! I can see the understanding in your eyes. You now know the properties of Wood, Fine Wood, and Round Log. This knowledge will serve you well in future crafting endeavors.
+MissingRequirementsText: You've made progress in your studies, but there are still materials you haven't fully discovered. Continue exploring!
+Action:
+  Type: CompleteQuest
+  Label: Complete Studies
+  Parameters: 001.WoodenSword, npc.learn_sword_reward
+Requirements: 

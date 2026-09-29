@@ -1,0 +1,7 @@
+UniqueID: Arrows.001
+Name: Quiver Keeper
+Lore: A true marksman never runs dry; every arrow counts in the hunt.
+Icon: ArrowWood
+TokenReward: 50
+Requirement:
+  Type: Arrows

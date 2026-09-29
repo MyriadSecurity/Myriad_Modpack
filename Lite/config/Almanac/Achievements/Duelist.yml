@@ -1,0 +1,8 @@
+UniqueID: PlayerKills.001
+Name: Duelist
+Lore: Your skill is unmatched in battle — fellow Vikings fall before you.
+Icon: skull
+TokenReward: 50
+Requirement:
+  Type: PlayerKills
+  Threshold: 10

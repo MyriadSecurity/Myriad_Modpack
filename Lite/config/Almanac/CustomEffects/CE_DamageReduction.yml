@@ -1,0 +1,7 @@
+UniqueID: CE_DamageReduction
+Name: Fortify
+Tooltip: Reduce incoming damage
+Duration: 1800
+Icon: shield
+Modifiers:
+  DamageReduction: 0.1

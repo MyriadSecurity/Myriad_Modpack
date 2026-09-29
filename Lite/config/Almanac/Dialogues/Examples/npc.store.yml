@@ -1,0 +1,7 @@
+UniqueID: npc.store
+Label: Browse the store
+Text: I have various goods available for Almanac tokens. Take a look at what's available.
+Action:
+  Type: OpenStore
+  Label: Browse Store
+Requirements: 

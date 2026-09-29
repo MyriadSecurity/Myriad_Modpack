@@ -1,0 +1,8 @@
+UniqueID: TotalMined.001
+Name: Earthshaper
+Lore: From stone to ore, you claim the treasures hidden beneath the land.
+Icon: CopperOre
+TokenReward: 15
+Requirement:
+  Type: TotalMined
+  Threshold: 500

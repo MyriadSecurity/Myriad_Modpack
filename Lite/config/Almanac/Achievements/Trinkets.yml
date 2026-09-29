@@ -1,0 +1,7 @@
+UniqueID: Trinkets.001
+Name: Trinkets
+Lore: The powers of the ancients flow through you like a thunderous cloud.
+Icon: TrinketBronzeStamina
+TokenReward: 100
+Requirement:
+  Type: Trinkets

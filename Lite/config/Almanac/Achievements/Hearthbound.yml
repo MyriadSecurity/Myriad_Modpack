@@ -1,0 +1,8 @@
+UniqueID: TimeInBase.001
+Name: Hearthbound
+Lore: A wise Viking knows when to rest, plan, and fortify within the safety of home.
+Icon: book
+TokenReward: 5
+Requirement:
+  Type: TimeInBase
+  Threshold: 3600

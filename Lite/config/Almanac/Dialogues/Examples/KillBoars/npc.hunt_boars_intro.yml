@@ -1,0 +1,10 @@
+UniqueID: npc.hunt_boars_intro
+Label: Any hunting contracts?
+Text: The boars have grown too numerous and bold in the meadows. Their aggressive nature threatens travelers and disrupts the natural balance. I need a hunter to cull 10 of these beasts.
+Dialogues:
+- npc.hunt_boars_accept
+- npc.hunt_boars_info
+- npc.quest_hub
+Action: 
+Requirements:
+  NotCompletedQuests: 001.Kill

@@ -1,0 +1,11 @@
+UniqueID: npc.open_items
+Label: Show me the item catalog
+Text: The Items section contains every item in the realm. Unknown items appear blacked out until you discover them.
+Dialogues:
+- npc.about_almanac
+- npc.open_creatures
+- npc.open_pieces
+Action:
+  Type: OpenItems
+  Label: Browse Items
+Requirements: 

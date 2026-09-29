@@ -1,0 +1,9 @@
+Name: Minor Stamina
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 3
+Icon: bottle_blue
+StatusEffect:
+  ID: CE_MinorStamina
+Lore: Increases stamina

@@ -1,0 +1,9 @@
+UniqueID: Ashlands.001
+Name: Ashlands I
+Lore: The infernal legions rise again and again, yet you’ve cut them down fivefold. The Ashlands themselves bear witness to your relentless fury.
+Icon: TrophyFader
+TokenReward: 100
+Requirement:
+  Type: CreatureGroup
+  Group: AshLands
+  Threshold: 5

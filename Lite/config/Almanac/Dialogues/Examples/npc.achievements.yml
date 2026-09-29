@@ -1,0 +1,7 @@
+UniqueID: npc.achievements
+Label: Show my accomplishments
+Text: Let me show you a record of all your great deeds and achievements in this realm.
+Action:
+  Type: OpenAchievements
+  Label: View Achievements
+Requirements: 

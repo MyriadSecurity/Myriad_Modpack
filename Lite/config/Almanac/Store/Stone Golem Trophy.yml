@@ -1,0 +1,12 @@
+Name: Stone Golem Trophy
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Icon: TrophySGolem
+Items:
+- PrefabName: TrophySGolem
+  Amount: 1
+  Quality: 1
+Lore: A crystalline rock formation is an impressive decoration
+RequiredDefeated: StoneGolem

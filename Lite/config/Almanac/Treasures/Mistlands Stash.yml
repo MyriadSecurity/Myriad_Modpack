@@ -1,0 +1,29 @@
+Name: Mistlands Stash
+Lore: Through the swirling mists, hidden treasures wait for those bold enough to seek them.
+Icon: map
+Biome: Mistlands
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Loot:
+- Item: Softtissue
+  Min: 1
+  Max: 20
+  Weight: 1
+- Item: ChickenEgg
+  Min: 1
+  Max: 1
+  Weight: 1
+- Item: GiantBloodSack
+  Min: 1
+  Max: 50
+  Weight: 1
+- Item: YggdrasilWood
+  Min: 1
+  Max: 50
+  Weight: 1
+- Item: Sap
+  Min: 1
+  Max: 50
+  Weight: 1

@@ -1,0 +1,7 @@
+UniqueID: npc.lottery
+Label: Feeling lucky?
+Text: Try your luck with the Almanac lottery! You might win valuable prizes.
+Action:
+  Type: OpenLottery
+  Label: Try Lottery
+Requirements: 

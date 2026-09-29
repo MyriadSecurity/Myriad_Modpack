@@ -1,0 +1,7 @@
+UniqueID: npc.cancel_bounty_example
+Label: Cancel current bounty
+Text: Having second thoughts about your current contract? I can cancel it, but you won't get your payment back.
+Action:
+  Type: CancelBounty
+  Label: Cancel Contract
+Requirements: 

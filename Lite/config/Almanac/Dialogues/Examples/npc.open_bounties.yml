@@ -1,0 +1,10 @@
+UniqueID: npc.open_bounties
+Label: Open the bounty ledger
+Text: Here are all available hunting contracts. Choose wisely, as each bounty requires payment upfront for information.
+Dialogues:
+- npc.about_bounties
+- npc.start_bounty_example
+Action:
+  Type: OpenBounties
+  Label: Browse Bounties
+Requirements: 

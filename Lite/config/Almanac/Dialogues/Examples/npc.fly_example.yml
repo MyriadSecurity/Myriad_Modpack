@@ -1,0 +1,8 @@
+UniqueID: npc.fly_example
+Label: Can you transport me?
+Text: I know the ancient ways of travel. I can send you to a safe location if you need quick transport.
+Action:
+  Type: FlyTo
+  Label: Transport me
+  Parameters: 100, 50, 0
+Requirements: 

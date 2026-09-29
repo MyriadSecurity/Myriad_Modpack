@@ -1,0 +1,89 @@
+Meadows:
+- Neck
+- Greyling
+- Boar
+- Deer
+- Eikthyr
+BlackForest:
+- Skeleton
+- Greydwarf
+- Bjorn
+- Greydwarf_Shaman
+- Greydwarf_Elite
+- Ghost
+- Troll
+- gd_king
+Swamp:
+- Skeleton_Poison
+- Leech
+- Draugr
+- BogWitchKvastur
+- Draugr_Ranged
+- Draugr_Elite
+- Blob
+- BlobElite
+- Wraith
+- Abomination
+- Surtling
+- Bonemass
+Mountain:
+- Wolf
+- Ulv
+- Wolf_cub
+- Fenring
+- Fenring_Cultist
+- StoneGolem
+- Hatchling
+- Bat
+- Dragon
+Plains:
+- Goblin
+- GoblinShaman
+- Unbjorn
+- GoblinBrute
+- Lox
+- Lox_Calf
+- Deathsquito
+- BlobTar
+- GoblinKing
+Mistlands:
+- Seeker
+- SeekerBrood
+- SeekerBrute
+- Tick
+- Gjall
+- Dverger
+- DvergerMage
+- Hare
+- Hen
+- SeekerQueen
+Ocean:
+- Serpent
+- BonemawSerpent
+AshLands:
+- Charred_Melee
+- Morgen
+- Charred_Archer
+- BlobLava
+- Charred_Mage
+- Charred_Twitcher
+- Volture
+- Asksvin
+- Asksvin_hatchling
+- FallenValkyrie
+- Fader
+Bosses:
+- Eikthyr
+- gd_king
+- Bonemass
+- Dragon
+- GoblinKing
+- SeekerQueen
+- Fader
+MiniBosses:
+- Skeleton_Hildir
+- Fenring_Cultist_Hildir
+- GoblinBrute_Hildir
+- GoblinBruteBros
+- GoblinShaman_Hildir
+- Charred_Melee_Dyrnwyn

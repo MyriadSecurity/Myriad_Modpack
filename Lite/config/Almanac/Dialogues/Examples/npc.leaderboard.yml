@@ -1,0 +1,7 @@
+UniqueID: npc.leaderboard
+Label: Show server rankings
+Text: See how you compare to other adventurers on this server.
+Action:
+  Type: OpenLeaderboard
+  Label: View Rankings
+Requirements: 

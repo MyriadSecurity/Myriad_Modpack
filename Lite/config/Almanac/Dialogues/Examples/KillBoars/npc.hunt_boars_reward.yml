@@ -1,0 +1,7 @@
+UniqueID: npc.hunt_boars_reward
+Text: Difficult tasks deserve worthy compensation. This fine bronze sword will serve you well in future endeavors - may you need it only for protection.
+Action:
+  Type: Give
+  Label: Accept Weapon
+  Parameters: SwordBronze, 1, 2, 0
+Requirements: 

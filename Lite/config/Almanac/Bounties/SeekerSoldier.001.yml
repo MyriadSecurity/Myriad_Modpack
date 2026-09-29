@@ -1,0 +1,15 @@
+UniqueID: SeekerSoldier.001
+Creature: SeekerBrute
+Name: ''
+Icon: TrophySeekerBrute
+Biome: Mistlands
+Health: 3000
+Level: 3
+DamageMultiplier: 1.5
+AlmanacTokenReward: 10
+Items: []
+Lore: Forged in the mists, this armored brute marches with the strength of many men and the hunger of a swarm.
+Cost:
+  Items:
+  - PrefabName: Coins
+    Amount: 10

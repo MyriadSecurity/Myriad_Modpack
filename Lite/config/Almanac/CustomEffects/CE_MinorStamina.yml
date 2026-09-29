@@ -1,0 +1,7 @@
+UniqueID: CE_MinorStamina
+Name: Minor Stamina
+Tooltip: Increases stamina temporarily
+Duration: 1800
+Icon: bottle_blue
+Modifiers:
+  Stamina: 50

@@ -1,0 +1,15 @@
+UniqueID: Lox.001
+Creature: Lox
+Name: ''
+Icon: TrophyLox
+Biome: Plains
+Health: 2000
+Level: 3
+DamageMultiplier: 1.5
+AlmanacTokenReward: 5
+Items: []
+Lore: The ground trembles beneath its hooves, for the Lox knows no predator but death itself.
+Cost:
+  Items:
+  - PrefabName: Coins
+    Amount: 10

@@ -1,0 +1,7 @@
+UniqueID: CE_LifeSteal
+Name: Life Steal
+Tooltip: On hit, leeches enemy health
+Duration: 1800
+Icon: skull
+Modifiers:
+  LifeSteal: 1.1

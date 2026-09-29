@@ -1,0 +1,9 @@
+UniqueID: Eikthyr.001
+Name: Eikthyr I
+Lore: The great stag’s thunder once shook the skies, yet you have brought it low—twenty-five times over.
+Icon: TrophyEikthyr
+TokenReward: 10
+Requirement:
+  Type: Kill
+  PrefabName: Eikthyr
+  Threshold: 25

@@ -1,0 +1,12 @@
+UniqueID: npc.hunt_boars_accept
+Label: I'll hunt the boars
+Text: A necessary task, though not a pleasant one. Ten boars should restore balance to the meadows. Remember, this is culling for the greater good, not sport hunting.
+CompletedText: How goes the hunt? The meadows will be safer once this task is complete.
+Dialogues:
+- npc.hunt_boars_cancel
+- npc.hunt_boars_complete
+Action:
+  Type: StartQuest
+  Label: Accept Hunt
+  Parameters: 001.Kill, npc.hunt_boars_started
+Requirements: 

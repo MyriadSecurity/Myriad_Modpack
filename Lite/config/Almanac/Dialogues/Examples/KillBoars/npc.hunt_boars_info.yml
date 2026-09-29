@@ -1,0 +1,8 @@
+UniqueID: npc.hunt_boars_info
+Label: Tell me about hunting boars
+Text: Boars are found throughout the meadows, often near berry bushes and trees. They're aggressive when approached but not particularly dangerous to a prepared warrior. A bow works well, but any weapon will suffice.
+Dialogues:
+- npc.hunt_boars_accept
+- npc.hunt_boars_intro
+Action: 
+Requirements: 

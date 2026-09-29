@@ -1,0 +1,8 @@
+UniqueID: FoodEaten.001
+Name: Feaster
+Lore: A Viking fueled by feasts is unstoppable — strength comes from the belly.
+Icon: CookedMeat
+TokenReward: 10
+Requirement:
+  Type: FoodEaten
+  Threshold: 50

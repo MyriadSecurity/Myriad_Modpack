@@ -1,0 +1,7 @@
+UniqueID: CE_Mule
+Name: Mule
+Tooltip: Increase carry capacity
+Duration: 1800
+Icon: log_stack
+Modifiers:
+  CarryWeight: 100

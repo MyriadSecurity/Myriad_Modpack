@@ -1,0 +1,11 @@
+UniqueID: npc.about_almanac
+Label: Tell me about the Almanac
+Text: The Almanac is your comprehensive guide to this world. Press Tab to open your inventory, then click the Almanac icon in the top right corner.
+Dialogues:
+- npc.open_items
+- npc.open_creatures
+- npc.open_pieces
+Action:
+  Type: OpenAlmanac
+  Label: Open Almanac
+Requirements: 

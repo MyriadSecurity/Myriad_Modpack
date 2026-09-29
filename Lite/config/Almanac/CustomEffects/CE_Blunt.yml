@@ -1,0 +1,7 @@
+UniqueID: CE_Blunt
+Name: Brute
+Tooltip: Increases blunt damage
+Duration: 1800
+Icon: MaceBronze
+Modifiers:
+  BluntDamage: 0.1

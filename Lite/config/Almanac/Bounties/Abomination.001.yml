@@ -1,0 +1,15 @@
+UniqueID: Abomination.001
+Creature: Abomination
+Name: ''
+Icon: TrophyAbomination
+Biome: Swamp
+Health: 1600
+Level: 3
+DamageMultiplier: 1.5
+AlmanacTokenReward: 5
+Items: []
+Lore: From the mire it rises, a tangle of roots and hate, the swamp itself given monstrous form.
+Cost:
+  Items:
+  - PrefabName: Coins
+    Amount: 10

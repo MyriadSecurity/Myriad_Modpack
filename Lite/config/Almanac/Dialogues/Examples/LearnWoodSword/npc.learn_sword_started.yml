@@ -1,0 +1,6 @@
+UniqueID: npc.learn_sword_started
+Text: Knowledge comes to those who seek it actively. Go forth and discover what the forests have to teach.
+Action:
+  Type: Exit
+  Label: To the woods!
+Requirements: 

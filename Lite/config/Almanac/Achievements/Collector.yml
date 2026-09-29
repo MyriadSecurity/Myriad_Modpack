@@ -1,0 +1,7 @@
+UniqueID: Materials.001
+Name: Collector
+Lore: To know every stone, root, and ore is to know the very bones of the world.
+Icon: gem
+TokenReward: 100
+Requirement:
+  Type: Materials

@@ -1,0 +1,8 @@
+UniqueID: DistanceRan.001
+Name: Fleetfoot
+Lore: Swift of foot, you outrun foes and chase your destiny across the land.
+Icon: map
+TokenReward: 10
+Requirement:
+  Type: DistanceRan
+  Threshold: 5000

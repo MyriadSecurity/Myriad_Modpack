@@ -1,0 +1,143 @@
+#################################################
+# Star Level System Expanded - Creature loot configuration
+#
+# Custom drop tables for creatures and world objects, with level-aware scaling
+# that replaces vanilla's doubling-per-star. Server authoritative; edits apply
+# live. How amounts grow with level is picked by LootDropCalculationType in the
+# main .cfg: PerLevel (linear), Exponential, or ChancePerLevel (linear amounts,
+# and drop chances that grow with level).
+#
+# The console command sls-loot-dump writes the fully resolved loot tables for
+# this world out as a reference.
+#
+# --- CharacterSpecificLoot ---
+# Keyed by creature prefab name. An entry REPLACES that creature's vanilla
+# drops entirely - list everything it should drop. Creatures without an entry
+# keep their vanilla drops (still level-scaled by the setting above).
+#
+#   CharacterSpecificLoot:
+#     BlobElite:
+#     - Drop:
+#         Prefab: Ooze                # item or creature prefab to drop
+#         Min: 2                      # base amount range at 0 stars
+#         Max: 3
+#         Chance: 1                   # 0-1 chance for this drop line
+#       AmountScaleFactor: 0.5        # how strongly the amount scales per level
+#     - Drop:
+#         Prefab: TrophyBlob
+#         Chance: 0.1
+#       ChanceScaleFactor: 0.01       # chance grows with level instead of amount
+#       MaxScaledAmount: 1            # hard cap on the scaled amount
+#
+# Other per-drop options:
+#   DoesNotScale: true                # drop the base range at every level
+#   Drop.DontScale: true              # same, expressed on the inner drop
+#   ScalebyMaxLevel: true             # amount interpolates Min->Max across the
+#                                     # configured MaxLevel instead of per-level
+#   UseChanceAsMultiplier: true       # use the chance value as the level scale
+#   UntamedOnlyDrop / TamedOnlyDrop: true
+#   Drop.OnePerPlayer: true           # one copy per nearby player
+#
+# --- NonCharacterSpecificLoot ---
+# The same idea for trees, rocks, destructibles and pickables, keyed by prefab
+# name (e.g. Pickable_Turnip, MineRock_Tin). Uses the same Drop block plus
+# AmountScaleFactor / ChanceScaleFactor / MaxScaledAmount.
+#
+# --- Distance scaling ---
+# Optional extra loot the further from the world center the drop happens.
+# ChanceScaleFactorBonus additionally raises sub-100% drop chances with distance:
+#
+#   EnableDistanceLootModifier: true
+#   DistanceLootModifier:
+#     2000: { MinAmountScaleFactorBonus: 0.1, MaxAmountScaleFactorBonus: 0.2 }
+#     5000: { ChanceScaleFactorBonus: 0.05 }
+#################################################
+CharacterSpecificLoot:
+  Abomination:
+  - Drop:
+      Prefab: Root
+      Min: 5
+      Max: 5
+  - Drop:
+      Prefab: Guck
+      Min: 3
+      Max: 5
+  - Drop:
+      Prefab: TrophyAbomination
+      Chance: 0.5
+    DoesNotScale: true
+  BlobElite:
+  - Drop:
+      Prefab: Ooze
+      Min: 2
+      Max: 3
+    AmountScaleFactor: 0.5
+  - Drop:
+      Prefab: IronScrap
+      Chance: 0.33
+    AmountScaleFactor: 0.2
+  - Drop:
+      Prefab: TrophyBlob
+      Chance: 0.1
+    ChanceScaleFactor: 0.01
+    MaxScaledAmount: 1
+  - Drop:
+      Prefab: Blob
+      Min: 2
+      Max: 2
+    AmountScaleFactor: 0.5
+    MaxScaledAmount: 6
+  GoblinBruteBros:
+  - Drop:
+      Prefab: GoblinShaman_Hildir
+      DontScale: true
+    DoesNotScale: true
+  - Drop:
+      Prefab: TrophyGoblinBruteBrosBrute
+      DontScale: true
+    DoesNotScale: true
+  Tick:
+  - Drop:
+      Prefab: GiantBloodSack
+    AmountScaleFactor: 0.5
+  - Drop:
+      Prefab: TrophyTick
+      Chance: 0.05
+    ChanceScaleFactor: 0.01
+    MaxScaledAmount: 1
+NonCharacterSpecificLoot:
+  caverock_ice_stalagtite_falling:
+  - Drop:
+      Prefab: Crystal
+      Max: 3
+      Chance: 0.3
+      DontScale: true
+  EvilHeart_Forest:
+  - Drop:
+      Prefab: AncientSeed
+      OnePerPlayer: true
+    MaxScaledAmount: 3
+EnableDistanceLootModifier: true
+DistanceLootModifier:
+  1250:
+    MinAmountScaleFactorBonus: 0.02
+    MaxAmountScaleFactorBonus: 0.02
+  2500:
+    MinAmountScaleFactorBonus: 0.05
+    MaxAmountScaleFactorBonus: 0.05
+  3750:
+    MinAmountScaleFactorBonus: 0.08
+    MaxAmountScaleFactorBonus: 0.08
+  5000:
+    MinAmountScaleFactorBonus: 0.12
+    MaxAmountScaleFactorBonus: 0.12
+  6250:
+    MinAmountScaleFactorBonus: 0.15
+    MaxAmountScaleFactorBonus: 0.15
+  7500:
+    MinAmountScaleFactorBonus: 0.2
+    MaxAmountScaleFactorBonus: 0.2
+  8750:
+    MinAmountScaleFactorBonus: 0.35
+    MaxAmountScaleFactorBonus: 0.35
+

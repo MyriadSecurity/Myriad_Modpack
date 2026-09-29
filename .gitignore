@@ -1,3 +1,8 @@
+# Build artifacts (rebuild locally / GitHub Releases)
+Releases/*
+!Releases/.gitkeep
+*.zip
+
 # Local / generated
 .DS_Store
 Thumbs.db
@@ -7,6 +12,8 @@ Thumbs.db
 export.r2x
 export_mods_only.r2x
 export_mods_only.r2z
+**/export_mods_only.r2x
+**/export_mods_only.r2z
 *.r2z
 
 # Editor
@@ -31,10 +38,15 @@ top5_amazing_nature_modpacks_dependencies.csv
 top5_amazing_nature_modpacks_summary.csv
 
 # Runtime / cache never ship
-config/wackysDatabase/Cache/
-config/**/Cache/
+**/config/**/Cache/
+**/config/**/*.log
+**/config/**/*_player_*.dat
+Lite/config/Seasonality/
+Lite/config/LivingMap/
+Myriad/config/wackysDatabase/Cache/
 
 # MyriadJewels build
-src/MyriadJewels/bin/
-src/MyriadJewels/obj/
+MyriadJewels/src/**/bin/
+MyriadJewels/src/**/obj/
 Directory.Build.props.user
+**/Directory.Build.props.user

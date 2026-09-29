@@ -1,0 +1,9 @@
+UniqueID: Mistlands.001
+Name: Mistlands I
+Lore: Venture into the fog-shrouded Mistlands and face the mysterious creatures within.
+Icon: TrophySeekerQueen
+TokenReward: 60
+Requirement:
+  Type: CreatureGroup
+  Group: Mistlands
+  Threshold: 5

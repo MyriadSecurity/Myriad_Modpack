@@ -1,0 +1,7 @@
+UniqueID: Bows.001
+Name: Bowmaster
+Lore: From distance you command the battlefield; every pull of the string is precision incarnate.
+Icon: Bow
+TokenReward: 50
+Requirement:
+  Type: Bows

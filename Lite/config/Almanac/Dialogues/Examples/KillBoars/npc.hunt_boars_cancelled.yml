@@ -1,0 +1,6 @@
+UniqueID: npc.hunt_boars_cancelled
+Text: Your compassion is admirable, even if it complicates practical matters. Perhaps another solution will present itself in time.
+Action:
+  Type: Exit
+  Label: Thank you for understanding
+Requirements: 

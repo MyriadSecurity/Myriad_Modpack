@@ -1,0 +1,7 @@
+UniqueID: npc.farm_carrots_reward
+Text: Your dedication to the agricultural arts deserves proper recognition. This bronze axe will serve you well in clearing land for future farming endeavors.
+Action:
+  Type: Give
+  Label: Accept Tool
+  Parameters: AxeBronze, 1, 2, 0
+Requirements: 

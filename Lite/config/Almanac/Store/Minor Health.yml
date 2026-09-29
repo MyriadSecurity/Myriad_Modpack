@@ -1,0 +1,9 @@
+Name: Minor Health
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 3
+Icon: mushroom
+StatusEffect:
+  ID: CE_MinorHealth
+Lore: Increases health

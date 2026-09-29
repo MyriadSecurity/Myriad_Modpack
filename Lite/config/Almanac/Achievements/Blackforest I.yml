@@ -1,0 +1,9 @@
+UniqueID: Blackforest.001
+Name: Blackforest I
+Lore: Venture into the shadows of the Black Forest and defeat its fearsome creatures to earn your renown.
+Icon: TrophyTheElder
+TokenReward: 20
+Requirement:
+  Type: CreatureGroup
+  Group: BlackForest
+  Threshold: 5

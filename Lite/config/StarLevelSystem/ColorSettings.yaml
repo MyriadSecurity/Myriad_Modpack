@@ -1,0 +1,2436 @@
+#################################################
+# Star Level System Expanded - Creature Level Color Settings
+#
+# Tints creatures by their star count so higher-star creatures are readable at
+# a glance. Needs EnableColorization in the main .cfg. Server authoritative;
+# edits apply live.
+#
+# Every table here is keyed by STAR COUNT: entry 1 is a 1-star creature
+# (level 2), entry 2 is 2 stars, and so on. A star with no entry keeps the
+# creature's normal look.
+#
+# A color entry is a set of SHIFTS applied to the creature's material, each
+# ranging -1 to 1 with 0 meaning unchanged:
+#   Hue:        rotates the color (-1/1 = full wrap, small values shift tone)
+#   Saturation: negative washes color out, positive deepens it
+#   Value:      negative darkens, positive brightens
+#   IsEmissive: true adds a glow of the resulting color
+#
+# --- DefaultLevelColorization ---
+# The fallback tint per star for every creature without its own entry:
+#
+#   DefaultLevelColorization:
+#     1: { Hue: 0,     Saturation: 0,    Value: -0.05 }
+#     2: { Hue: 0.05,  Saturation: 0.1,  Value: -0.1 }
+#     3: { Hue: -0.2,  Saturation: 0.2,  Value: -0.1, IsEmissive: true }
+#
+# --- CharacterSpecificColorization ---
+# Per-prefab tints that beat the defaults. Prefab names must match exactly.
+#
+#   CharacterSpecificColorization:
+#     Boar:
+#       1: { Hue: 0,    Saturation: 0, Value: -0.05 }
+#       2: { Hue: 0.1,  Saturation: 0, Value: -0.05 }
+#
+# --- CharacterColorGenerators ---
+# Builds a per-star ramp automatically by blending between two colors across a
+# star range, so long star spreads do not need hand-written entries:
+#
+#   CharacterColorGenerators:
+#     Greydwarf:
+#     - RangeStart: 1
+#       RangeEnd: 15
+#       StartColorDef: { Hue: 0,    Saturation: 0,   Value: 0 }
+#       EndColorDef:   { Hue: -0.8, Saturation: 0.3, Value: -0.1 }
+#       CharacterSpecific: true     # write into this creature's own table
+#       OverwriteExisting: false    # keep any hand-written entries in the range
+#
+# A partial file is fine: any star the file does not define falls back to the
+# built-in defaults, and a file that fails to parse reverts to them entirely.
+#################################################
+CharacterSpecificColorization:
+  Deer:
+    1:
+      Hue: 0.05
+      Saturation: -0.1
+    2:
+      Hue: 0.09
+      Saturation: -0.5
+      Value: -0.05
+    3:
+      Value: -0.07
+    4:
+      Hue: 0.09
+      Value: -0.09
+    5:
+      Hue: -0.11
+      Value: -0.11
+    6:
+      Saturation: 0.5
+      Value: -0.15
+    7:
+      Saturation: 0.5
+    8:
+      Saturation: 0.5
+      Value: -0.08
+    9:
+      Saturation: -0.3
+    10:
+      Saturation: -0.5
+  Boar:
+    1:
+      Value: -0.05
+    2:
+      Value: -0.07
+    3:
+      Value: -0.09
+    4:
+      Hue: 0.1
+      Value: -0.05
+    5:
+      Hue: 0.15
+      Value: -0.05
+    6:
+      Hue: 0.05
+      Value: 0.05
+    7:
+      Hue: -0.05
+      Saturation: 0.1
+      Value: 0.05
+    8:
+      Hue: -0.1
+      Saturation: 0.1
+      Value: -0.05
+    9:
+      Saturation: -0.1
+      Value: 0.02
+    10:
+      Saturation: -0.05
+      Value: -0.1
+  Neck:
+    1:
+      Value: -0.07
+    2:
+      Hue: 0.05
+      Value: -0.1
+    3:
+      Hue: -0.1
+      Value: -0.05
+    4:
+      Hue: -0.2
+      Value: -0.1
+    5:
+      Hue: -0.4
+      Value: -0.1
+    6:
+      Hue: 0.4
+      Value: -0.05
+    7:
+      Hue: 0.25
+      Value: -0.05
+    8:
+      Hue: 0.35
+      Value: -0.1
+    9:
+      Hue: 0.1
+      Value: -0.15
+    10:
+      Hue: 0.1
+      Value: -0.2
+  Greyling:
+    1:
+      Hue: -0.06
+      Saturation: 0.1
+      Value: 0.05
+    2:
+      Saturation: 0.2
+      Value: -0.01
+    3:
+      Hue: -0.1
+      Saturation: 0.2
+      Value: -0.01
+    4:
+      Hue: -0.2
+      Saturation: 0.2
+      Value: -0.01
+    5:
+      Hue: -0.4
+      Value: -0.01
+    6:
+      Hue: -0.5
+      Value: -0.01
+    7:
+      Hue: -0.7
+      Value: -0.01
+    8:
+      Hue: -0.8
+      Value: -0.01
+    9:
+      Hue: -1
+      Value: -0.01
+    10:
+      Hue: -1
+      Saturation: 0.2
+      Value: -0.07
+  Eikthyr:
+    1:
+      Hue: -0.1
+    2:
+      Hue: -0.5
+    3:
+      Hue: -0.2
+      Value: -0.1
+    4:
+      Hue: 0.1
+    5:
+      Hue: 0.1
+      Value: -0.1
+    6:
+      Hue: 0.8
+      Value: -0.01
+    7:
+      Hue: 0.5
+      Value: -0.05
+    8:
+      Hue: -0.75
+      Value: -0.15
+    9:
+      Hue: 0.15
+      Value: 0.05
+    10:
+      Hue: 0.2
+      Value: 0.5
+  Greydwarf:
+    1:
+      Hue: -0.06
+      Saturation: 0.1
+      Value: 0.05
+    2:
+      Saturation: 0.2
+      Value: -0.01
+    3:
+      Hue: -0.1
+      Saturation: 0.2
+      Value: -0.01
+    4:
+      Hue: -0.2
+      Saturation: 0.2
+      Value: -0.01
+    5:
+      Hue: -0.4
+      Value: -0.01
+    6:
+      Hue: -0.5
+      Value: -0.01
+    7:
+      Hue: -0.7
+      Value: -0.01
+    8:
+      Hue: -0.8
+      Value: -0.01
+    9:
+      Hue: -1
+      Value: -0.01
+    10:
+      Hue: -1
+      Saturation: 0.2
+      Value: -0.07
+  Greydwarf_Shaman:
+    1:
+      Hue: 0.1
+    2:
+      Hue: 0.3
+    3:
+      Hue: -0.2
+      Value: -0.01
+    4:
+      Hue: -0.4
+      Value: -0.01
+    5:
+      Hue: -0.5
+      Value: -0.01
+    6:
+      Hue: 0.3
+      Value: -0.01
+    7:
+      Hue: -0.8
+      Value: -0.01
+    8:
+      Hue: -0.8
+      Value: -0.01
+    9:
+      Hue: -1
+      Value: -0.01
+    10:
+      Hue: -1
+      Saturation: 0.2
+      Value: -0.07
+  Greydwarf_Elite:
+    1:
+      Hue: -0.046
+    2:
+      Hue: -0.108
+    3:
+      Hue: -0.2
+      Value: -0.01
+    4:
+      Hue: -0.4
+      Value: -0.01
+    5:
+      Hue: -0.5
+      Value: -0.01
+    6:
+      Hue: 0.3
+      Value: -0.01
+    7:
+      Hue: -0.8
+      Value: -0.01
+    8:
+      Hue: -0.8
+      Value: -0.01
+    9:
+      Hue: -1
+      Value: -0.01
+    10:
+      Hue: -1
+      Saturation: 0.2
+      Value: -0.07
+  Skeleton:
+    1:
+      Hue: -0.03
+      Saturation: 0.3
+    2:
+      Hue: -0.1
+      Saturation: 0.3
+      Value: -0.1
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.8
+      Saturation: 0.3
+      Value: -0.2
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Skeleton_NoArcher:
+    1:
+      Hue: -0.03
+      Saturation: 0.3
+    2:
+      Hue: -0.1
+      Saturation: 0.3
+      Value: -0.1
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.8
+      Saturation: 0.3
+      Value: -0.2
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Skeleton_Poison:
+    1:
+      Hue: 0.16
+    2:
+      Hue: -0.2
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.8
+      Saturation: 0.3
+      Value: -0.2
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Troll:
+    1:
+      Hue: -0.1
+      Saturation: 0.1
+    2:
+      Hue: -0.12
+      Saturation: 0.2
+    3:
+      Hue: -0.15
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: -0.2
+      Saturation: 0.3
+      Value: -0.05
+    5:
+      Hue: 0.4
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.45
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.5
+      Saturation: 0.3
+    8:
+      Hue: 0.85
+      Saturation: 0.3
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+    10:
+      Hue: 1
+      Saturation: 0.5
+  Bjorn:
+    1:
+      Saturation: 0.1
+    2:
+      Saturation: 0.3
+    3:
+      Hue: 5
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.12
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.18
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.2
+      Saturation: 0.3
+      Value: -0.12
+    7:
+      Hue: -0.08
+      Saturation: 0.3
+      Value: -0.1
+    8:
+      Hue: 0.05
+      Saturation: 0.3
+      Value: -0.12
+    9:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    10:
+      Hue: 1
+      Saturation: 0.5
+      Value: -0.05
+  Serpent:
+    1:
+      Hue: -0.05
+      Value: -0.01
+    2:
+      Hue: -0.1
+      Value: -0.01
+    3:
+      Hue: -0.2
+      Value: -0.01
+    4:
+      Hue: -0.4
+      Value: -0.01
+    5:
+      Hue: -0.5
+      Value: -0.01
+    6:
+      Hue: 0.3
+      Value: -0.01
+    7:
+      Hue: -0.8
+      Value: -0.01
+    8:
+      Hue: -0.8
+      Value: -0.01
+    9:
+      Hue: -1
+      Value: -0.01
+    10:
+      Hue: -1
+      Saturation: 0.2
+      Value: -0.07
+  Skeleton_Hildir:
+    1:
+      Hue: 0.16
+    2:
+      Hue: -0.2
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.8
+      Saturation: 0.3
+      Value: -0.2
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Skeleton_Hildir_nochest:
+    1:
+      Hue: 0.16
+    2:
+      Hue: -0.2
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.8
+      Saturation: 0.3
+      Value: -0.2
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  gd_king:
+    1:
+      Hue: -0.12
+    2:
+      Hue: -0.22
+      Value: -0.1
+    3:
+      Hue: -0.33
+      Value: -0.1
+    4:
+      Hue: -0.44
+      Saturation: 0.3
+    5:
+      Hue: -0.55
+      Saturation: 0.3
+      Value: 0.05
+    6:
+      Hue: -0.66
+      Value: 0.07
+    7:
+      Hue: -0.66
+      Saturation: -0.15
+      Value: 0.1
+    8:
+      Hue: -0.66
+      Saturation: -0.45
+      Value: 0.1
+    9:
+      Hue: -0.88
+      Value: 0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Draugr:
+    1:
+      Hue: 0.27
+    2:
+      Hue: -0.25
+      Saturation: 0.04
+    3:
+      Hue: 0.32
+      Saturation: 0.3
+      Value: 0.01
+    4:
+      Hue: 0.1
+      Saturation: 0.5
+      Value: 0.01
+    5:
+      Hue: -0.2
+      Saturation: -0.2
+      Value: 0.01
+    6:
+      Hue: -0.4
+      Saturation: -0.2
+      Value: 0.01
+    7:
+      Hue: -0.6
+      Saturation: -0.2
+      Value: 0.01
+    8:
+      Hue: -0.9
+      Saturation: -0.2
+      Value: 0.01
+    9:
+      Hue: 1
+      Saturation: 0.2
+      Value: 0.01
+    10:
+      Hue: 0.9
+      Saturation: 0.5
+      Value: 0.01
+  Draugr_Ranged:
+    1:
+      Hue: 0.27
+    2:
+      Hue: -0.25
+      Saturation: 0.04
+    3:
+      Hue: 0.32
+      Saturation: 0.3
+      Value: 0.01
+    4:
+      Hue: 0.1
+      Saturation: 0.5
+      Value: 0.01
+    5:
+      Hue: -0.2
+      Saturation: -0.2
+      Value: 0.01
+    6:
+      Hue: -0.4
+      Saturation: -0.2
+      Value: 0.01
+    7:
+      Hue: -0.6
+      Saturation: -0.2
+      Value: 0.01
+    8:
+      Hue: -0.9
+      Saturation: -0.2
+      Value: 0.01
+    9:
+      Hue: 1
+      Saturation: 0.2
+      Value: 0.01
+    10:
+      Hue: 0.9
+      Saturation: 0.5
+      Value: 0.01
+  Draugr_Elite:
+    1:
+      Hue: -0.1
+    2:
+      Hue: -0.2
+    3:
+      Hue: 0.32
+      Saturation: 0.3
+      Value: 0.01
+    4:
+      Hue: 0.1
+      Saturation: 0.5
+      Value: 0.01
+    5:
+      Hue: -0.2
+      Saturation: -0.2
+      Value: 0.01
+    6:
+      Hue: -0.4
+      Saturation: -0.2
+      Value: 0.01
+    7:
+      Hue: -0.6
+      Saturation: -0.2
+      Value: 0.01
+    8:
+      Hue: -0.9
+      Saturation: -0.2
+      Value: 0.01
+    9:
+      Hue: 1
+      Saturation: 0.2
+      Value: 0.01
+    10:
+      Hue: 0.9
+      Saturation: 0.5
+      Value: 0.01
+  Abomination:
+    1:
+      Hue: -0.1
+    2:
+      Hue: -0.2
+    3:
+      Hue: 0.32
+      Saturation: 0.3
+      Value: 0.01
+    4:
+      Hue: 0.1
+      Saturation: 0.5
+      Value: 0.01
+    5:
+      Hue: -0.2
+      Saturation: -0.2
+      Value: 0.01
+    6:
+      Hue: -0.4
+      Saturation: -0.2
+      Value: 0.01
+    7:
+      Hue: -0.6
+      Saturation: -0.2
+      Value: 0.01
+    8:
+      Hue: -0.9
+      Saturation: -0.2
+      Value: 0.01
+    9:
+      Hue: 1
+      Saturation: 0.2
+      Value: 0.01
+    10:
+      Hue: 0.9
+      Saturation: 0.5
+      Value: 0.01
+  Surtling:
+    1:
+      Hue: 0.16
+    2:
+      Hue: -0.5
+      Saturation: 0.5
+      Value: -1
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -2
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -3
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -4
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -5
+    7:
+      Hue: 1
+      Saturation: 0.5
+      Value: -5
+    8:
+      Hue: -0.8
+      Saturation: 0.5
+      Value: -5
+    9:
+      Hue: 0.9
+      Saturation: 0.8
+      Value: -5
+    10:
+      Hue: -1
+      Saturation: 1
+      Value: -5
+  Leech:
+    1:
+      Hue: 0.23
+      Saturation: 0.26
+      Value: 0.04
+    2:
+      Hue: -0.139
+      Saturation: 0.47
+      Value: 0.06
+    3:
+      Hue: 0.32
+      Saturation: 0.3
+      Value: 0.01
+    4:
+      Hue: 0.1
+      Saturation: 0.5
+      Value: 0.01
+    5:
+      Hue: -0.2
+      Saturation: -0.2
+      Value: 0.01
+    6:
+      Hue: -0.4
+      Saturation: -0.2
+      Value: 0.01
+    7:
+      Hue: -0.6
+      Saturation: -0.2
+      Value: 0.01
+    8:
+      Hue: -0.9
+      Saturation: -0.2
+      Value: 0.01
+    9:
+      Hue: 1
+      Saturation: 0.2
+      Value: 0.01
+    10:
+      Hue: 0.9
+      Saturation: 0.5
+      Value: 0.01
+  Blob:
+    1:
+      Hue: 0.23
+      Saturation: 0.26
+      Value: 0.04
+    2:
+      Hue: -0.139
+      Saturation: 0.47
+      Value: 0.06
+  BlobElite:
+    1:
+      Hue: 0.23
+      Saturation: 0.26
+      Value: 0.04
+    2:
+      Hue: -0.139
+      Saturation: 0.47
+      Value: 0.06
+  Bonemass:
+    1: {}
+    2: {}
+  Wolf:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Hue: -0.1
+      Saturation: 0.2
+      Value: -0.05
+    3:
+      Hue: -0.4
+      Saturation: 0.2
+      Value: -0.1
+    4:
+      Hue: 0.2
+      Saturation: 0.1
+      Value: -0.1
+    5:
+      Hue: 0.4
+      Saturation: 0.2
+      Value: -0.1
+    6:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: -0.1
+    7:
+      Hue: 0.4
+      Saturation: 0.3
+      Value: -0.05
+    8:
+      Hue: 0.1
+      Saturation: -0.5
+      Value: -0.2
+    9:
+      Hue: -0.9
+      Saturation: 0.2
+      Value: -0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Ulv:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Hue: -0.1
+      Saturation: 0.2
+      Value: -0.05
+    3:
+      Hue: -0.4
+      Saturation: 0.2
+      Value: -0.1
+    4:
+      Hue: 0.2
+      Saturation: 0.1
+      Value: -0.1
+    5:
+      Hue: 0.4
+      Saturation: 0.2
+      Value: -0.1
+    6:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: -0.1
+    7:
+      Hue: 0.4
+      Saturation: 0.3
+      Value: -0.05
+    8:
+      Hue: 0.1
+      Saturation: -0.5
+      Value: -0.2
+    9:
+      Hue: -0.9
+      Saturation: 0.2
+      Value: -0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Fenring:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Hue: -0.1
+      Saturation: 0.2
+      Value: -0.05
+    3:
+      Hue: -0.4
+      Saturation: 0.2
+      Value: -0.1
+    4:
+      Hue: 0.2
+      Saturation: 0.1
+      Value: -0.1
+    5:
+      Hue: 0.4
+      Saturation: 0.2
+      Value: -0.1
+    6:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: -0.1
+    7:
+      Hue: 0.4
+      Saturation: 0.3
+      Value: -0.05
+    8:
+      Hue: 0.1
+      Saturation: -0.5
+      Value: -0.2
+    9:
+      Hue: -0.9
+      Saturation: 0.2
+      Value: -0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Fenring_Cultist:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Hue: -0.1
+      Saturation: 0.2
+      Value: -0.05
+    3:
+      Hue: 0.32
+      Saturation: 0.3
+      Value: 0.01
+    4:
+      Hue: 0.1
+      Saturation: 0.5
+      Value: 0.01
+    5:
+      Hue: -0.2
+      Saturation: -0.2
+      Value: 0.01
+    6:
+      Hue: -0.4
+      Saturation: -0.2
+      Value: 0.01
+    7:
+      Hue: -0.6
+      Saturation: -0.2
+      Value: 0.01
+    8:
+      Hue: -0.9
+      Saturation: -0.2
+      Value: 0.01
+    9:
+      Hue: 1
+      Saturation: 0.2
+      Value: 0.01
+    10:
+      Hue: 0.9
+      Saturation: 0.5
+      Value: 0.01
+  Hatchling:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Hue: -0.1
+      Saturation: 0.2
+      Value: -0.05
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.8
+      Saturation: 0.3
+      Value: -0.2
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  StoneGolem:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Hue: -0.1
+      Saturation: 0.2
+      Value: -0.05
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.8
+      Saturation: 0.3
+      Value: -0.2
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Dragon:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Hue: -0.1
+      Saturation: 0.2
+      Value: -0.05
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.8
+      Saturation: 0.3
+      Value: -0.2
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: 1
+      Saturation: 0.3
+      Value: 0.05
+  Deathsquito:
+    1:
+      Hue: -0.05
+    2:
+      Hue: -0.15
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.8
+      Saturation: 0.3
+      Value: -0.2
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Lox:
+    1:
+      Hue: -0.05
+    2:
+      Hue: -0.1
+    3:
+      Hue: -0.14
+    4:
+      Hue: -0.2
+    5:
+      Value: -0.1
+    6:
+      Hue: 0.07
+    7:
+      Hue: 0.14
+    8:
+      Hue: 0.18
+    9:
+      Hue: 0.35
+    10:
+      Saturation: -0.5
+  GoblinArcher:
+    1:
+      Hue: -0.05
+    2:
+      Hue: -0.08
+    3:
+      Hue: -0.12
+    4:
+      Hue: -0.15
+    5:
+      Hue: -0.18
+    6:
+      Hue: -0.2
+    7:
+      Hue: -0.22
+    8:
+      Hue: -0.24
+    9:
+      Hue: -0.26
+    10:
+      Hue: -0.28
+  Goblin:
+    1:
+      Hue: -0.05
+    2:
+      Hue: -0.08
+    3:
+      Hue: -0.12
+    4:
+      Hue: -0.15
+    5:
+      Hue: -0.18
+    6:
+      Hue: -0.2
+    7:
+      Hue: -0.22
+    8:
+      Hue: -0.24
+    9:
+      Hue: -0.26
+    10:
+      Hue: -0.28
+  GoblinBrute:
+    1:
+      Hue: -0.1
+      Saturation: -0.1
+    2:
+      Hue: -0.18
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: -0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.2
+      Saturation: 0.3
+      Value: -0.15
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  GoblinShaman:
+    1:
+      Hue: -0.1
+      Saturation: -0.1
+    2:
+      Hue: -0.18
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: -0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.2
+      Saturation: 0.3
+      Value: -0.15
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  GoblinBrute_Hildir:
+    1:
+      Hue: -0.1
+      Saturation: -0.1
+    2:
+      Hue: -0.18
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: -0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.2
+      Saturation: 0.3
+      Value: -0.15
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  GoblinBruteBros:
+    1:
+      Hue: -0.1
+      Saturation: -0.1
+    2:
+      Hue: -0.18
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: -0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.2
+      Saturation: 0.3
+      Value: -0.15
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  GoblinKing:
+    1: {}
+    2: {}
+  Hen:
+    1:
+      Hue: 0.05
+      Saturation: -0.1
+    2:
+      Hue: 0.09
+      Saturation: -0.5
+      Value: -0.05
+    3:
+      Hue: -0.14
+    4:
+      Hue: -0.2
+    5:
+      Value: -0.1
+    6:
+      Hue: 0.07
+    7:
+      Hue: 0.14
+    8:
+      Hue: 0.18
+    9:
+      Hue: 0.35
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Gjall:
+    1:
+      Hue: 0.201
+      Saturation: 0.29
+      Value: -0.42
+    2:
+      Hue: -0.103
+      Saturation: -0.08
+      Value: -0.42
+    3:
+      Hue: -0.14
+    4:
+      Hue: -0.2
+    5:
+      Value: -0.1
+    6:
+      Hue: 0.07
+    7:
+      Hue: 0.14
+    8:
+      Hue: 0.18
+    9:
+      Hue: 0.35
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Tick:
+    1:
+      Hue: -0.337
+      Saturation: -0.09
+      Value: -0.41
+    2:
+      Hue: -0.027
+      Saturation: 0.29
+      Value: -0.41
+    3:
+      Hue: -0.14
+    4:
+      Hue: -0.2
+    5:
+      Value: -0.1
+    6:
+      Hue: 0.07
+    7:
+      Hue: 0.14
+    8:
+      Hue: 0.18
+    9:
+      Hue: 0.35
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Seeker:
+    1:
+      Hue: -0.28
+      Saturation: -0.3
+      Value: -0.1
+    2:
+      Hue: -0.1
+      Saturation: 0.1
+      Value: -0.2
+    3:
+      Hue: -0.14
+    4:
+      Hue: -0.2
+    5:
+      Value: -0.1
+    6:
+      Hue: 0.07
+    7:
+      Hue: 0.14
+    8:
+      Hue: 0.18
+    9:
+      Hue: 0.35
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  SeekerBrute:
+    1:
+      Hue: 0.5
+      Saturation: 0.05
+      Value: -0.08
+    2:
+      Hue: -0.351
+      Saturation: -0.04
+      Value: -0.1
+    3:
+      Hue: -0.14
+    4:
+      Hue: -0.2
+    5:
+      Value: -0.1
+    6:
+      Hue: 0.07
+    7:
+      Hue: 0.14
+    8:
+      Hue: 0.18
+    9:
+      Hue: 0.35
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  DvergerMageIce:
+    1:
+      Hue: 0.1
+      Saturation: 0.2
+    2:
+      Saturation: -1
+    3:
+      Hue: -0.14
+    4:
+      Hue: -0.2
+    5:
+      Value: -0.1
+    6:
+      Hue: 0.07
+    7:
+      Hue: 0.14
+    8:
+      Hue: 0.18
+    9:
+      Hue: 0.35
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  DvergerMageSupport:
+    1:
+      Hue: 0.1
+      Saturation: 0.2
+    2:
+      Saturation: -1
+    3:
+      Hue: -0.14
+    4:
+      Hue: -0.2
+    5:
+      Value: -0.1
+    6:
+      Hue: 0.07
+    7:
+      Hue: 0.14
+    8:
+      Hue: 0.18
+    9:
+      Hue: 0.35
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  DvergerMageFire:
+    1:
+      Hue: 0.1
+      Saturation: 0.2
+    2:
+      Saturation: -1
+    3:
+      Hue: -0.14
+    4:
+      Hue: -0.2
+    5:
+      Value: -0.1
+    6:
+      Hue: 0.07
+    7:
+      Hue: 0.14
+    8:
+      Hue: 0.18
+    9:
+      Hue: 0.35
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  DvergerMage:
+    1:
+      Hue: 0.1
+      Saturation: 0.2
+    2:
+      Saturation: -1
+    3:
+      Hue: -0.14
+    4:
+      Hue: -0.2
+    5:
+      Value: -0.1
+    6:
+      Hue: 0.07
+    7:
+      Hue: 0.14
+    8:
+      Hue: 0.18
+    9:
+      Hue: 0.35
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Dverger:
+    1:
+      Hue: 0.1
+      Saturation: 0.2
+    2:
+      Saturation: -1
+    3:
+      Hue: -0.14
+    4:
+      Hue: -0.2
+    5:
+      Value: -0.1
+    6:
+      Hue: 0.07
+    7:
+      Hue: 0.14
+    8:
+      Hue: 0.18
+    9:
+      Hue: 0.35
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  Skeleton_Friendly:
+    1:
+      Hue: -0.03
+      Saturation: 0.3
+    2:
+      Hue: -0.1
+      Saturation: 0.3
+      Value: -0.1
+    3:
+      Hue: -0.15
+      Saturation: 0.3
+      Value: -0.151
+    4:
+      Hue: -0.1
+      Saturation: 0.3
+      Value: -0.18
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.8
+      Saturation: 0.3
+      Value: -0.2
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  SeekerQueen:
+    1:
+      Hue: -0.03
+      Saturation: 0.3
+    2:
+      Hue: -0.1
+      Saturation: 0.3
+      Value: -0.1
+    3:
+      Hue: -0.15
+      Saturation: 0.3
+      Value: -0.151
+    4:
+      Hue: -0.1
+      Saturation: 0.3
+      Value: -0.18
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.2
+    8:
+      Hue: -0.8
+      Saturation: 0.3
+      Value: -0.2
+    9:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.2
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  BonemawSerpent:
+    1:
+      Hue: -0.05
+      Value: -0.01
+    2:
+      Hue: -0.1
+      Value: -0.01
+    3:
+      Hue: -0.2
+      Value: -0.01
+    4:
+      Hue: -0.4
+      Value: -0.01
+    5:
+      Hue: -0.5
+      Value: -0.01
+    6:
+      Hue: 0.3
+      Value: -0.01
+    7:
+      Hue: -0.8
+      Value: -0.01
+    8:
+      Hue: -0.8
+      Value: -0.01
+    9:
+      Hue: -1
+      Value: -0.01
+    10:
+      Hue: -1
+      Saturation: 0.2
+      Value: -0.07
+  Asksvin:
+    1:
+      Hue: -0.477
+      Saturation: -1
+      Value: 0.02
+    2:
+      Hue: 0.5
+      Saturation: -0.08
+      Value: 0.08
+    3:
+      Hue: -0.2
+      Value: -0.01
+    4:
+      Hue: -0.4
+      Value: -0.01
+    5:
+      Hue: -0.5
+      Value: -0.01
+    6:
+      Hue: 0.3
+      Value: -0.01
+    7:
+      Hue: -0.8
+      Value: -0.01
+    8:
+      Hue: -0.8
+      Value: -0.01
+    9:
+      Hue: -1
+      Value: -0.01
+    10:
+      Hue: -1
+      Saturation: 0.2
+      Value: -0.07
+  Asksvin_hatchling:
+    1:
+      Hue: -0.477
+      Saturation: -1
+      Value: 0.02
+    2:
+      Hue: 0.5
+      Saturation: -0.08
+      Value: 0.08
+    3:
+      Hue: -0.2
+      Saturation: 0.2
+      Value: -0.01
+    4:
+      Hue: -0.4
+      Saturation: 0.4
+      Value: -0.01
+    5:
+      Hue: -0.5
+      Saturation: 0.6
+      Value: -0.01
+    6:
+      Hue: 0.3
+      Saturation: 0.8
+      Value: -0.01
+    7:
+      Hue: -0.8
+      Saturation: -0.1
+      Value: -0.01
+    8:
+      Hue: -0.8
+      Saturation: -0.3
+      Value: -0.01
+    9:
+      Hue: -1
+      Saturation: -0.4
+      Value: -0.01
+    10:
+      Hue: -1
+      Saturation: -0.8
+      Value: -0.07
+  Volture:
+    1:
+      Hue: -0.477
+      Saturation: -1
+      Value: 0.02
+    2:
+      Hue: 0.5
+      Saturation: -0.08
+      Value: 0.08
+    3:
+      Hue: -0.2
+      Value: -0.01
+    4:
+      Hue: -0.4
+      Value: -0.01
+    5:
+      Hue: -0.5
+      Value: -0.01
+    6:
+      Hue: 0.3
+      Value: -0.01
+    7:
+      Hue: -0.8
+      Value: -0.01
+    8:
+      Hue: -0.8
+      Value: -0.01
+    9:
+      Hue: -1
+      Value: -0.01
+    10:
+      Hue: -1
+      Saturation: 0.2
+      Value: -0.07
+  FallenValkyrie:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.5
+      Saturation: 0.2
+      Value: 0.1
+    8:
+      Hue: 0.6
+      Saturation: 0.3
+    9:
+      Hue: 0.3
+      Saturation: 0.3
+      Value: -0.1
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Charred_Melee:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: 0.25
+    8:
+      Hue: 0.6
+      Saturation: 0.5
+      Value: 0.25
+    9:
+      Hue: 0.45
+      Saturation: 0.5
+      Value: 0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Charred_Twitcher:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: 0.25
+    8:
+      Hue: 0.6
+      Saturation: 0.5
+      Value: 0.25
+    9:
+      Hue: 0.45
+      Saturation: 0.5
+      Value: 0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Charred_Archer:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: 0.25
+    8:
+      Hue: 0.6
+      Saturation: 0.5
+      Value: 0.25
+    9:
+      Hue: 0.45
+      Saturation: 0.5
+      Value: 0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Charred_Mage:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: 0.25
+    8:
+      Hue: 0.6
+      Saturation: 0.5
+      Value: 0.25
+    9:
+      Hue: 0.45
+      Saturation: 0.5
+      Value: 0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  DvergerAshlands:
+    1:
+      Hue: 0.1
+      Saturation: 0.2
+    2:
+      Saturation: -1
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: 0.25
+    8:
+      Hue: 0.6
+      Saturation: 0.5
+      Value: 0.25
+    9:
+      Hue: 0.45
+      Saturation: 0.5
+      Value: 0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Morgen:
+    1:
+      Hue: -0.03
+      Saturation: 0.3
+    2:
+      Hue: -0.1
+      Saturation: 0.3
+      Value: -0.1
+    3:
+      Hue: -0.12
+      Saturation: 0.3
+      Value: -0.1
+    4:
+      Hue: 0.01
+      Saturation: 0.3
+      Value: -0.1
+    5:
+      Hue: 0.1
+      Saturation: 0.3
+      Value: -0.1
+    6:
+      Hue: 0.15
+      Saturation: 0.3
+      Value: -0.1
+    7:
+      Hue: 0.1
+      Saturation: 0.5
+      Value: -0.1
+    8:
+      Hue: 0.05
+      Saturation: 0.5
+      Value: -0.1
+    9:
+      Hue: 0.1
+      Saturation: 0.1
+      Value: -0.09
+    10:
+      Hue: -1
+      Saturation: 0.4
+      Value: -0.25
+  BlobLava:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: 0.25
+    8:
+      Hue: 0.6
+      Saturation: 0.5
+      Value: 0.25
+    9:
+      Hue: 0.45
+      Saturation: 0.5
+      Value: 0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Troll_Summoned:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: 0.25
+    8:
+      Hue: 0.6
+      Saturation: 0.5
+      Value: 0.25
+    9:
+      Hue: 0.45
+      Saturation: 0.5
+      Value: 0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Charred_Twitcher_Summoned:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: 0.25
+    8:
+      Hue: 0.6
+      Saturation: 0.5
+      Value: 0.25
+    9:
+      Hue: 0.45
+      Saturation: 0.5
+      Value: 0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Charred_Melee_Dyrnwyn:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.6
+      Saturation: 0.2
+      Value: 0.25
+    8:
+      Hue: 0.6
+      Saturation: 0.5
+      Value: 0.25
+    9:
+      Hue: 0.45
+      Saturation: 0.5
+      Value: 0.3
+    10:
+      Hue: 0.9
+      Saturation: 0.3
+      Value: -0.4
+  Charred_Melee_Fader:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.05
+      Saturation: 0.2
+      Value: 0.2
+    8:
+      Saturation: 0.5
+      Value: 0.25
+    9:
+      Saturation: 0.5
+      Value: 0.2
+    10:
+      Hue: 0.45
+      Saturation: 0.3
+      Value: -0.4
+  Charred_Archer_Fader:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: 0.25
+    6:
+      Saturation: 0.2
+      Value: 0.25
+    7:
+      Hue: 0.05
+      Saturation: 0.2
+      Value: 0.2
+    8:
+      Saturation: 0.5
+      Value: 0.25
+    9:
+      Saturation: 0.5
+      Value: 0.2
+    10:
+      Hue: 0.45
+      Saturation: 0.3
+      Value: -0.4
+  Fader:
+    1:
+      Saturation: 0.1
+      Value: -0.03
+    2:
+      Saturation: -0.1
+      Value: 0.05
+    3:
+      Saturation: -0.1
+      Value: 0.1
+    4:
+      Saturation: -0.1
+      Value: 0.15
+    5:
+      Saturation: -0.1
+      Value: -0.25
+    6:
+      Saturation: 0.2
+      Value: -0.25
+    7:
+      Hue: 0.05
+      Saturation: 0.2
+      Value: -0.2
+    8:
+      Saturation: 0.3
+      Value: -0.25
+    9:
+      Saturation: 0.4
+      Value: -0.2
+    10:
+      Hue: 0.45
+      Saturation: 0.1
+      Value: -0.4
+DefaultLevelColorization:
+  1:
+    Hue: 0.07130837
+    Saturation: 0.2
+    Value: 0.130073
+  2:
+    Hue: -0.07488244
+    Saturation: 0.4406867
+    Value: 0.01721987
+  3:
+    Hue: -0.04446793
+    Saturation: 0.05205864
+    Value: -0.191282
+  4:
+    Hue: 0.08774569
+    Saturation: -0.3959962
+    Value: 0.224104
+  5:
+    Hue: -0.05712423
+    Saturation: 0.09905273
+    Value: -0.1369882
+  6:
+    Hue: 0.08566696
+    Saturation: -0.3398137
+    Value: -0.2270744
+  7:
+    Hue: 0.03924248
+    Saturation: -0.04047304
+    Value: -0.1966226
+  8:
+    Hue: -0.3575756
+    Saturation: 0.09342755
+    Value: 0.3008582
+  9:
+    Hue: 0.3575756
+    Saturation: 0.09342755
+    Value: -0.1008582
+  10:
+    Saturation: -0.25
+CharacterColorGenerators:
+  DefaultGenerator:
+  - CharacterSpecific: false
+    StartColorDef:
+      Hue: 0.07130837
+      Saturation: 0.05205864
+      Value: 0.01721987
+    EndColorDef:
+      Hue: -0.07488244
+      Saturation: 0.09342755
+      Value: -0.1008582
+    RangeStart: 1
+    RangeEnd: 15
+  - CharacterSpecific: false
+    StartColorDef:
+      Saturation: -0.3959962
+    EndColorDef:
+      Hue: -0.3575756
+      Saturation: 0.2
+      Value: -0.2270744
+    RangeStart: 16
+    RangeEnd: 32
+

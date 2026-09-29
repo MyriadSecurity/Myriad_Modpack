@@ -1,0 +1,8 @@
+UniqueID: Kills.001
+Name: Huntsman
+Lore: A true Viking leaves no foe standing; your name is feared across the land.
+Icon: skull
+TokenReward: 10
+Requirement:
+  Type: EnemyKills
+  Threshold: 50

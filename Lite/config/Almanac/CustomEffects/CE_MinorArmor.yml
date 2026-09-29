@@ -1,0 +1,7 @@
+UniqueID: CE_MinorArmor
+Name: Minor Armor
+Tooltip: Increases armor temporarily
+Duration: 1800
+Icon: shield
+Modifiers:
+  Armor: 10

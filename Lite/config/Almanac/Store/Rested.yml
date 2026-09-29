@@ -1,0 +1,10 @@
+Name: Rested
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Icon: Rested
+StatusEffect:
+  ID: Rested
+  Duration: 1000
+Lore: Adds rested bonus

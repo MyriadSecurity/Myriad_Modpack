@@ -1,0 +1,5 @@
+UniqueID: 001.Dandelion
+Name: Weeds
+Type: Harvest
+PrefabName: Pickable_Dandelion
+Threshold: 50

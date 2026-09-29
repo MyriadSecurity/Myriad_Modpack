@@ -1,0 +1,39 @@
+UniqueID: innkeeper.tavern
+Greets:
+- Welcome, weary traveler!
+- Come in from the cold!
+- A table awaits you!
+- Hungry? Thirsty? Both?
+- The best inn for leagues around!
+- Warmth and food within!
+- Welcome to our humble tavern!
+- Step inside, friend!
+- A place to rest at last!
+- Come, join the warmth!
+Talk:
+- The ale flows freely tonight!
+- Fresh bread cooling by the fire.
+- Rooms are clean, beds are soft.
+- Heard any interesting tales lately?
+- The stew's been simmering all day.
+- Travelers bring the best stories.
+- A full belly and warm bed await.
+- The hearth keeps the cold at bay.
+- Good food, good company, good times.
+- Every wanderer needs a place to rest.
+- The tavern never truly sleeps.
+- Honey mead is our specialty.
+- Adventurers always have the best coin.
+- A hot meal can cure most ailments.
+- The fire's been burning for days.
+GoodBye:
+- Come back when you're hungry!
+- Safe roads and fair weather!
+- The door's always open!
+- May your travels be swift!
+- Until next time, friend!
+- Remember us to other travelers!
+- The road is long, pace yourself!
+- Farewell, and good fortune!
+- Our hearth will keep burning!
+- May you find shelter wherever you go!

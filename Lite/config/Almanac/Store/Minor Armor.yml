@@ -1,0 +1,9 @@
+Name: Minor Armor
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 3
+Icon: shield
+StatusEffect:
+  ID: CE_MinorArmor
+Lore: Increases armor

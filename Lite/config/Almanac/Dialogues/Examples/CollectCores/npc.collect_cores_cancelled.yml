@@ -1,0 +1,6 @@
+UniqueID: npc.collect_cores_cancelled
+Text: Wisdom knows when to retreat. Perhaps when you're better equipped and more experienced, you'll return to this task.
+Action:
+  Type: Exit
+  Label: Perhaps another time
+Requirements: 

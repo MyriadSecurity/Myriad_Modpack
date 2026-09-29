@@ -1,0 +1,9 @@
+UniqueID: npc.hunt_boars_complete
+Label: The boar culling is finished
+Text: You've done what needed doing, though I see it weighs on you. The meadows are safer now, and travelers can pass without fear. This was necessary work.
+MissingRequirementsText: You've made progress in the hunt, but the full cull of 10 boars hasn't been completed yet.
+Action:
+  Type: CompleteQuest
+  Label: Complete Hunt
+  Parameters: 001.Kill, npc.hunt_boars_reward
+Requirements: 

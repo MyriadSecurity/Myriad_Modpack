@@ -1,0 +1,7 @@
+UniqueID: Maces.001
+Name: Boneshatter
+Lore: Crushing steel and shattering bone, you wield ruin with every blow.
+Icon: MaceIron
+TokenReward: 50
+Requirement:
+  Type: Maces

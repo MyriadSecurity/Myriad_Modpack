@@ -1,0 +1,8 @@
+UniqueID: npc.harvest_dandelion_info
+Label: Where can I find dandelions?
+Text: Dandelions grow abundantly in the meadows, particularly in open grassy areas. Look for the bright yellow flowers - they're hard to miss once you know what to seek. Simply walk up and pick them by hand.
+Dialogues:
+- npc.harvest_dandelion_accept
+- npc.harvest_dandelion_intro
+Action: 
+Requirements: 

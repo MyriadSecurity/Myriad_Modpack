@@ -1,0 +1,7 @@
+UniqueID: Shields.001
+Name: Wall of Iron
+Lore: The shield is not just defense — it is the strength of the clan made steel.
+Icon: ShieldIronBuckler
+TokenReward: 50
+Requirement:
+  Type: Shields

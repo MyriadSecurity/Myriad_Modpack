@@ -1,0 +1,10 @@
+UniqueID: npc.collect_cores_intro
+Label: What about collecting items?
+Text: The burial chambers and fire creatures hold treasures of immense value - Surtling Cores. These burning stones are essential for advanced smelting operations. I need 10 cores for my experiments.
+Dialogues:
+- npc.collect_cores_accept
+- npc.collect_cores_info
+- npc.quest_hub
+Action: 
+Requirements:
+  NotCompletedQuests: 001.SurtlingCores

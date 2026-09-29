@@ -1,0 +1,6 @@
+UniqueID: npc.collect_cores_started
+Text: May your torch burn bright in the darkness. Return when you have the 10 cores I need.
+Action:
+  Type: Exit
+  Label: Into the chambers
+Requirements: 

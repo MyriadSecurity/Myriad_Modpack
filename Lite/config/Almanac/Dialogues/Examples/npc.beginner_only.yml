@@ -1,0 +1,8 @@
+UniqueID: npc.beginner_only
+Label: New adventurer guidance
+Text: I can see you're new to these lands. Let me give you some starting advice.
+Action: 
+Requirements:
+  NotKeys: defeated_eikthyr
+  NotKilled: Eikthyr
+  NotAchievements: TimeInBase.001

@@ -1,0 +1,15 @@
+UniqueID: FallenValkyrie.001
+Creature: FallenValkyrie
+Name: ''
+Icon: TrophyFallenValkyrie
+Biome: AshLands
+Health: 3000
+Level: 3
+DamageMultiplier: 1.5
+AlmanacTokenReward: 20
+Items: []
+Lore: Once a chooser of the slain, now cursed in flame, the Fallen Valkyrie haunts the Ashlands with broken wings.
+Cost:
+  Items:
+  - PrefabName: Coins
+    Amount: 10

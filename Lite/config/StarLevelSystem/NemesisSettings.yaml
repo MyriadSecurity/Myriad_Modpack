@@ -1,0 +1,1090 @@
+#################################################
+# Star Level System Expanded - Nemesis Settings
+#
+# The Nemesis system reacts to how each player is doing: a hidden per-player
+# score rises as they fight well and falls when they die, and score-gated
+# events (stronger spawns, ambushes, minibosses) trigger against players who
+# are doing too well. Needs EnableNemesisSystem in the main .cfg. Server
+# authoritative; edits apply live.
+#
+# DO NOT edit NemesisVersion: a version that does not match this build resets
+# the whole file to the defaults on load.
+#
+# NOTE: AvailableMiniBosses is written by the SERVER at runtime - minibosses
+# created from player killers are added and spawned ones are removed, and the
+# file is rewritten each time. Treat that section as state, not hand-config.
+#
+# --- ScoreSystem ---
+# How the hidden score moves. Score decays toward NeutralScore over time.
+#
+#   ScoreSystem:
+#     MinScore: 0
+#     NeutralScore: 600
+#     MaxScore: 1000
+#     ScoreIntervalSeconds: 30       # how often the score recalculates
+#     DecayPerUpdate: 30
+#     MeleeDamageDealtFactor: 0.5    # score gained per point of damage dealt
+#     RangedDamageDealtFactor: 0.25
+#     MagicDamageDealtFactor: 0.3
+#     DamageTakenFactor: 1           # score LOST per point of damage taken (sign ignored)
+#     BossKillBonus: 250
+#     DeathScoreReduction: 500
+#     NearbyPlayerRadius: 25         # players near each other share score drift
+#     NearbyAveragingWeight: 0.05
+#
+# --- ChanceChanges ---
+# Named, chance-based ops evaluated when a creature spawns near a player and
+# the action cooldown allows. Actions: ChangeLevel, AddModifier,
+# RemoveModifier, Spawn, SpawnMiniboss.
+#
+#   ChanceChanges:
+#     CreatureOps:
+#       Ocean Serpent Attack:
+#         Enabled: true
+#         Action: Spawn
+#         Chance: 0.3                          # 0-1 roll each opportunity
+#         ScoreThreshold: 7000                 # only above this score
+#         RequiredGlobalKeys: [ defeated_gdking ]
+#         AllowedBiomes: [ Ocean ]
+#         ScoreChange: -1000                   # applied when the op fires
+#         ExtraCooldownSeconds: 300
+#         PlayerReqs:                          # optional player-state gates
+#           PlayerCurrentBiome: Ocean
+#           MinBiomeHistory: 2                 # time spent recently in that biome
+#         SpawnConfig:
+#         - Prefab: Serpent
+#           CreatureAI: HuntPlayer
+#           Faction: SeaMonsters
+#           SpawnGroupSize: 1
+#
+# --- GaurenteedChanges ---
+#   GaurenteedChanges:
+#     FirstBossSetLevel: true        # the first time a player meets a boss...
+#     FirstBossLevel: 0              # ...force it to this level (0 = base)
+#
+# --- Miniboss creation ---
+# CreateMinibossFromPlayerKiller turns the creature that kills a player into a
+# named miniboss added to the pool; NemesisMinionTemplatesByBiome defines the
+# escorts spawned with a miniboss, per biome.
+#
+# --- RemoteSpawning ---
+# Server-driven ambient minibosses placed around the world (also gated by the
+# EnableNemesisRemoteSpawning setting in the main .cfg):
+#
+#   RemoteSpawning:
+#     Enabled: true
+#     CheckIntervalMinutes: 30       # placement cycle
+#     MaxSpawnsPerInterval: 3
+#     MaxConcurrentTotal: 10
+#     TargetPerBiome: { Meadows: 1, Plains: 2 }
+#     MaxConcurrentPerBiome: { Meadows: 2 }
+#     BossCandidatesByBiome:         # archetypes used when the pool is empty
+#       Plains:
+#       - Prefab: GoblinBrute
+#         ForcedLevel: 12
+#         SelectionWeight: 1
+#     ShowMapPin: true
+#     PinShowsBossName: true
+#     BossesHuntPlayers: true        # bosses hunt the nearest player like their minions;
+#                                    # false uses each candidate's own CreatureAI
+#
+# NemesisBossLootTables adds biome-keyed bonus loot to remote bosses and their
+# minions, using the same drop blocks as LootSettings.yaml. The console command
+# sls-nemesis-spawn places a remote boss for testing, and sls-nemesis-score
+# inspects or sets a player's score.
+#################################################
+NemesisMinionTemplatesByBiome:
+  Meadows:
+  - PrefabName: Neck
+    MinAmount: 6
+    MaxAmount: 9
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Boar
+    MinAmount: 3
+    MaxAmount: 6
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Greyling
+    MinAmount: 2
+    MaxAmount: 5
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  BlackForest:
+  - PrefabName: GreyDwarf
+    MinAmount: 6
+    MaxAmount: 12
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: GreyDwarfShaman
+    MinAmount: 2
+    MaxAmount: 4
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Skeleton
+    MinAmount: 4
+    MaxAmount: 10
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: SkeletonArcher
+    MinAmount: 3
+    MaxAmount: 6
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  Swamp:
+  - PrefabName: Surtling
+    MinAmount: 6
+    MaxAmount: 12
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Draugr
+    MinAmount: 4
+    MaxAmount: 8
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Draugr_Ranged
+    MinAmount: 3
+    MaxAmount: 6
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Blob
+    MinAmount: 6
+    MaxAmount: 10
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  Mountain:
+  - PrefabName: Wolf
+    MinAmount: 4
+    MaxAmount: 8
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Ulv
+    MinAmount: 4
+    MaxAmount: 8
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Bat
+    MinAmount: 8
+    MaxAmount: 20
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Hatchling
+    MinAmount: 2
+    MaxAmount: 4
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  Plains:
+  - PrefabName: Deathsquito
+    MinAmount: 4
+    MaxAmount: 8
+    CreatureBaseValueModifiers:
+      BaseHealth: 3
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Fuling
+    MinAmount: 6
+    MaxAmount: 12
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: FulingArcher
+    MinAmount: 5
+    MaxAmount: 9
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: FulingShaman
+    MinAmount: 2
+    MaxAmount: 4
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  Mistlands:
+  - PrefabName: Seeker
+    MinAmount: 4
+    MaxAmount: 7
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: DvergerRouge
+    MinAmount: 3
+    MaxAmount: 6
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: DvergerMage
+    MinAmount: 2
+    MaxAmount: 5
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Gjall
+    MinAmount: 2
+    MaxAmount: 4
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  AshLands:
+  - PrefabName: Charred_Archer
+    MinAmount: 3
+    MaxAmount: 6
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Charred_Twitcher
+    MinAmount: 6
+    MaxAmount: 10
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Charred_Mage
+    MinAmount: 1
+    MaxAmount: 3
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+  - PrefabName: Charred_Melee
+    MinAmount: 3
+    MaxAmount: 5
+    CreatureBaseValueModifiers:
+      BaseHealth: 2
+    CreaturePerLevelValueModifiers:
+      DamagePerLevel: 0.01
+NemesisVersion: 5
+NemesisMinSpawnDistance: 30
+ScoreSystem:
+  NeutralScore: 4000
+  MaxScore: 10000
+  DeathScoreReduction: 1500
+  DecayPerUpdate: 250
+  NearbyPlayerRadius: 60
+  MeleeDamageDealtFactor: 0.75
+  MagicDamageDealtFactor: 0.5
+  DamageTakenFactor: 0.5
+  BossKillBonus: 500
+GaurenteedChanges:
+  FirstBossSetLevel: false
+  FirstBossLevel: 1
+ChanceChanges:
+  CreatureOps:
+    Ocean Serpent Attack:
+      RequiredGlobalKeys:
+      - defeated_gdking
+      Chance: 0.3
+      DeniedBiomes:
+      - None
+      AllowedBiomes:
+      - Ocean
+      ScoreThreshold: 7000
+      Action: Spawn
+      ScoreChange: -1000
+      ExtraCooldownSeconds: 300
+      SpawnConfig:
+      - Prefab: Serpent
+        Faction: SeaMonsters
+      PlayerReqs:
+        PlayerCurrentBiome: Ocean
+        MinBiomeHistory: 2
+    Ocean Serpent Ambush:
+      RequiredGlobalKeys:
+      - defeated_bonemass
+      Chance: 0.3
+      DeniedBiomes:
+      - None
+      AllowedBiomes:
+      - Ocean
+      ScoreThreshold: 7000
+      Action: Spawn
+      ScoreChange: -1000
+      ExtraCooldownSeconds: 300
+      SpawnConfig:
+      - Prefab: Serpent
+        SpawnGroupSize: 2
+        Faction: SeaMonsters
+      PlayerReqs:
+        PlayerCurrentBiome: Ocean
+        MinBiomeHistory: 5
+    TreasureTrolls:
+      RequiredGlobalKeys:
+      - defeated_goblinking
+      Chance: 0.1
+      LevelBonus: 5
+      DeniedBiomes:
+      - None
+      AllowedBiomes:
+      - Mistlands
+      Action: Spawn
+      ScoreChange: -100
+      ExtraCooldownSeconds: 60
+      SpawnConfig:
+      - Prefab: Troll
+        CreatureAI: Alerted
+        SpawnGroupSize: 3
+        CustomName: Treasure Troll
+        Faction: Boss
+        CreatureBaseValueModifiers:
+          Size: 0.3
+        CustomLoot:
+        - Drop:
+            Prefab: Coins
+            Min: 250
+            Max: 750
+            Chance: 100
+            DontScale: true
+        - Drop:
+            Prefab: Ruby
+            Min: 10
+            Max: 15
+            Chance: 25
+            DontScale: true
+        - Drop:
+            Prefab: Amber
+            Min: 15
+            Max: 20
+            Chance: 25
+            DontScale: true
+      PlayerReqs:
+        PlayerCurrentBiome: Plains
+        MinBiomeHistory: 3
+    MistlandHunters:
+      NotRequiredGlobalKeys:
+      - defeated_dragon
+      - defeated_goblinking
+      - defeated_queen
+      - defeated_fader
+      LevelBonus: 5
+      DeniedBiomes:
+      - None
+      AllowedBiomes:
+      - Mistlands
+      Action: Spawn
+      ScoreChange: -100
+      ExtraCooldownSeconds: 60
+      SpawnConfig:
+      - Prefab: Seeker
+        SpawnGroupSize: 3
+        Faction: MistlandsMonsters
+      PlayerReqs:
+        PlayerCurrentBiome: Mistlands
+        MinBiomeHistory: 3
+    PlainsDefenders:
+      NotRequiredGlobalKeys:
+      - defeated_bonemass
+      - defeated_dragon
+      - defeated_goblinking
+      - defeated_queen
+      - defeated_fader
+      LevelBonus: 5
+      DeniedBiomes:
+      - None
+      AllowedBiomes:
+      - Plains
+      Action: Spawn
+      ScoreChange: -100
+      ExtraCooldownSeconds: 60
+      SpawnConfig:
+      - Prefab: Goblin
+        SpawnGroupSize: 6
+        Faction: PlainsMonsters
+      PlayerReqs:
+        PlayerCurrentBiome: Plains
+        MinBiomeHistory: 2
+    MountainDefenders:
+      NotRequiredGlobalKeys:
+      - defeated_gdking
+      - defeated_bonemass
+      - defeated_dragon
+      - defeated_goblinking
+      - defeated_queen
+      - defeated_fader
+      LevelBonus: 5
+      DeniedBiomes:
+      - None
+      AllowedBiomes:
+      - Mountain
+      Action: Spawn
+      ScoreChange: -100
+      ExtraCooldownSeconds: 60
+      SpawnConfig:
+      - Prefab: Hatchling
+        SpawnGroupSize: 4
+        Faction: MountainMonsters
+      PlayerReqs:
+        PlayerCurrentBiome: Mountain
+        MinBiomeHistory: 2
+    CharredAttack:
+      RequiredGlobalKeys:
+      - defeated_fader
+      Chance: 0.3
+      LevelBonus: 5
+      DeniedBiomes:
+      - DeepNorth
+      - Ocean
+      AllowedBiomes: []
+      ScoreThreshold: 9000
+      Action: Spawn
+      ScoreChange: -2000
+      SpawnConfig:
+      - Prefab: Charred_Melee
+        RequiredModifiers:
+          Fire: Major
+      - Prefab: Charred_Ranged
+        SpawnGroupSize: 2
+        RequiredModifiers:
+          Fire: Major
+    SeekerAttack:
+      RequiredGlobalKeys:
+      - defeated_queen
+      Chance: 0.3
+      LevelBonus: 5
+      DeniedBiomes:
+      - AshLands
+      - DeepNorth
+      - Ocean
+      AllowedBiomes: []
+      ScoreThreshold: 9000
+      Action: Spawn
+      ScoreChange: -2000
+      SpawnConfig:
+      - Prefab: Seeker
+        SpawnGroupSize: 3
+        Faction: MistlandsMonsters
+        RequiredModifiers:
+          Lightning: Major
+    GoblinAttack:
+      RequiredGlobalKeys:
+      - defeated_goblinking
+      Chance: 0.3
+      LevelBonus: 5
+      DeniedBiomes:
+      - AshLands
+      - DeepNorth
+      - Ocean
+      AllowedBiomes: []
+      ScoreThreshold: 9000
+      Action: Spawn
+      ScoreChange: -2000
+      SpawnConfig:
+      - Prefab: Goblin
+        SpawnGroupSize: 3
+        Faction: PlainsMonsters
+        RequiredModifiers:
+          Fire: Major
+      - Prefab: GoblinShaman
+        Faction: PlainsMonsters
+        RequiredModifiers:
+          Lightning: Major
+    FenringAttack:
+      RequiredGlobalKeys:
+      - defeated_dragon
+      Chance: 0.3
+      LevelBonus: 5
+      DeniedBiomes:
+      - Mistlands
+      - AshLands
+      - DeepNorth
+      - Ocean
+      AllowedBiomes: []
+      ScoreThreshold: 9000
+      Action: Spawn
+      ScoreChange: -2000
+      SpawnConfig:
+      - Prefab: Fenring
+        SpawnGroupSize: 2
+        Faction: MountainMonsters
+        RequiredModifiers:
+          Big: Major
+    SwampAttack:
+      RequiredGlobalKeys:
+      - defeated_bonemass
+      Chance: 0.3
+      LevelBonus: 5
+      DeniedBiomes:
+      - Plains
+      - Mistlands
+      - AshLands
+      - DeepNorth
+      - Ocean
+      AllowedBiomes: []
+      ScoreThreshold: 9000
+      Action: Spawn
+      ScoreChange: -2000
+      SpawnConfig:
+      - Prefab: Draugr_Elite
+        SpawnGroupSize: 2
+        Faction: Undead
+        RequiredModifiers:
+          Poison: Major
+    BlackForestSwarm:
+      RequiredGlobalKeys:
+      - defeated_gdking
+      Chance: 0.3
+      LevelBonus: 5
+      DeniedBiomes:
+      - Mountain
+      - Plains
+      - Mistlands
+      - AshLands
+      - DeepNorth
+      - Ocean
+      AllowedBiomes: []
+      ScoreThreshold: 9000
+      Action: Spawn
+      ScoreChange: -2000
+      SpawnConfig:
+      - Prefab: Greydwarf
+        SpawnGroupSize: 6
+        Faction: ForestMonsters
+        RequiredModifiers:
+          FireNova: Minor
+    ReduceCreatureLevel:
+      Chance: 0.25
+      LevelBonus: -1
+      DeniedBiomes:
+      - None
+      AllowedBiomes: []
+      ScoreThreshold: 4000
+      ScoreChange: 200
+    SignificantlyReduceCreatureLevel:
+      LevelBonus: -3
+      DeniedBiomes:
+      - None
+      AllowedBiomes: []
+      ScoreThreshold: 2000
+      ScoreChange: 400
+    IncreaseCreatureLevel:
+      Chance: 0.25
+      LevelBonus: 1
+      DeniedBiomes:
+      - None
+      AllowedBiomes: []
+      ScoreThreshold: 6000
+      ScoreChange: -250
+    SignificantlyIncreaseCreatureLevel:
+      LevelBonus: 3
+      DeniedBiomes:
+      - None
+      AllowedBiomes: []
+      ScoreThreshold: 8000
+      ScoreChange: -500
+    NemesisMiniboss1:
+      Chance: 0.05
+      LevelBonus: 7
+      DeniedBiomes:
+      - None
+      AllowedBiomes: []
+      ScoreThreshold: 9500
+      Action: SpawnMiniboss
+      ScoreChange: -3000
+AvailableMiniBosses: []
+RemoteSpawning:
+  TargetPerBiome:
+    Meadows: 1
+    BlackForest: 1
+    Swamp: 1
+    Mountain: 1
+    Plains: 1
+    Mistlands: 1
+    AshLands: 1
+  MaxConcurrentPerBiome:
+    Meadows: 2
+    BlackForest: 2
+    Swamp: 2
+    Mountain: 2
+    Plains: 2
+    Mistlands: 2
+    AshLands: 2
+  BiomeRadiusRanges:
+    Meadows:
+      Min: 500
+      Max: 3000
+    BlackForest:
+      Min: 600
+      Max: 4000
+    Swamp:
+      Min: 1000
+      Max: 5000
+    Mountain:
+      Min: 1000
+      Max: 6000
+    Plains:
+      Min: 2000
+      Max: 7000
+    Mistlands:
+      Min: 3000
+      Max: 8000
+    AshLands:
+      Min: 8000
+      Max: 10000
+  BossCandidatesByBiome:
+    Meadows:
+    - Prefab: Boar
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 8
+        MinLevel: 2
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    - Prefab: Neck
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 9
+        MinLevel: 3
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    - Prefab: Greyling
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 7
+        MinLevel: 2
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    BlackForest:
+    - Prefab: Greydwarf
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 10
+        MinLevel: 3
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    - Prefab: Skeleton
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 11
+        MinLevel: 4
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    - Prefab: Troll
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 8
+        MinLevel: 3
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 2
+        BaseDamage: 1.5
+    Swamp:
+    - Prefab: DraugrElite
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 11
+        MinLevel: 4
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    - Prefab: Wraith
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 11
+        MinLevel: 4
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    - Prefab: Abomination
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 8
+        MinLevel: 4
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    Mountain:
+    - Prefab: Fenring
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 10
+        MinLevel: 5
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    - Prefab: Fenring_Cultist
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 10
+        MinLevel: 5
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 2
+        BaseDamage: 1.5
+    - Prefab: StoneGolem
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 10
+        MinLevel: 5
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 2
+        BaseDamage: 1.5
+    Plains:
+    - Prefab: GoblinBrute
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 11
+        MinLevel: 6
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 2
+        BaseDamage: 1.5
+    - Prefab: Unbjorn
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 11
+        MinLevel: 6
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 2
+        BaseDamage: 1.5
+    - Prefab: Deathsquito
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 11
+        MinLevel: 6
+        LevelUpChance: 0.3
+      IsBoss: true
+      SelectionWeight: 0.1
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 10
+        BaseDamage: 1.5
+    Mistlands:
+    - Prefab: SeekerBrute
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 12
+        MinLevel: 7
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 2
+        BaseDamage: 1.5
+    - Prefab: Gjall
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 14
+        MinLevel: 7
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 2
+        BaseDamage: 1.5
+    - Prefab: Dverger
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 14
+        MinLevel: 7
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    AshLands:
+    - Prefab: Charred_Melee
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 16
+        MinLevel: 8
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    - Prefab: Charred_Mage
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 16
+        MinLevel: 8
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    - Prefab: FallenValkyrie
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 16
+        MinLevel: 8
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 2
+        BaseDamage: 1.5
+    Ocean:
+    - Prefab: Serpent
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 16
+        MinLevel: 2
+        LevelUpChance: 0.3
+      IsBoss: true
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+    - Prefab: BonemawSerpent
+      CreatureAI: Alerted
+      LevelupGenerators:
+      - MaxLevel: 16
+        MinLevel: 2
+        LevelUpChance: 0.3
+      IsBoss: true
+      SelectionWeight: 0.1
+      Faction: Boss
+      CreatureBaseValueModifiers:
+        BaseHealth: 4
+        BaseDamage: 1.5
+NemesisBossLootTables:
+  Meadows:
+  - Drop:
+      Prefab: Coins
+      Min: 50
+      Max: 150
+      Chance: 100
+      DontScale: true
+  BlackForest:
+  - Drop:
+      Prefab: Coins
+      Min: 100
+      Max: 250
+      Chance: 100
+      DontScale: true
+  - Drop:
+      Prefab: Amber
+      Max: 3
+      Chance: 25
+      DontScale: true
+  Swamp:
+  - Drop:
+      Prefab: Coins
+      Min: 150
+      Max: 300
+      Chance: 100
+      DontScale: true
+  - Drop:
+      Prefab: Ruby
+      Max: 3
+      Chance: 15
+      DontScale: true
+  - Drop:
+      Prefab: Amber
+      Max: 3
+      Chance: 25
+      DontScale: true
+  Mountain:
+  - Drop:
+      Prefab: Coins
+      Min: 200
+      Max: 350
+      Chance: 100
+      DontScale: true
+  - Drop:
+      Prefab: Amber
+      Max: 3
+      Chance: 25
+      DontScale: true
+  - Drop:
+      Prefab: Ruby
+      Max: 3
+      Chance: 15
+      DontScale: true
+  - Drop:
+      Prefab: AmberPearl
+      Max: 3
+      Chance: 10
+      DontScale: true
+  Plains:
+  - Drop:
+      Prefab: Coins
+      Min: 250
+      Max: 400
+      Chance: 100
+      DontScale: true
+  - Drop:
+      Prefab: Amber
+      Min: 5
+      Max: 10
+      Chance: 50
+      DontScale: true
+  - Drop:
+      Prefab: Ruby
+      Max: 3
+      Chance: 15
+      DontScale: true
+  - Drop:
+      Prefab: AmberPearl
+      Max: 3
+      Chance: 25
+      DontScale: true
+  - Drop:
+      Prefab: SilverNecklace
+      Chance: 5
+      DontScale: true
+  Mistlands:
+  - Drop:
+      Prefab: Coins
+      Min: 300
+      Max: 500
+      Chance: 100
+      DontScale: true
+  - Drop:
+      Prefab: Amber
+      Min: 5
+      Max: 10
+      Chance: 50
+      DontScale: true
+  - Drop:
+      Prefab: Ruby
+      Max: 3
+      Chance: 15
+      DontScale: true
+  - Drop:
+      Prefab: AmberPearl
+      Max: 3
+      Chance: 25
+      DontScale: true
+  - Drop:
+      Prefab: SilverNecklace
+      Chance: 10
+      DontScale: true
+  AshLands:
+  - Drop:
+      Prefab: Coins
+      Min: 400
+      Max: 600
+      Chance: 100
+      DontScale: true
+  - Drop:
+      Prefab: Amber
+      Min: 5
+      Max: 10
+      Chance: 60
+      DontScale: true
+  - Drop:
+      Prefab: Ruby
+      Max: 3
+      Chance: 25
+      DontScale: true
+  - Drop:
+      Prefab: AmberPearl
+      Max: 3
+      Chance: 35
+      DontScale: true
+  - Drop:
+      Prefab: SilverNecklace
+      Chance: 15
+      DontScale: true
+  Ocean:
+  - Drop:
+      Prefab: Coins
+      Min: 500
+      Max: 800
+      Chance: 100
+      DontScale: true
+  - Drop:
+      Prefab: Amber
+      Min: 5
+      Max: 10
+      Chance: 75
+      DontScale: true
+  - Drop:
+      Prefab: Ruby
+      Max: 3
+      Chance: 50
+      DontScale: true
+  - Drop:
+      Prefab: AmberPearl
+      Max: 3
+      Chance: 30
+      DontScale: true
+  - Drop:
+      Prefab: SilverNecklace
+      Chance: 25
+      DontScale: true
+

@@ -1,0 +1,7 @@
+UniqueID: npc.collect_cores_reward
+Text: Your bravery in the depths has earned you this reward. Gold speaks to the value of what you've accomplished.
+Action:
+  Type: Give
+  Label: Accept Gold
+  Parameters: Coins, 100, 1, 0
+Requirements: 

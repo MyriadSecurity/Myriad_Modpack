@@ -1,0 +1,9 @@
+UniqueID: Mountains.001
+Name: Mountains I
+Lore: Venture into the high peaks and face the creatures that dwell among the Mountains.
+Icon: TrophyDragonQueen
+TokenReward: 40
+Requirement:
+  Type: CreatureGroup
+  Group: Mountain
+  Threshold: 5

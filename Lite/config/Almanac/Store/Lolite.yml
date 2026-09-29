@@ -1,0 +1,12 @@
+Name: Lolite
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 100
+Icon: GemstoneBlue
+Items:
+- PrefabName: GemstoneBlue
+  Amount: 1
+  Quality: 1
+Lore: Light is reflected sharply off this gem
+RequiredDefeated: Charred_Melee_Dyrnwyn

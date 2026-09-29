@@ -1,0 +1,12 @@
+UniqueID: npc.farm_carrots_accept
+Label: I'll tend the crops
+Text: Splendid! Plant 10 carrot seedlings and watch them grow. There's something deeply satisfying about nurturing life from soil and seed. Take your time - good farming cannot be rushed.
+CompletedText: How are your crops growing? Farming teaches patience as much as it provides sustenance.
+Dialogues:
+- npc.farm_carrots_cancel
+- npc.farm_carrots_complete
+Action:
+  Type: StartQuest
+  Label: Accept Farming
+  Parameters: 001.Farm, npc.farm_carrots_started
+Requirements: 

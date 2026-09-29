@@ -1,0 +1,8 @@
+UniqueID: npc.hunt_boars_cancel
+Label: I cannot hunt these creatures
+Text: Some hearts are not made for culling, even when necessary. There's honor in recognizing your limitations. Shall I find another way to address the boar problem?
+Action:
+  Type: CancelQuest
+  Label: Yes, release me from this
+  Parameters: 001.Kill, npc.hunt_boars_cancelled
+Requirements: 

@@ -1,0 +1,25 @@
+Name: Plains Stash
+Lore: Across the open plains, hidden bounty waits for those who wander with purpose
+Icon: map
+Biome: Plains
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Loot:
+- Item: Barley
+  Min: 1
+  Max: 100
+  Weight: 1
+- Item: Flax
+  Min: 1
+  Max: 100
+  Weight: 1
+- Item: BarleyWine
+  Min: 1
+  Max: 10
+  Weight: 1
+- Item: Coins
+  Min: 100
+  Max: 200
+  Weight: 1

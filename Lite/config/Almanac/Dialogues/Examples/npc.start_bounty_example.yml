@@ -1,0 +1,12 @@
+UniqueID: npc.start_bounty_example
+Label: Accept boar hunting contract
+Text: I have information about aggressive boars terrorizing the meadows. For 10 coins, I'll mark their location on your map.
+MissingRequirementsText: You need at least 10 coins to purchase this bounty information.
+Dialogues:
+- npc.about_bounties
+- npc.cancel_bounty_example
+Action:
+  Type: StartBounty
+  Label: Accept Contract (10 coins)
+  Parameters: Boar.001
+Requirements: 

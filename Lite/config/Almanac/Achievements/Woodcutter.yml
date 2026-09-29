@@ -1,0 +1,8 @@
+UniqueID: TreesChopped.001
+Name: Woodcutter
+Lore: Axes sing and trees fall — your labor shapes the land itself.
+Icon: log
+TokenReward: 10
+Requirement:
+  Type: TreesChopped
+  Threshold: 50

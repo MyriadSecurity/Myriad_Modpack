@@ -1,0 +1,7 @@
+UniqueID: Axes.001
+Name: Axesmith
+Lore: Wood or bone, timber or shield — all yield to your swing.
+Icon: AxeIron
+TokenReward: 50
+Requirement:
+  Type: Axes

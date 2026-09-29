@@ -1,0 +1,7 @@
+UniqueID: npc.cancel_treasure_example
+Label: Abandon current treasure hunt
+Text: Given up on finding that treasure? I can remove the markers from your map if you wish.
+Action:
+  Type: CancelTreasure
+  Label: Abandon Hunt
+Requirements: 

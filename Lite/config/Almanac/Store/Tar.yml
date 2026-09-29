@@ -1,0 +1,12 @@
+Name: Tar
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 10
+Icon: Tar
+Items:
+- PrefabName: Tar
+  Amount: 50
+  Quality: 1
+Lore: Just some tar
+RequiredDefeated: BlobTar

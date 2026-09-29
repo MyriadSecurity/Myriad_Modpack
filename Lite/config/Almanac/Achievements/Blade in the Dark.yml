@@ -1,0 +1,7 @@
+UniqueID: Knives.001
+Name: Blade in the Dark
+Lore: Swift, silent, and certain — your knives strike before the foe can breathe.
+Icon: KnifeSkollAndHati
+TokenReward: 50
+Requirement:
+  Type: Knives

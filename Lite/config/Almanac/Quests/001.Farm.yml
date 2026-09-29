@@ -1,0 +1,5 @@
+UniqueID: 001.Farm
+Name: Farm
+Type: Farm
+PrefabName: sapling_seedcarrot
+Threshold: 10

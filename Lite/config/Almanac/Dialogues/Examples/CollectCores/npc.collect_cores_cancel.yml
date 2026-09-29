@@ -1,0 +1,8 @@
+UniqueID: npc.collect_cores_cancel
+Label: This task is too dangerous
+Text: The burial chambers have claimed many brave souls. There's no shame in recognizing when a task exceeds your current abilities. Shall I release you from this obligation?
+Action:
+  Type: CancelQuest
+  Label: Yes, it's too risky
+  Parameters: 001.SurtlingCores, npc.collect_cores_cancelled
+Requirements: 

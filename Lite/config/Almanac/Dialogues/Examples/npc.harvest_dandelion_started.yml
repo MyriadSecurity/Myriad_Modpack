@@ -1,0 +1,6 @@
+UniqueID: npc.harvest_dandelion_started
+Text: May the meadows be kind to you. Return when you've gathered all 50 dandelions.
+Action:
+  Type: Exit
+  Label: I'll return soon
+Requirements: 

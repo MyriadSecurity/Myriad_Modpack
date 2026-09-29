@@ -1,0 +1,6 @@
+UniqueID: npc.farm_carrots_started
+Text: May your crops grow strong and your harvest be bountiful. The earth rewards those who work with patience and care.
+Action:
+  Type: Exit
+  Label: To the fields
+Requirements: 

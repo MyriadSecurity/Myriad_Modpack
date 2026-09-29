@@ -1,0 +1,8 @@
+UniqueID: npc.collect_cores_info
+Label: Where do I find Surtling Cores?
+Text: Surtling Cores can be found in burial chambers scattered throughout the Black Forest, or dropped by Surtlings in the Ashlands. The chambers are safer but require exploration, while Surtlings are dangerous but drop cores directly.
+Dialogues:
+- npc.collect_cores_accept
+- npc.collect_cores_intro
+Action: 
+Requirements: 

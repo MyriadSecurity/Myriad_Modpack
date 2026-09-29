@@ -1,0 +1,6 @@
+UniqueID: npc.hunt_boars_started
+Text: Hunt with purpose, not pleasure. The meadows need their balance restored, and you are the instrument of that restoration.
+Action:
+  Type: Exit
+  Label: To the hunt
+Requirements: 

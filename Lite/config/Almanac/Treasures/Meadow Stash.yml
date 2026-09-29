@@ -1,0 +1,21 @@
+Name: Meadow Stash
+Lore: Hidden among the rolling meadows, this stash awaits a clever hunter.”
+Icon: map
+Biome: Meadows
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Loot:
+- Item: Flint
+  Min: 1
+  Max: 10
+  Weight: 1
+- Item: Wood
+  Min: 10
+  Max: 20
+  Weight: 1
+- Item: Coins
+  Min: 5
+  Max: 20
+  Weight: 1

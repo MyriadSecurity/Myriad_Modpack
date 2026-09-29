@@ -1,0 +1,7 @@
+UniqueID: Spears.001
+Name: Spearsmith
+Lore: The spear is the weapon of gods and mortals alike — swift, certain, deadly.
+Icon: SpearBronze
+TokenReward: 50
+Requirement:
+  Type: Spears

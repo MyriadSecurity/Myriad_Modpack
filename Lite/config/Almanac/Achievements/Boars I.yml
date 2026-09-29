@@ -1,0 +1,9 @@
+UniqueID: Boars.001
+Name: Boars I
+Lore: Through field and forest, you’ve culled the wild herds—fifty boars felled by your hand.
+Icon: TrophyBoar
+TokenReward: 10
+Requirement:
+  Type: Kill
+  PrefabName: Boar
+  Threshold: 200

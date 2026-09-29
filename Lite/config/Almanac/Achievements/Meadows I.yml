@@ -1,0 +1,9 @@
+UniqueID: Meadows.001
+Name: Meadows I
+Lore: Prove your might by defeating the creatures of the Meadows. Only then will the land respect your strength.
+Icon: TrophyEikthyr
+TokenReward: 10
+Requirement:
+  Type: CreatureGroup
+  Group: Meadows
+  Threshold: 5

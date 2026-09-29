@@ -1,0 +1,25 @@
+Name: Mountains Stash
+Lore: Only those who brave the jagged cliffs will uncover what the mountains hide.
+Icon: map
+Biome: Mountain
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Loot:
+- Item: SilverOre
+  Min: 10
+  Max: 20
+  Weight: 1
+- Item: WolfHairBundle
+  Min: 1
+  Max: 50
+  Weight: 1
+- Item: WolfClaw
+  Min: 1
+  Max: 20
+  Weight: 1
+- Item: TrophyCultist
+  Min: 1
+  Max: 1
+  Weight: 1

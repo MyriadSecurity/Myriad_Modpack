@@ -1,0 +1,21 @@
+Name: Black Forest Stash
+Lore: Among twisted trees and darkened paths, the forest guards its treasure well.
+Icon: map
+Biome: BlackForest
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 1
+Loot:
+- Item: TinOre
+  Min: 5
+  Max: 10
+  Weight: 1
+- Item: CopperOre
+  Min: 5
+  Max: 10
+  Weight: 1
+- Item: Coins
+  Min: 50
+  Max: 100
+  Weight: 1

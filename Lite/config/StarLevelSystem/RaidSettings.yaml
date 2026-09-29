@@ -1,0 +1,592 @@
+#################################################
+# Star Level System Expanded - Raid Settings
+#
+# Defines the SLS raid events that replace vanilla random events. Per-player:
+# the server checks each player's progression keys and cooldowns and starts
+# raids on eligible players. Set UseVanillaRaidConfiguration in the main .cfg
+# to true to disable all of this and keep vanilla events.
+#
+# SERVER AUTHORITATIVE: the server's copy is synced to clients; editing this
+# on a client does nothing. Edits apply live.
+#
+# DO NOT edit RaidVersion: a version that does not match this build resets
+# the whole file to the defaults on load. The previous file is saved next to
+# this one as RaidSettings.yaml.v<old version>.<date>.bak first, so your own
+# raids can be copied back in.
+#
+# --- GlobalSettings ---
+#   GlobalSettings:
+#     DisableAllRaids: false
+#     PlayerBasedRaids: true         # raids target individual players
+#     GlobalRaidIntervalScalar: 1    # >1 = raids less often, <1 = more often
+#     GlobalRaidChanceScalar: 1      # scales every raid's activation chance
+#     RaidCreatureDensity: 3         # 1-6, how crowded the raids below already are
+#
+# RaidCreatureDensity is a record, not a multiplier: nothing reads it while a
+# raid runs. The quick configure panel's "Raid creature density" slider
+# rewrites every SpawnGroupSize and MaxSpawned below when you move it (never
+# below 1) and stamps where it left them here, so the next move rescales from
+# the file as written instead of compounding. 3 is the shipped numbers, 1 is
+# roughly vanilla sized and 6 is not meant to be survivable. Edit the slider
+# rather than this number - changing it by hand only makes the next slider
+# move scale by the wrong amount.
+#
+# --- Raids ---
+# Each raid: what unlocks it, how it announces itself, and what it spawns.
+#
+#   Raids:
+#   - Name: my_swamp_raid            # unique; also used for cooldown tracking
+#     Duration: 120                  # seconds of active spawning
+#     RaidActiveTillDefeated: true   # after Duration, stays active until its creatures die (at most
+#                                    # RaidActiveTillDefeatedMaxSeconds from the main .cfg); false ends it at Duration
+#     RaidCoolDownMinutes: 120       # per-player cooldown for THIS raid
+#     EventRange: 96                 # radius of the event circle
+#     StartMessage: $SLS_my_raid_start   # localization tokens or plain text
+#     EndMessage: $SLS_my_raid_end
+#     ForceEnvironment: SwampRain    # weather while the raid runs
+#     ForceMusic: ZCombatEventL2     # combat music layer
+#     Activation:
+#       Chance: 25                   # 0-100, rolled each raid check
+#       RequiredGlobalKeys: [ defeated_gdking ]    # world progression gates
+#       RequiredPlayerKeys: [ KilledTroll ]        # per-player keys (all needed)
+#       AnyRequiredPlayerKeys: []    # any one of these is enough
+#       NotRequiredGlobalKeys: []    # blocks the raid when present
+#       NearBaseOnly: false          # true: only while the player is within 30m of a base piece (workbench, fire, bed...)
+#       PauseIfNoPlayerInArea: true
+#     Spawns:
+#     - PrefabName: Draugr
+#       SpawnInterval: 13            # seconds between spawn waves
+#       SpawnChance: 100             # chance per wave
+#       SpawnGroupSize: 2            # creatures per wave
+#       MaxSpawned: 6                # cap on this entry's living creatures
+#       MaxSpawnTriggers: 0          # 0 = unlimited waves during the duration
+#       InitalSpawnDelay: 0
+#       CreatureAI: HuntPlayer       # HuntPlayer (default), Alerted or AgitatedByBuild
+#                                    # Raid and nemesis spawns are always woken, so cave dwellers such as
+#                                    # Ulv and Fenring_Cultist engage immediately instead of spawning asleep.
+#       Faction: Undead
+#       LevelMin: 3                  # rolled levels are raised to at least this
+#       LevelMax: 10                 # and capped here; 0 or left out = MaxLevel from the main .cfg
+#       UseRaidLevelSystem: true     # roll levels from the tables below
+#       CustomCreatureLevelUpChance: { 3: 100, 5: 50, 10: 5 }
+#       LevelupGeneratorRefs: []     # or reference LevelSettings generators
+#       RequiredModifiers: { Fire: Major }
+#       ModifiersNotAllowed: [ Splitter ]
+#
+# Raid start/end messages support localization tokens ($...), and the shipped
+# raids are a good reference for working key/environment/music values.
+#################################################
+GlobalSettings:
+  GlobalRaidChanceScalar: 0.4
+  RaidCreatureDensity: 2
+Raids:
+- Name: army_eikthyr
+  Duration: 180
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_eikthyr
+    NotRequiredGlobalKeys:
+    - defeated_gdking
+  Spawns:
+  - PrefabName: Greyling
+    SpawnInterval: 5
+    MaxSpawned: 13
+    LevelMax: 5
+  - PrefabName: Neck
+    SpawnInterval: 8
+    MaxSpawned: 7
+    LevelMax: 5
+  - PrefabName: Boar
+    SpawnInterval: 8
+    MaxSpawned: 7
+    LevelMax: 5
+  StartMessage: $event_eikthyrarmy_start
+  EndMessage: $event_eikthyrarmy_end
+  ForceEnvironment: Misty
+- Name: foresttrolls
+  Duration: 180
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_eikthyr
+    NotRequiredGlobalKeys:
+    - defeated_bonemass
+  Spawns:
+  - PrefabName: Troll
+    SpawnInterval: 40
+    MaxSpawned: 6
+    SpawnGroupSize: 1
+    LevelMax: 3
+    CustomCreatureLevelUpChance:
+      1: 50
+      2: 25
+      3: 20
+      4: 15
+      5: 7
+      6: 3
+      7: 1
+  StartMessage: $event_foresttrolls_start
+  EndMessage: $event_foresttrolls_end
+  ForceEnvironment: DeepForest_Mist
+- Name: army_theelder
+  Duration: 180
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_gdking
+    NotRequiredGlobalKeys:
+    - defeated_bonemass
+  Spawns:
+  - PrefabName: Greydwarf
+    SpawnInterval: 4
+    MaxSpawned: 13
+    SpawnGroupSize: 2
+    LevelMax: 5
+  - PrefabName: Greydwarf_Elite
+    SpawnInterval: 10
+    MaxSpawned: 4
+    LevelMax: 5
+  - PrefabName: Greydwarf_Shaman
+    SpawnInterval: 10
+    MaxSpawned: 3
+    LevelMax: 5
+  StartMessage: $event_gdkingarmy_start
+  EndMessage: $event_gdkingarmy_end
+  ForceEnvironment: DeepForest_Mist
+- Name: skeletons
+  Duration: 90
+  Activation:
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_gdking
+    NotRequiredGlobalKeys:
+    - defeated_bonemass
+  Spawns:
+  - PrefabName: Skeleton
+    SpawnInterval: 5
+    MaxSpawned: 13
+    SpawnGroupSize: 2
+    UseRaidLevelSystem: false
+  - PrefabName: Skeleton_Poison
+    SpawnInterval: 8
+    MaxSpawned: 5
+    UseRaidLevelSystem: false
+  StartMessage: $event_skeletons_start
+  EndMessage: $event_skeletons_end
+  ForceEnvironment: Crypt
+- Name: blobs
+  Duration: 90
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_gdking
+    NotRequiredGlobalKeys:
+    - defeated_bonemass
+  Spawns:
+  - PrefabName: Blob
+    SpawnInterval: 5
+    MaxSpawned: 13
+    SpawnGroupSize: 1
+    LevelMax: 12
+  - PrefabName: BlobElite
+    SpawnInterval: 10
+    MaxSpawned: 5
+    LevelMax: 12
+  StartMessage: $event_blobs_start
+  EndMessage: $event_blobs_over
+  ForceEnvironment: SwampRain
+- Name: ghosts
+  Duration: 180
+  Activation:
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_bonemass
+  Spawns:
+  - PrefabName: Ghost
+    SpawnInterval: 40
+    MaxSpawned: 8
+    LevelMax: 16
+  - PrefabName: Wraith
+    SpawnInterval: 40
+    MaxSpawned: 8
+    LevelMax: 16
+  StartMessage: $event_ghosts_start
+  EndMessage: $event_ghosts_end
+  ForceEnvironment: Ghosts
+- Name: surtlings
+  Activation:
+    Biomes:
+    - Swamp
+    - Meadows
+    - BlackForest
+    NearBaseOnly: true
+    RequiredGlobalKeys:
+    - defeated_gdking
+    NotRequiredGlobalKeys:
+    - defeated_bonemass
+  Spawns:
+  - PrefabName: Surtling
+    SpawnInterval: 5
+    MaxSpawned: 27
+    SpawnGroupSize: 1
+    UseRaidLevelSystem: false
+    RequiredModifiers:
+      Fire: Major
+  StartMessage: $event_surtlings_start
+  EndMessage: $event_surtlings_end
+  ForceEnvironment: Ashlands_CinderRain
+- Name: army_bonemass
+  Duration: 180
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_bonemass
+    NotRequiredGlobalKeys:
+    - defeated_dragon
+  Spawns:
+  - PrefabName: Skeleton
+    SpawnInterval: 5
+    MaxSpawned: 20
+    SpawnGroupSize: 1
+    LevelMax: 12
+  - PrefabName: Blob
+    SpawnInterval: 8
+    MaxSpawned: 7
+    LevelMax: 12
+  - PrefabName: Draugr
+    SpawnInterval: 8
+    MaxSpawned: 8
+    SpawnGroupSize: 1
+    LevelMax: 12
+  - PrefabName: Draugr_Elite
+    MaxSpawned: 3
+    LevelMax: 12
+  - PrefabName: Draugr_Ranged
+    SpawnInterval: 10
+    MaxSpawned: 5
+    LevelMax: 12
+  StartMessage: $event_bonemassarmy_start
+  EndMessage: $event_bonemassarmy_end
+  ForceEnvironment: SwampRain
+- Name: wolves
+  Activation:
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_bonemass
+    NotRequiredGlobalKeys:
+    - defeated_dragon
+  Spawns:
+  - PrefabName: Wolf
+    SpawnInterval: 5
+    MaxSpawned: 13
+    SpawnGroupSize: 2
+    LevelMax: 16
+  - PrefabName: Fenring
+    SpawnInterval: 16
+    MaxSpawned: 5
+    LevelMax: 16
+  StartMessage: $event_wolves_start
+  EndMessage: $event_wolves_end
+  ForceEnvironment: SnowStorm
+- Name: cultists
+  Duration: 180
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_dragon
+    NotRequiredGlobalKeys:
+    - defeated_queen
+  Spawns:
+  - PrefabName: Ulv
+    SpawnInterval: 5
+    MaxSpawned: 13
+    SpawnGroupSize: 2
+    LevelMax: 20
+  - PrefabName: Fenring_Cultist
+    SpawnInterval: 16
+    MaxSpawned: 4
+    LevelMax: 20
+  StartMessage: $event_caves_start
+  EndMessage: $event_caves_end
+  ForceEnvironment: SnowStorm
+- Name: army_moder
+  Duration: 180
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_dragon
+    NotRequiredGlobalKeys:
+    - defeated_goblinking
+  Spawns:
+  - PrefabName: Hatchling
+    SpawnInterval: 8
+    MaxSpawned: 8
+    SpawnGroupSize: 1
+    LevelMax: 16
+  - PrefabName: Wolf
+    SpawnInterval: 8
+    MaxSpawned: 8
+    SpawnGroupSize: 2
+    LevelMax: 16
+  - PrefabName: Fenring_Cultist
+    SpawnInterval: 16
+    MaxSpawned: 4
+    LevelMax: 16
+  StartMessage: $event_moderarmy_start
+  EndMessage: $event_moderarmy_end
+  ForceEnvironment: Twilight_Snow
+- Name: army_goblin
+  Duration: 180
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_goblinking
+    NotRequiredGlobalKeys:
+    - defeated_queen
+  Spawns:
+  - PrefabName: Goblin
+    SpawnInterval: 5
+    MaxSpawned: 11
+    SpawnGroupSize: 1
+    LevelMax: 20
+  - PrefabName: GoblinArcher
+    SpawnInterval: 8
+    MaxSpawned: 8
+    LevelMax: 20
+  - PrefabName: GoblinShaman
+    MaxSpawned: 3
+    LevelMax: 20
+  - PrefabName: GoblinBrute
+    SpawnInterval: 16
+    MaxSpawned: 1
+    LevelMax: 20
+  StartMessage: $event_goblinarmy_start
+  EndMessage: $event_goblinarmy_end
+  ForceEnvironment: GoblinKing
+- Name: bats
+  Activation:
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_goblinking
+    NotRequiredGlobalKeys:
+    - defeated_queen
+  Spawns:
+  - PrefabName: Bat
+    SpawnInterval: 4
+    MaxSpawned: 13
+    SpawnGroupSize: 2
+    LevelMax: 30
+  StartMessage: $event_bats_start
+  EndMessage: $event_bats_end
+  ForceEnvironment: GoblinKing
+- Name: gjall_ambush
+  Duration: 90
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_queen
+    NotRequiredGlobalKeys:
+    - defeated_fader
+  Spawns:
+  - PrefabName: Gjall
+    SpawnInterval: 16
+    MaxSpawned: 3
+    LevelMax: 26
+  - PrefabName: Tick
+    SpawnInterval: 10
+    MaxSpawned: 11
+    SpawnGroupSize: 1
+    LevelMax: 26
+    ModifiersNotAllowed:
+    - FireNova
+  StartMessage: $event_gjallarmy_start
+  EndMessage: $event_gjallarmy_end
+  ForceEnvironment: Mistlands_thunder
+- Name: army_seekers
+  Duration: 180
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_queen
+    NotRequiredGlobalKeys:
+    - defeated_fader
+  Spawns:
+  - PrefabName: Seeker
+    SpawnInterval: 5
+    MaxSpawned: 8
+    LevelMax: 26
+  - PrefabName: SeekerBrute
+    SpawnInterval: 16
+    MaxSpawned: 1
+    LevelMax: 26
+  - PrefabName: Tick
+    SpawnInterval: 10
+    MaxSpawned: 4
+    LevelMax: 26
+  StartMessage: $event_seekerarmy_start
+  EndMessage: $event_seekerarmy_end
+  ForceEnvironment: Mistlands_thunder
+- Name: army_charred
+  Duration: 180
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_queen
+    NotRequiredGlobalKeys:
+    - defeated_fader
+  Spawns:
+  - PrefabName: Charred_Twitcher
+    SpawnInterval: 5
+    MaxSpawned: 11
+    SpawnGroupSize: 2
+    LevelMax: 30
+  - PrefabName: Charred_Archer
+    SpawnInterval: 16
+    MaxSpawned: 4
+    LevelMax: 30
+  - PrefabName: Charred_Melee
+    SpawnInterval: 10
+    MaxSpawned: 3
+    LevelMax: 30
+  StartMessage: $event_charredarmy_start
+  EndMessage: $event_charredarmy_end
+  ForceEnvironment: Ashlands_storm
+- Name: army_charred_spawners
+  Duration: 90
+  Activation:
+    NearBaseOnly: true
+    Chance: 50
+    RequiredGlobalKeys:
+    - defeated_queen
+    NotRequiredGlobalKeys:
+    - defeated_fader
+  Spawns:
+  - PrefabName: Spawner_CharredStone
+    SpawnInterval: 5
+    MaxSpawned: 3
+    LevelMax: 30
+  StartMessage: event_charredspawnerarmy_start
+  EndMessage: event_charrespawnerarmy_end
+  ForceEnvironment: Ashlands_ashrain
+- Name: hildir_boss_revenge1
+  Duration: 180
+  Activation:
+    Chance: 50
+    RequiredGlobalKeys:
+    - hildir1
+  Spawns:
+  - PrefabName: Skeleton_Hildir
+    SpawnInterval: 5
+    MaxSpawned: 1
+    LevelMax: 30
+  - PrefabName: Skeleton
+    SpawnInterval: 8
+    MaxSpawned: 11
+    SpawnGroupSize: 2
+    LevelMax: 30
+  - PrefabName: Skeleton_Poison
+    MaxSpawned: 4
+    LevelMax: 30
+  StartMessage: $event_hildirboss1_start
+  EndMessage: $event_hildirboss1_end
+  ForceEnvironment: Ashlands_ashrain
+  ForceMusic: ZCombatEventL2
+- Name: hildir_boss_revenge2
+  Duration: 180
+  Activation:
+    Chance: 50
+    RequiredGlobalKeys:
+    - hildir2
+  Spawns:
+  - PrefabName: Fenring_Cultist_Hildir
+    SpawnInterval: 5
+    MaxSpawned: 1
+    LevelMax: 30
+  - PrefabName: Ulv
+    SpawnInterval: 8
+    MaxSpawned: 11
+    SpawnGroupSize: 2
+    LevelMax: 30
+  - PrefabName: Fenring_Cultist
+    MaxSpawned: 3
+    LevelMax: 30
+  StartMessage: $event_hildirboss2_start
+  EndMessage: $event_hildirboss2_end
+  ForceEnvironment: Twilight_SnowStorm
+  ForceMusic: ZCombatEventL3
+- Name: hildir_boss_revenge3
+  Duration: 180
+  Activation:
+    Chance: 50
+    RequiredGlobalKeys:
+    - hildir3
+  Spawns:
+  - PrefabName: GoblinBruteBros
+    SpawnInterval: 5
+    MaxSpawned: 1
+    LevelMax: 30
+  - PrefabName: Goblin
+    SpawnInterval: 8
+    MaxSpawned: 11
+    SpawnGroupSize: 2
+    LevelMax: 30
+  - PrefabName: GoblinShaman
+    MaxSpawned: 1
+    LevelMax: 30
+  StartMessage: $event_hildirboss3_start
+  EndMessage: $event_hildirboss3_end
+  ForceEnvironment: GoblinKing
+  ForceMusic: ZCombatEventL4
+- Name: deathlink_surprise
+  Duration: 180
+  Activation:
+    Chance: 25
+    RequiredGlobalKeys:
+    - defeated_fader
+    RequiredPlayerKeys:
+    - Deathlink
+  Spawns:
+  - PrefabName: GoblinBruteBros
+    SpawnInterval: 230
+    MaxSpawned: 1
+    Faction: Demon
+    LevelMin: 15
+    LevelMax: 30
+  - PrefabName: Fenring_Cultist_Hildir
+    SpawnInterval: 230
+    MaxSpawned: 1
+    Faction: Demon
+    LevelMin: 20
+    LevelMax: 30
+  - PrefabName: Skeleton_Hildir
+    SpawnInterval: 230
+    MaxSpawned: 1
+    Faction: Demon
+    LevelMin: 25
+    LevelMax: 30
+  - PrefabName: Skeleton_Poison
+    MaxSpawned: 5
+    Faction: Demon
+    LevelMin: 20
+    LevelMax: 30
+  - PrefabName: GoblinShaman
+    MaxSpawned: 1
+    Faction: Demon
+    LevelMin: 12
+    LevelMax: 30
+  StartMessage: $SLS_Secret_event1_start
+  EndMessage: $SLS_Secret_event1_end
+  ForceEnvironment: Mistlands_thunder
+  ForceMusic: ZCombatEventL4

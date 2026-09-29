@@ -1,0 +1,13 @@
+UniqueID: npc.take_items
+Label: I can trade materials
+Text: I see you have some fine wood there. I could take some off your hands for my crafting projects.
+MissingRequirementsText: You don't seem to have any fine wood to trade right now.
+CompletedText: This wood is quite spectacular, thank you.
+Dialogues:
+- npc.wood_reward
+Action:
+  Type: Take
+  Label: Trade Wood
+  Parameters: FineWood, 5, 1, 0
+Requirements:
+  NotDialogues: npc.take_items

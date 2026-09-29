@@ -1,0 +1,12 @@
+UniqueID: npc.learn_sword_accept
+Label: I'll learn these materials
+Text: Excellent! True crafters must understand their materials intimately. Discover Wood, Fine Wood, and Round Log. Each has its own properties and uses in the art of weapon-making.
+CompletedText: How goes your material studies? Understanding the fundamentals takes time and exploration.
+Dialogues:
+- npc.learn_sword_cancel
+- npc.learn_sword_complete
+Action:
+  Type: StartQuest
+  Label: Accept Studies
+  Parameters: 001.WoodenSword, npc.learn_sword_started
+Requirements: 

@@ -1,0 +1,6 @@
+UniqueID: npc.learn_sword_cancelled
+Text: Very well. Perhaps hands-on experience will teach you what systematic study could not.
+Action:
+  Type: Exit
+  Label: I'll learn my own way
+Requirements: 

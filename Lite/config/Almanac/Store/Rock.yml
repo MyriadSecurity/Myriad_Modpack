@@ -1,0 +1,11 @@
+Name: Rock
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 100
+Icon: StoneRock
+Items:
+- PrefabName: StoneRock
+  Amount: 1
+  Quality: 1
+Lore: Just some rock

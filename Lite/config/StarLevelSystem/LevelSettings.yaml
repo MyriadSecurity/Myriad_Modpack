@@ -1,0 +1,562 @@
+#################################################
+# Star Level System Expanded - Level Settings
+#
+# Controls how creature levels roll and how stats scale with them: the base
+# levelup chances, per-biome and per-creature overrides, night settings,
+# distance-from-center bonuses, and reusable level generators.
+#
+# This file is SERVER AUTHORITATIVE: the server's copy is synced to every
+# client, so edit it on the server (or hosting player). Edits apply live.
+# Levels vs stars: level 1 has no stars, level 2 = 1 star, level 3 = 2 stars.
+# Star caps: MaxLevel in the main .cfg caps creatures unless their biome sets a
+# BiomeMaxLevelOverride, and an active boss-conditional tier replaces that biome's
+# range in turn. MaxBossLevel caps bosses wherever they stand. A creature entry's
+# CreatureMaxLevelOverride beats all of these.
+#
+# --- Levelup chances ---
+# Every chance table is 'level: chance', the percent chance for a creature to
+# reach that level. Values must DECREASE as the level rises. A calculator for
+# building spreads lives at https://sls-levelspreadtool.netlify.app/
+#
+#   DefaultCreatureLevelUpChance:
+#     1: 20
+#     2: 10
+#     3: 5
+#
+# --- BiomeConfiguration ---
+# Per-biome overrides. The special 'All' biome is the baseline for every biome;
+# a specific biome's values win where they are set. Example:
+#
+#   BiomeConfiguration:
+#     All:
+#       SpawnRateModifier: 1.1          # 1.0 = no change, 2.0 = 2x spawns
+#       DistanceScaleModifier: 1.5      # how strongly distance bonuses apply here
+#       DamageReceivedModifiers:        # make everything weak to poison
+#         Poison: 1.5
+#       NightSettings:
+#         NightLevelUpChanceScaler: 1.5 # higher levels more likely at night
+#     Meadows:
+#       BiomeMaxLevelOverride: 4        # star cap inside this biome (bosses use MaxBossLevel)
+#       CreatureSpawnsDisabled: [ Troll ]
+#
+# --- CreatureConfiguration ---
+# Per-prefab overrides; these beat the biome values for that creature. Prefab
+# names must match exactly (find them with VNEI or the Jotunn docs).
+#
+#   CreatureConfiguration:
+#     Troll:
+#       CreatureMaxLevelOverride: 11
+#       CustomCreatureLevelUpChance: { 1: 100, 2: 50, 3: 5 }
+#       CreatureBaseValueModifiers:     # 1.0 = vanilla for base values
+#         BaseHealth: 1.05
+#       CreaturePerLevelValueModifiers: # added per level above 1 (0.05 = +5%/level)
+#         SizePerLevel: 0.05
+#       RequiredModifiers: { Fire: Major }
+#
+# --- Boss per-level health and damage ---
+# For anything the game counts as a boss, BossEnemyHealthMultiplier and
+# BossEnemyDamageMultiplier in the main .cfg replace the biome's HealthPerLevel
+# and DamagePerLevel, the same way a boss levelup curve outranks a biome one.
+# A CreatureConfiguration entry naming that boss still wins over both.
+#
+# --- DistanceLevelBonus ---
+# Extra levelup chance by distance (metres) from the world center or starter
+# temple (see DistanceBonusIsFromStarterTemple in the main .cfg). Each band's
+# table is ADDED to the base chances once a spawn is past that distance;
+# EnableDistanceLevelBonus turns the whole system on/off.
+#
+#   DistanceLevelBonus:
+#     1250: { 1: 25, 2: 15 }
+#     5000: { 1: 45, 2: 25, 3: 10 }
+#
+# --- Level generators ---
+# Instead of hand-writing chance tables, generators expand a Min/Max level plus
+# a curve style (Linear, Exponential, Gaussian, Table) into a table at load.
+# Name them in CustomLevelupGenerators, then reference them anywhere a
+# LevelupGeneratorRefs list exists (defaults, biomes, creatures, raids,
+# nemesis spawns). When present, the generated curve REPLACES that section's
+# chance table.
+#
+#   CustomLevelupGenerators:
+#     late_game:
+#     - MinLevel: 1
+#       MaxLevel: 25
+#       LevelUpChance: 0.35             # authored as a 0-1 fraction
+#       LevelupCalculationStyle: Gaussian
+#       GaussianOffset: 0.25
+#       NightMultiplier: 1.5            # scales these chances at night only (1 = no change)
+#   DefaultLevelupGeneratorRefs: [ late_game ]
+#
+# --- Boss levels ---
+# BossLevelupGenerators (and BossLevelupGeneratorRefs) do the same for anything the game
+# counts as a boss, filling BossCreatureLevelUpChance on load. A boss curve outranks the
+# default, conditional and biome chances wherever a boss stands; a creature entry naming
+# that boss still wins. Leave them out and bosses roll from the same chances as everything
+# else. Either way MaxBossLevel caps them.
+#
+#   BossLevelupGenerators:
+#   - MinLevel: 1
+#     MaxLevel: 11
+#     LevelUpChance: 0.3
+#     LevelupCalculationStyle: Gaussian
+#
+# --- Table calculation style ---
+# Linear/Exponential/Gaussian compute a curve from LevelUpChance; Table instead
+# reads a hand-written table from LevelupChanceTablesBySpan and moves it onto
+# the generator's own MinLevel..MaxLevel range. LevelUpChance and GaussianOffset
+# are not used by Table.
+#
+# The values work like DefaultCreatureLevelUpChance: each one is the % chance to
+# roll PAST that level, so they must go down from one level to the next. A
+# value at or above the one before it means that level can never be rolled.
+#
+# LevelupChanceTablesBySpan is keyed by SPAN, the number of levels the generator
+# covers (MaxLevel - MinLevel + 1), not by absolute level. Inside a table, key 1
+# is the generator's MinLevel, key 2 is MinLevel + 1, and so on. That lets many
+# generators with different ranges (e.g. one per biome, each shifted further
+# out) share one table as long as they cover the same number of levels.
+# Every span you use needs keys 1..span. A generator whose span has no table
+# uses the Exponential curve (from its LevelUpChance) and logs one warning.
+# Raid and nemesis generators using Table read their tables from this file too.
+#
+#   LevelupChanceTablesBySpan:
+#     4: { 1: 30, 2: 15,   3: 5,      4: 0.01 }
+#     5: { 1: 30, 2: 16,   3: 6.8333, 4: 2.5,  5: 0.01 }
+#     6: { 1: 30, 2: 17.5, 3: 8.5,    4: 3.0,  5: 1.0, 6: 0.01 }
+#
+#   CustomLevelupGenerators:
+#     late_game:
+#     - MinLevel: 3            # levels 3..8 = 6 levels, so this uses table 6:
+#       MaxLevel: 8            # 30% roll past level 3, 17.5% past level 4, ...
+#       LevelupCalculationStyle: Table
+#
+# The tables shipped in the default file are examples; no default generator
+# uses them. The quick configure panel can also edit the table for its default
+# generator.
+#
+# --- Boss-conditional levelup chances ---
+# ConditionalCreatureLevelupChance switches biome curves as world bosses fall:
+# defeated-boss global key -> biome -> generator. 'All' inside an entry is that
+# entry's fallback biome. The order of entries in the file does not matter:
+# ConditionalBossKeyOrder lists boss keys from earliest to latest progression,
+# and the latest defeated key that has an entry applies. Tiers update as soon
+# as a boss key is set or removed; no relog needed.
+#
+# The active tier replaces the biome's own curve AND its level range: creatures
+# there roll between the tier generators' MinLevel and MaxLevel, whatever
+# BiomeMinLevelOverride / BiomeMaxLevelOverride say. A creature entry with its
+# own curve still wins, and bosses keep MaxBossLevel.
+#
+#   ConditionalBossKeyOrder:
+#   - defeated_eikthyr
+#   - defeated_gdking
+#   - defeated_bonemass
+#   - defeated_dragon
+#   - defeated_goblinking
+#   - defeated_queen
+#   - defeated_fader
+#
+# Add modded boss keys where they fall in your progression. An entry whose key
+# is not listed only applies while no listed key is defeated (a warning names
+# it at load). Leaving the list out uses the vanilla order above.
+#################################################
+CustomLevelupGenerators:
+  early_game:
+  - MaxLevel: 6
+    MinLevel: 0
+    LevelUpChance: 0.2
+    LevelupCalculationStyle: Exponential
+  late_game:
+  - MaxLevel: 25
+    LevelUpChance: 0.35
+    LevelupCalculationStyle: Gaussian
+    GaussianOffset: 0.25
+BiomeConfiguration:
+  All:
+    DistanceScaleModifier: 1.5
+    SpawnRateModifier: 1.1
+    DamageReceivedModifiers:
+      Poison: 1.5
+    NightSettings:
+      NightLevelUpChanceScaler: 1.5
+      CreatureSpawnsDisabled: []
+  Meadows:
+    BiomeMaxLevelOverride: 4
+  BlackForest:
+    BiomeMaxLevelOverride: 6
+  Swamp:
+    BiomeMaxLevelOverride: 10
+  Mountain:
+    BiomeMaxLevelOverride: 14
+  Plains:
+    BiomeMaxLevelOverride: 18
+  Mistlands:
+    BiomeMaxLevelOverride: 22
+  AshLands:
+    BiomeMaxLevelOverride: 26
+    DistanceScaleModifier: 0.5
+  DeepNorth:
+    BiomeMaxLevelOverride: 26
+    DistanceScaleModifier: 0.5
+CreatureConfiguration:
+  piece_TrainingDummy:
+    CustomCreatureLevelUpChance:
+      1: 100
+      2: 100
+      3: 0
+    CreatureMaxLevelOverride: 11
+    CreatureBaseValueModifiers:
+      BaseHealth: 1.05
+      BaseDamage: 0.95
+      Speed: 1.05
+      Size: 1.05
+      AttackSpeed: 1.05
+    CreaturePerLevelValueModifiers:
+      HealthPerLevel: 0.3
+      DamagePerLevel: 0.05
+      SizePerLevel: 0.005
+  Lox:
+    CreaturePerLevelValueModifiers:
+      SpeedPerLevel: -0.01
+  Troll:
+    CreaturePerLevelValueModifiers:
+      SizePerLevel: 0.05
+  Bjorn:
+    CreaturePerLevelValueModifiers:
+      SizePerLevel: 0.05
+  GoblinBruteBros: {}
+  GoblinShaman_Hildir: {}
+  GoblinBrute_Hildir: {}
+  Skeleton_Hildir: {}
+  Fenring_Cultist_Hildir: {}
+  Charred_Melee_Dyrnwyn: {}
+DefaultCreatureLevelUpChance:
+  1: 15
+  2: 8
+  3: 3
+  4: 1
+  5: 0.5
+  6: 0.25
+  7: 0.125
+  8: 0.0625
+  9: 0.03125
+  10: 0.015625
+  11: 0.007812
+  12: 0.003906
+  13: 0.001953
+  14: 0.000977
+  15: 0.000488
+  16: 0.000244
+  17: 0.000122
+  18: 0.000061
+  19: 0.000031
+  20: 0.000015
+  21: 0.000008
+  22: 0.000004
+  23: 0.000002
+  24: 0.000001
+  25: 0.000001
+BossLevelupGenerators:
+- MaxLevel: 11
+  MinLevel: 2
+  LevelUpChance: 0.2
+  LevelupCalculationStyle: Exponential
+EnableDistanceLevelBonus: true
+DistanceLevelBonus:
+  750:
+    1: 15
+    2: 5
+    3: 1
+  1200:
+    1: 18
+    2: 7
+    3: 1.5
+    4: 0.5
+  2000:
+    1: 24
+    2: 10
+    3: 3
+    4: 1
+    5: 0.5
+  3000:
+    1: 32
+    2: 16
+    3: 8
+    4: 4
+    5: 2
+    6: 1
+  4000:
+    1: 40
+    2: 25
+    3: 12
+    4: 6
+    5: 3
+    6: 2
+    7: 1
+    8: 0.5
+  5000:
+    1: 50
+    2: 35
+    3: 18
+    4: 9
+    5: 6
+    6: 3
+    7: 2
+    8: 1
+    9: 0.5
+    10: 0.25
+  6000:
+    1: 60
+    2: 40
+    3: 20
+    4: 10
+    5: 8
+    6: 6
+    7: 4
+    8: 2
+    9: 1
+    10: 0.5
+    11: 0.25
+    12: 0.12
+  7000:
+    1: 70
+    2: 50
+    3: 25
+    4: 12
+    5: 10
+    6: 8
+    7: 6
+    8: 4
+    9: 2
+    10: 1
+    11: 0.5
+    12: 0.25
+    13: 0.12
+    14: 0.06
+  8000:
+    1: 80
+    2: 60
+    3: 40
+    4: 20
+    5: 15
+    6: 12
+    7: 10
+    8: 8
+    9: 6
+    10: 4
+    11: 2
+    12: 1
+    13: 0.5
+    14: 0.25
+    15: 0.12
+    16: 0.06
+  9100:
+    1: 100
+    2: 80
+    3: 60
+    4: 40
+    5: 30
+    6: 20
+    7: 16
+    8: 14
+    9: 12
+    10: 10
+    11: 8
+    12: 4
+    13: 2
+    14: 1
+    15: 0.5
+    16: 0.25
+    17: 0.12
+    18: 0.06
+ConditionalCreatureLevelupChance:
+  defeated_fader:
+    Meadows:
+      LevelupGenerators:
+      - MaxLevel: 30
+        MinLevel: 6
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    BlackForest:
+      LevelupGenerators:
+      - MaxLevel: 24
+        MinLevel: 5
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Swamp:
+      LevelupGenerators:
+      - MaxLevel: 20
+        MinLevel: 4
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Mountain:
+      LevelupGenerators:
+      - MaxLevel: 16
+        MinLevel: 3
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Plains:
+      LevelupGenerators:
+      - MaxLevel: 12
+        MinLevel: 2
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Mistlands:
+      LevelupGenerators:
+      - MaxLevel: 8
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+  defeated_queen:
+    Meadows:
+      LevelupGenerators:
+      - MaxLevel: 30
+        MinLevel: 6
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    BlackForest:
+      LevelupGenerators:
+      - MaxLevel: 24
+        MinLevel: 5
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Swamp:
+      LevelupGenerators:
+      - MaxLevel: 20
+        MinLevel: 4
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Mountain:
+      LevelupGenerators:
+      - MaxLevel: 16
+        MinLevel: 3
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Plains:
+      LevelupGenerators:
+      - MaxLevel: 12
+        MinLevel: 2
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Mistlands:
+      LevelupGenerators:
+      - MaxLevel: 8
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+  defeated_goblinking:
+    Meadows:
+      LevelupGenerators:
+      - MaxLevel: 24
+        MinLevel: 5
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    BlackForest:
+      LevelupGenerators:
+      - MaxLevel: 20
+        MinLevel: 4
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Swamp:
+      LevelupGenerators:
+      - MaxLevel: 16
+        MinLevel: 3
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Mountain:
+      LevelupGenerators:
+      - MaxLevel: 12
+        MinLevel: 2
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Plains:
+      LevelupGenerators:
+      - MaxLevel: 8
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+  defeated_dragon:
+    Meadows:
+      LevelupGenerators:
+      - MaxLevel: 20
+        MinLevel: 4
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    BlackForest:
+      LevelupGenerators:
+      - MaxLevel: 16
+        MinLevel: 3
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Swamp:
+      LevelupGenerators:
+      - MaxLevel: 12
+        MinLevel: 2
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Mountain:
+      LevelupGenerators:
+      - MaxLevel: 8
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+  defeated_bonemass:
+    Meadows:
+      LevelupGenerators:
+      - MaxLevel: 16
+        MinLevel: 3
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    BlackForest:
+      LevelupGenerators:
+      - MaxLevel: 12
+        MinLevel: 2
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    Swamp:
+      LevelupGenerators:
+      - MaxLevel: 8
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+  defeated_gdking:
+    Meadows:
+      LevelupGenerators:
+      - MaxLevel: 12
+        MinLevel: 2
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+    BlackForest:
+      LevelupGenerators:
+      - MaxLevel: 8
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+  defeated_eikthyr:
+    Meadows:
+      LevelupGenerators:
+      - MaxLevel: 8
+        LevelUpChance: 0.25
+        LevelupCalculationStyle: Exponential
+ConditionalBossKeyOrder:
+- defeated_eikthyr
+- defeated_gdking
+- defeated_bonemass
+- defeated_dragon
+- defeated_goblinking
+- defeated_queen
+- defeated_fader
+LevelupChanceTablesBySpan:
+  4:
+    1: 30
+    2: 15
+    3: 5
+    4: 0.01
+  5:
+    1: 30
+    2: 16
+    3: 6.8333
+    4: 2.5
+    5: 0.01
+  6:
+    1: 30
+    2: 17.5
+    3: 8.5
+    4: 3
+    5: 1
+    6: 0.01
+

@@ -1,0 +1,15 @@
+UniqueID: Wraith.001
+Creature: Wraith
+Name: ''
+Icon: TrophyWraith
+Biome: Swamp
+Health: 1000
+Level: 3
+DamageMultiplier: 1.5
+AlmanacTokenReward: 5
+Items: []
+Lore: When the mists thicken and the air grows cold, the Wraith glides forth to claim the living.
+Cost:
+  Items:
+  - PrefabName: Coins
+    Amount: 10

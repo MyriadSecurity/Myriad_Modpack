@@ -1,0 +1,515 @@
+#################################################
+# Star Level System Expanded - Location Reset Settings
+#
+# Resets overworld locations, dungeons, vegetation, ores and pickables so they can be
+# looted again. Sweeps run server-side, in the background, only in zones with no players
+# nearby. Timers are in real-world hours. NOTHING resets until both the EnableLocationReset
+# BepInEx setting and the Enabled flag below are turned on.
+#
+# --- Reset groups: start here ---
+# ResetGroups is where the work happens. A group both ENABLES a set of targets and gives them
+# their settings, in one block:
+#
+#   ResetGroups:
+#     Ores:
+#       Enabled: true
+#       ResetHours: 48
+#       ResetTerrain: true
+#       Members: [rock4_copper, MineRock_Tin, silvervein, rock3_silver, mudpile_beacon]
+#
+# Groups stand on their own - a member needs no entry anywhere else in this file. To turn a whole
+# category off, set its Enabled: false; to drop one target, remove it from Members. If two groups
+# claim the same prefab the shorter interval wins and the other is named in a warning. A member
+# name this world has nothing for is warned about at load, never fatal.
+#
+# A member can also be a category token, $Mineable or $Pickable, which expands to everything this
+# world PLACES carrying that component, and so covers modded content too. Unlike a named member a
+# token stops there: one-off pickups that only exist inside dungeons are not swept up by it, so
+# name those explicitly if you want them. Berry bushes are NOT Pickable_* prefabs, which is why
+# they are listed separately below.
+#
+# MinDistance / MaxDistance limit a group to a ring around spawn (MaxDistance 0 = no outer limit).
+# A scoped group applies only inside its range; outside it, its members fall back to whatever
+# unscoped group covers them.
+#
+# --- Locations and Vegetation: overrides only ---
+# Both ship EMPTY and can usually stay that way. Add a key only to override one target, or to
+# enable something no group covers. Values resolve entry -> group -> Defaults, so a per-prefab
+# setting always beats its group:
+#
+#   Locations:
+#     Eikthyrnir:
+#       ResetHours: 12      # BossAltars still enables it; this just retimes it
+#
+# For the full list of names this world can reset - including everything other mods add - run
+# the console command sls-loc-dump. It writes SavedData/LocationResetCatalog.yaml as a
+# reference; that file is a dump, not a config, and editing it does nothing.
+#
+# --- Scheduling: ResetHours or ResetSchedule ---
+# ResetHours is elapsed time since a target last reset, so a 24h timer drifts a little later
+# every cycle. ResetSchedule is a cron expression instead, for a fixed time of day:
+#
+#   ResetGroups:
+#     Ores:
+#       ResetSchedule: 0 3 * * *      # 03:00 every day
+#     Foraging:
+#       ResetSchedule: '*/30 * * * *' # every 30 minutes (quote anything starting with *)
+#
+# Fields are: minute hour day-of-month month day-of-week, with * , - and */n. Day-of-week is
+# 0-6 (0 = Sunday) or SUN-SAT; months are 1-12 or JAN-DEC. The macros @hourly, @daily,
+# @midnight, @weekly, @monthly and @yearly also work.
+#
+# Times are the SERVER'S LOCAL TIME, not UTC or in-game time. On the day the clocks go
+# forward, a schedule inside the skipped hour runs as soon as the hour ends; on the day they
+# go back it still runs once.
+#
+# Two gotchas worth knowing:
+#   - If BOTH day-of-month and day-of-week are restricted, a day matching EITHER one fires.
+#     0 0 1 * MON is the 1st of the month AND every Monday, not only Mondays that land on the
+#     1st. Every cron behaves this way.
+#   - BiomeRates and DistanceBands do NOT scale a cron schedule - there is no sensible way to
+#     halve 'every Tuesday at 3am'. A rate of 0 still excludes the chunk entirely.
+#
+# ResetHours and ResetSchedule resolve as one unit, entry -> group -> Defaults: the first
+# level that sets either one owns the timing, so a per-prefab ResetHours still overrides its
+# group's ResetSchedule. Where a single level sets both, the schedule wins and it is logged.
+# An invalid expression is logged and that target falls back to ResetHours.
+#
+# --- Targeting resets: BiomeRates and DistanceBands ---
+# Both are multipliers applied on top of each entry's own ResetHours, so 1.0 changes
+# nothing and they stack:  effective hours = ResetHours x biome rate x band rate.
+# Use them to focus resets on the areas players actually strip.
+#
+#   BiomeRates:
+#     Meadows: 0.5        # everything in the Meadows returns twice as fast
+#     Mistlands: 2.0      # ...and half as fast out in the Mistlands
+#   DistanceBands:
+#   - Inner: 0            # metres from spawn (or from world centre - see
+#     Outer: 3000         # DistanceBonusIsFromStarterTemple in the BepInEx config)
+#     Multiplier: 0.5     # the hub recovers twice as fast
+#
+# A rate of 0 EXCLUDES that biome or band from resets entirely - it does not mean
+# 'instantly'. Outer: 0 means the band has no outer limit. A chunk matching no band is
+# left at 1.0, so a partial band list never disables the rest of the world.
+#
+# --- Protection: the three actions ---
+# Every Protection category takes one of three actions:
+#
+#   Block     the whole chunk is left alone while the object is there. The safest, and the
+#             default for everything except dropped items
+#   Preserve  the object is kept, and the reset goes ahead around it
+#   Ignore    the object is ordinary resettable content and IS DELETED
+#
+# DroppedItem ships as Preserve, so loot a player left on the ground survives a reset without
+# holding the chunk back. If you ever see items piling up inside a location, set it to Ignore
+# and they will be cleared with everything else.
+#
+# --- Ignored prefabs ---
+# Each category can also list individual prefabs exempt from it. An ignored prefab neither
+# blocks a chunk from resetting nor survives one - IT IS DELETED. fire_pit ships ignored
+# because one abandoned campfire otherwise freezes a chunk (and its 8 neighbours) forever,
+# and a campfire sitting on an ore spawn stops that ore ever coming back.
+#
+# The exemption only reaches objects that are IN that category to begin with. Every player
+# category is detected by the creator stamped on the object, so ignoring wood_floor drops the
+# protection from decking a PLAYER left behind and does nothing to the identical wood_floor
+# that world generation put in a house - that one was never protected as player property, and
+# is restored or left alone by its location's own rules.
+#
+#   Protection:
+#     PlayerBuiltPiece:
+#       Action: Block
+#       Ignored:
+#       - fire_pit
+#
+# Tombstones can never be ignored, and anything in ProtectedPrefabs wins over an ignore.
+# Tamed creatures are never deleted, whatever the categories or ignore lists say.
+#
+# --- Per-group and per-entry Protection: scoped ignores ---
+# Protection can be set at three levels: Defaults (everywhere), a reset group (chunks
+# holding that group's content), and a single Locations/Vegetation entry (chunks holding
+# that one target). Rules resolve entry -> group -> Defaults per CATEGORY, and an override
+# replaces the whole rule for that category - Action AND Ignored list together. A group
+# that writes its own PlayerBuiltPiece rule therefore no longer inherits the fire_pit
+# ignore from Defaults in its chunks; re-list it if you still want it.
+#
+# An override applies to every protection decision for the chunks it governs: whether the
+# chunk is blocked from resetting at all, and what survives the reset when it runs. This is
+# how you stop player litter freezing a resource group without loosening protection
+# anywhere else. Both rule forms work here, same as in Defaults - a bare action, or a
+# mapping with an Ignored list:
+#
+#   ResetGroups:
+#     Ores:
+#       ResetHours: 48
+#       Members: [rock4_copper, MineRock_Tin]
+#       Protection:
+#         PlayerBuiltPiece: Ignore        # player builds neither block ore chunks nor
+#                                         #   survive their reset - they are DELETED by it
+#         PlayerBaseEffect: Ignore        # nor does a base, like a workbench left on the
+#                                         #   spawn (see Player bases below)
+#         Container:
+#           Action: Block                 # chests still block ore chunks...
+#           Ignored: [piece_chest_wood]   # ...except plain wood chests, which are deleted
+#
+#   Locations:
+#     TrollCave02:
+#       Protection:
+#         PlayerBuiltPiece: Ignore        # scoped to chunks holding this one location
+#
+# Which chunks a group governs is decided by CONTENT, not distance: a chunk is governed by
+# the location recorded in it plus every configured vegetation prefab the sweep has seen
+# there. A blocking object standing in a neighbouring chunk (within ProtectionRadius) is
+# judged by the rules of the chunk being reset, and a chunk holding nothing configured is
+# always judged by Defaults alone.
+#
+# Where the content of two groups shares a chunk, the stricter rule wins per object: an
+# ignore takes effect only when every governing target agrees, so relaxing the Ores group
+# can never expose a crypt that happens to share the chunk. A disabled target gets no vote.
+# And remember that only pieces a player actually BUILT block in the first place -
+# world-generated furniture never does - so these ignores exist for genuine player litter,
+# like the workbench abandoned on an ore spawn.
+#
+# Two categories never take a group or entry override: Ward (a player's explicit claim on
+# an area) and Tombstone (their dropped gear). Defaults alone govern those two, and an
+# override for either is dropped with a warning at load. ProtectedPrefabs also still wins
+# over every ignore, at every level.
+#
+# --- ProtectionRadius ---
+# How far from a chunk's centre a player build still protects that chunk, in metres.
+# Default 48. The scan always reads a chunk and its 8 neighbours, so 96 means the whole 3x3
+# block protects, and is the most it can ever see; values are clamped to 32-96.
+#
+# Lower it if too little is resetting: at the full 96m one forgotten chest protects nine
+# chunks, which is the usual reason a server's crypts never come back. Raise it if players
+# report builds near a chunk edge being cleared.
+#
+#   Defaults:
+#     ProtectionRadius: 48
+#
+# --- Player bases (PlayerBaseEffect) ---
+# A chunk is also blocked while any part of it lies inside a player's base: the PlayerBase
+# area vanilla puts around a workbench and similar pieces, the one that stops monsters
+# spawning. That area's own reach decides it, not ProtectionRadius, so a base in the next
+# chunk over holds this one only if it actually extends across the line. Only pieces a
+# player built count, and a prefab ignored under PlayerBuiltPiece projects no base either -
+# the shipped fire_pit ignore covers both. Groups and entries can override it like any
+# other category.
+#
+# Only Block does anything for this category. Preserve and Ignore both just let the chunk
+# reset; whether the base piece itself survives is still decided by its PlayerBuiltPiece rule.
+#
+# --- ExtraTerrainRadius ---
+# Per location: metres of terrain reset BEYOND the location's own radius, for the ramps and
+# moats players dig around the outside. Clamped to ProtectionRadius minus 32m (so 16m at the
+# default), which is as far past a location's own footprint as the protection scan actually
+# checked for player property - resetting terrain further would flatten ground nobody looked
+# at. Raising ProtectionRadius raises this ceiling with it.
+#
+# --- Advanced sections, omitted while unused ---
+# These four are left out of the generated file because their defaults are right for almost
+# every server. Add the section by hand to use one; anything you leave out keeps its default.
+#
+#   ProtectedPrefabs: [portal_wood]   # always block a reset, whatever category detection says
+#
+#   DistanceBands: []                 # see the section above
+#
+#   InPlaceRefresh:                   # tier 1: refresh ZDO state without loading the zone
+#     Pickables: true                 # regrow picked berries, mushrooms, flint
+#     MineRocks: true                 # restore mined ore deposits
+#     ContainerDefaultLoot: false     # re-roll chest loot. OFF: the one refresh that grants items
+#
+#   Throughput:                       # sweep pacing. Retune only if the server is struggling
+#     SweepBudgetMillisecondsPerFrame: 4    # primary throttle (LocationResetSweepBudgetMs wins)
+#     MaxZonesPerSecondFastLane: 200        # ZDO-only refreshes
+#     MaxZonesPerSecondSlowLane: 2          # resets that must load the zone
+#     AdaptiveBackoffFrameMs: 50            # over this frame time, halve the budget next tick
+#     ZdoGrowthTolerance: 0                 # ZDOs a reset may leak before it is reported in the log
+#
+# --- Targets registered by other mods ---
+# Mods can register their own reset targets through the Star Level System API - a mod that adds
+# a custom dungeon can ask for it to be reset on a schedule. Those registrations never appear
+# in this file, and are not written to it. Run 'sls-loc-api' to list them: it shows the target,
+# which mod registered it, its schedule, and whether this file is overriding it.
+#
+# You always have the last word. Adding a Locations: or Vegetation: key for the same prefab
+# name takes manual control of that target and replaces the mod's registration outright - which
+# is how you turn one off, since you cannot edit another mod's registration the way you would
+# edit a group's member list. Protection rules are yours alone and cannot be set from the API.
+#
+# Mods can also ask for a reset, or register a target, from a CLIENT - so that an item which
+# renews a dungeon works for the player who used it. Those requests are not admin-gated, so the
+# server bounds them instead, with three settings in the BepInEx config (LocationReset section):
+# ClientLocationResetMaxRadius clamps how large an area one request may cover,
+# ClientLocationResetMaxDistance stops a client asking about ground it is not near, and
+# ClientLocationResetCooldownSeconds limits how often any one client may ask. Set the cooldown
+# very high to effectively switch client requests off. Player structures are protected from
+# every route regardless.
+#################################################
+Enabled: true
+Defaults:
+  Protection:
+    PlayerBuiltPiece:
+      Action: Block
+      Ignored:
+      - fire_pit
+    Tombstone: Block
+    Ward: Block
+    Portal: Block
+    Bed: Block
+    Container: Block
+    TamedCreature: Block
+    DroppedItem: Preserve
+    PlayerBaseEffect: Block
+Locations: {}
+Vegetation: {}
+ResetGroups:
+  BossAltars:
+    Enabled: true
+    ResetHours: 336
+    ResetTerrain: true
+    ExtraTerrainRadius: 16
+    Members:
+    - Eikthyrnir
+    - GDKing
+    - Bonemass
+    - Dragonqueen
+    - GoblinKing
+    - Mistlands_DvergrBossEntrance1
+    - FaderLocation
+  Ores:
+    Enabled: true
+    ResetHours: 336
+    ResetTerrain: true
+    ExtraTerrainRadius: 16
+    Members:
+    - rock4_copper
+    - MineRock_Tin
+    - silvervein
+    - rock3_silver
+    - MineRock_Obsidian
+    - mudpile_beacon
+    - UnstableLavaRock
+    - LeviathanLava
+    - giant_helmet1
+    - giant_helmet2
+    - giant_sword1
+    - giant_sword2
+    - Mistlands_Giant1
+    - Mistlands_Giant2
+    - Mistlands_Swords1
+    - Mistlands_Swords2
+    - Mistlands_Swords3
+  Berries:
+    Enabled: false
+    ResetHours: 128
+    Members:
+    - RaspberryBush
+    - BlueberryBush
+    - CloudberryBush
+    - GlowingMushroom
+  Foraging:
+    Enabled: false
+    ResetHours: 12
+    Members:
+    - $Pickable
+  FlintNearSpawn:
+    Enabled: false
+    ResetHours: 6
+    MaxDistance: 3000
+    Members:
+    - Pickable_Flint
+  StoneNearSpawn:
+    Enabled: false
+    ResetHours: 6
+    MaxDistance: 3000
+    Members:
+    - Pickable_Stone
+  MeadowsLocations:
+    Enabled: true
+    ResetHours: 336
+    ResetTerrain: true
+    Members:
+    - WoodHouse1
+    - WoodHouse2
+    - WoodHouse3
+    - WoodHouse4
+    - WoodHouse5
+    - WoodHouse6
+    - WoodHouse7
+    - WoodHouse8
+    - WoodHouse9
+    - WoodHouse10
+    - WoodHouse11
+    - WoodHouse12
+    - WoodHouse13
+    - CombatRuin01
+    - WoodFarm1
+    - WoodVillage1
+  Leviathans:
+    Enabled: true
+    ResetHours: 336
+    Members:
+    - Leviathan
+  MinorMeadowsLocations:
+    Enabled: true
+    ResetHours: 336
+    Members:
+    - ShipSetting01
+    - BigRockClearing
+  BlackforestDungeons:
+    Enabled: true
+    ResetHours: 128
+    ResetTerrain: true
+    Members:
+    - Crypt2
+    - TrollCave02
+    - Crypt3
+    - Crypt4
+    - Greydwarf_camp1
+    - StoneTowerRuins03
+    - StoneTowerRuins07
+    - StoneTowerRuins08
+    - StoneTowerRuins09
+    - StoneTowerRuins10
+  Shipwrecks:
+    Enabled: true
+    ResetHours: 336
+    ResetTerrain: true
+    Members:
+    - ShipWreck01
+    - ShipWreck02
+    - ShipWreck03
+    - ShipWreck04
+  SwampDungeonResources:
+    Enabled: true
+    ResetHours: 128
+    ResetTerrain: true
+    Members:
+    - InfestedTree01
+    - SunkenCrypt4
+    - SwampHut5
+    - SwampHut1
+    - SwampHut2
+    - SwampHut3
+    - SwampHut4
+    - SwampRuin1
+    - SwampRuin2
+    - SwampWell1
+    - MountainWell1
+  MountainLocations:
+    Enabled: true
+    ResetHours: 128
+    ResetTerrain: true
+    Members:
+    - MountainCave02
+    - MountainGrave01
+    - DrakeNest01
+    - AbandonedLogCabin02
+    - AbandonedLogCabin03
+    - AbandonedLogCabin04
+    - StoneTowerRuins04
+    - StoneTowerRuins05
+  PlainsLocations:
+    Enabled: true
+    ResetHours: 336
+    ResetTerrain: true
+    Members:
+    - TarPit1
+    - TarPit2
+    - TarPit3
+    - GoblinCamp2
+    - Ruin3
+    - StoneTower1
+    - StoneTower3
+    - StoneHenge1
+    - StoneHenge2
+    - StoneHenge3
+    - StoneHenge4
+    - StoneHenge5
+    - StoneHenge6
+  QuestSites:
+    Enabled: true
+    ResetHours: 48
+    ResetTerrain: true
+    Members:
+    - Hildir_crypt
+    - Hildir_cave
+    - Hildir_plainsfortress
+    - PlaceofMystery1
+    - PlaceofMystery2
+    - PlaceofMystery3
+  MistlandMinorLocations:
+    Enabled: true
+    ResetHours: 336
+    ResetTerrain: true
+    Members:
+    - Mistlands_RoadPost1
+    - Mistlands_Viaduct1
+    - Mistlands_Viaduct2
+  MistlandLocations:
+    Enabled: true
+    ResetHours: 336
+    ResetTerrain: true
+    Members:
+    - Mistlands_GuardTower1_ruined_new2
+    - Mistlands_GuardTower3_new
+    - Mistlands_GuardTower3_ruined_new
+    - Mistlands_GuardTower1_new
+    - Mistlands_GuardTower2_new
+    - Mistlands_GuardTower1_ruined_new
+    - Mistlands_Lighthouse1_new
+    - Mistlands_Excavation1
+    - Mistlands_Excavation2
+    - Mistlands_Excavation3
+    - Mistlands_Harbour1
+  MistlandDungeons:
+    Enabled: true
+    ResetHours: 128
+    ResetTerrain: true
+    Members:
+    - Mistlands_DvergrTownEntrance1
+    - Mistlands_DvergrTownEntrance2
+  AshlandsForts:
+    Enabled: true
+    ResetHours: 336
+    ResetTerrain: true
+    ExtraTerrainRadius: 16
+    Members:
+    - CharredFortress
+  CharredSpawners:
+    Enabled: true
+    ResetHours: 336
+    ResetTerrain: true
+    Members:
+    - CharredStone_Spawner
+    - MorgenHole1
+    - MorgenHole2
+    - MorgenHole3
+  AshlandRuins:
+    Enabled: true
+    ResetHours: 336
+    ResetTerrain: true
+    Members:
+    - FortressRuins
+    - CharredTowerRuins1_dvergr
+    - CharredRuins1
+    - CharredRuins4
+    - CharredTowerRuins1
+    - CharredTowerRuins2
+    - CharredTowerRuins3
+    - SulfurArch
+    - CharredRuins2
+    - CharredRuins3
+    - VoltureNest
+BiomeRates:
+  Meadows: 1
+  BlackForest: 1
+  Swamp: 1
+  Mountain: 1
+  Plains: 1
+  Mistlands: 1
+  AshLands: 1
+  DeepNorth: 1
+  Ocean: 1
+

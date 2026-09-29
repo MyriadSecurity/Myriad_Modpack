@@ -1,0 +1,12 @@
+Name: Crystals
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 10
+Icon: Crystal
+Items:
+- PrefabName: Crystal
+  Amount: 50
+  Quality: 1
+Lore: Just some crystals
+RequiredDefeated: StoneGolem

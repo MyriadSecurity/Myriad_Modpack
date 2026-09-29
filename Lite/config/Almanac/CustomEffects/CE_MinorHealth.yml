@@ -1,0 +1,7 @@
+UniqueID: CE_MinorHealth
+Name: Minor Health
+Tooltip: Increases health temporarily
+Duration: 1800
+Icon: mushroom
+Modifiers:
+  Health: 50

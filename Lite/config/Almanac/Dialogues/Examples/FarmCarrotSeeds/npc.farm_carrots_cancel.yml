@@ -1,0 +1,8 @@
+UniqueID: npc.farm_carrots_cancel
+Label: Farming isn't for me
+Text: Not everyone has the temperament for cultivation. It requires patience and dedication that some find... tedious. Shall I release you from this agricultural obligation?
+Action:
+  Type: CancelQuest
+  Label: Yes, I prefer adventure
+  Parameters: 001.Farm, npc.farm_carrots_cancelled
+Requirements: 

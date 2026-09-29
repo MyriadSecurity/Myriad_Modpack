@@ -1,0 +1,9 @@
+UniqueID: Swamp.001
+Name: Swamp I
+Lore: Brave the murky depths of the Swamp and defeat the lurking horrors to prove your might.
+Icon: TrophyBonemass
+TokenReward: 30
+Requirement:
+  Type: CreatureGroup
+  Group: Swamp
+  Threshold: 5

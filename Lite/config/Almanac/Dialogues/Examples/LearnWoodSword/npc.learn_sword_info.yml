@@ -1,0 +1,8 @@
+UniqueID: npc.learn_sword_info
+Label: How do I learn about materials?
+Text: Materials are learned by discovering them in the world. Chop trees for Wood, find birch trees for Fine Wood, and look for Round Logs in various locations. Once you've handled each material, your knowledge grows.
+Dialogues:
+- npc.learn_sword_accept
+- npc.learn_sword_intro
+Action: 
+Requirements: 

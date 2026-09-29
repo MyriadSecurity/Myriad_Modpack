@@ -1,0 +1,8 @@
+UniqueID: DistanceSailed.001
+Name: Seafarer
+Lore: From fjord to ocean, your longships have charted every wave.
+Icon: VikingShip
+TokenReward: 15
+Requirement:
+  Type: DistanceSailed
+  Threshold: 10000

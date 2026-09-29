@@ -1,0 +1,9 @@
+Name: Minor Eitr
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 3
+Icon: necklace
+StatusEffect:
+  ID: CE_MinorEitr
+Lore: Increases eitr

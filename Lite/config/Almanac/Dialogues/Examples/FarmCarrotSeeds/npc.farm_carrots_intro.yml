@@ -1,0 +1,10 @@
+UniqueID: npc.farm_carrots_intro
+Label: Do you have farming work?
+Text: The art of cultivation is often overlooked by adventurers, yet it feeds civilizations. I need someone to plant and tend 10 carrot seedlings. It's honest work that connects you to the land itself.
+Dialogues:
+- npc.farm_carrots_accept
+- npc.farm_carrots_info
+- npc.quest_hub
+Action: 
+Requirements:
+  NotCompletedQuests: 001.Farm

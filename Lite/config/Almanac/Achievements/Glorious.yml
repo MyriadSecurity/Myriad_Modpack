@@ -1,0 +1,7 @@
+UniqueID: Trophies.001
+Name: Glorious
+Lore: Every conquest leaves a mark; your trophies tell the tale of victory.
+Icon: TrophyEikthyr
+TokenReward: 50
+Requirement:
+  Type: Trophies

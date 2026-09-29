@@ -1,0 +1,15 @@
+UniqueID: Serpent.001
+Creature: Serpent
+Name: ''
+Icon: TrophySerpent
+Biome: Ocean
+Health: 1000
+Level: 3
+DamageMultiplier: 1.5
+AlmanacTokenReward: 5
+Items: []
+Lore: Sailors whisper of a serpent that drags ships beneath the waves, leaving only foam and silence.
+Cost:
+  Items:
+  - PrefabName: Coins
+    Amount: 10

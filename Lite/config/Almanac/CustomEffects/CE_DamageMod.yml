@@ -1,0 +1,7 @@
+UniqueID: CE_DamageMod
+Name: Berserker
+Tooltip: Increase damage output
+Duration: 1800
+Icon: sword_brown
+Modifiers:
+  DamageModifier: 1.1

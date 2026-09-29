@@ -1,0 +1,12 @@
+Name: Bronze Nails
+Cost:
+  Items:
+  - PrefabName: AlmanacToken
+    Amount: 3
+Icon: BronzeNails
+Items:
+- PrefabName: BronzeNails
+  Amount: 20
+  Quality: 1
+Lore: Just some nails
+RequiredDefeated: gd_king
