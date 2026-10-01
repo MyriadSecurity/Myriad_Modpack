@@ -1,0 +1,369 @@
+- manifestVersion: 1
+  name: denikson-BepInExPack_Valheim
+  authorName: denikson
+  websiteUrl: https://thunderstore.io/c/valheim/p/denikson/BepInExPack_Valheim/
+  displayName: BepInExPack_Valheim
+  description: >-
+    BepInEx pack for Valheim. Preconfigured with the correct entry point for
+    mods and preferred defaults for the community.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643640059
+  loaders: []
+  dependencies: []
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 5
+    minor: 4
+    patch: 2351
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Zenox-BetterUI
+  authorName: Zenox
+  websiteUrl: https://thunderstore.io/c/valheim/p/Zenox/BetterUI/
+  displayName: BetterUI
+  description: >-
+    QoL HUD overhaul + Party system: repositionable bars, quality stars,
+    durability colors, enhanced enemy HP bar, hover text, XP bar, stat tooltip,
+    invite/party HP-stamina panel. Inspired by matias-kovero/BetterUI.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643751695
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 0
+    patch: 13
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: sighsorry-LoadTimeProfiler
+  authorName: sighsorry
+  websiteUrl: https://thunderstore.io/c/valheim/p/sighsorry/LoadTimeProfiler/
+  displayName: LoadTimeProfiler
+  description: >-
+    Startup and join profiling, optional acceleration, timeout protection, and
+    reloadable log filtering
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643816453
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 3
+    patch: 2
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: JereKuusela-Ore_Support
+  authorName: JereKuusela
+  websiteUrl: https://thunderstore.io/c/valheim/p/JereKuusela/Ore_Support/
+  displayName: Ore_Support
+  description: >-
+    5hows supporting bounding boxes for mine rocks which makes collapsing them
+    much easier.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643823867
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 12
+    patch: 0
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Advize-PlantEasily
+  authorName: Advize
+  websiteUrl: https://thunderstore.io/c/valheim/p/Advize/PlantEasily/
+  displayName: PlantEasily
+  description: >-
+    Allows you to plant evenly spaced crops, either one at a time or in any
+    amount of rows and columns, with grid snapping features and invalid crop
+    placement prevention. Harvest in bulk and optionally auto replant crops.
+    Configurable and supports gamepad.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643848605
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 2
+    minor: 2
+    patch: 2
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: Stonaar-ValheimBuildCamera
+  authorName: Stonaar
+  websiteUrl: https://thunderstore.io/c/valheim/p/Stonaar/ValheimBuildCamera/
+  displayName: ValheimBuildCamera
+  description: >-
+    Client-side free-build camera for Valheim. Fly around a building site while
+    retaining normal placement, snapping, rotation, repair and removal
+    controls.*
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643864341
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 9
+    patch: 0
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: ValheimModding-YamlDotNet
+  authorName: ValheimModding
+  websiteUrl: https://thunderstore.io/c/valheim/p/ValheimModding/YamlDotNet/
+  displayName: YamlDotNet
+  description: >-
+    Shared version 16.3.0 of YamlDotNet from Antoine Aubry and contributors,
+    net47 package for use in Valheim mods. Maintained by the ValheimModding
+    team.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643873704
+  loaders: []
+  dependencies: []
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 16
+    minor: 3
+    patch: 1
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: ValheimModding-JsonDotNET
+  authorName: ValheimModding
+  websiteUrl: https://thunderstore.io/c/valheim/p/ValheimModding/JsonDotNET/
+  displayName: JsonDotNET
+  description: >-
+    Shared version 13.0.3 of Json.NET from Newtonsoft, net45 package for use in
+    Valheim mods. Maintained by the ValheimModding team.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643873728
+  loaders: []
+  dependencies: []
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 13
+    minor: 0
+    patch: 4
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: shudnal-ConditionalConfigSync
+  authorName: shudnal
+  websiteUrl: https://thunderstore.io/c/valheim/p/shudnal/ConditionalConfigSync/
+  displayName: ConditionalConfigSync
+  description: >-
+    Shared config synchronization and server policy library for Valheim mods.
+    Installed as a dependency and compatible with Jotunn and ServerSync.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643873752
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 0
+    patch: 9
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: shudnal-ConfigurationManager
+  authorName: shudnal
+  websiteUrl: https://thunderstore.io/c/valheim/p/shudnal/ConfigurationManager/
+  displayName: ConfigurationManager
+  description: >-
+    Localized, recolored, refined. Split view mode. Config files editor. Setting
+    edit window. Changed values are highlighted. Prevent user input or pause the
+    game while window is open. Window scale depends on game scale.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643873778
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+    - shudnal-ConditionalConfigSync-1.0.5
+    - ValheimModding-JsonDotNET-13.0.3
+    - ValheimModding-YamlDotNet-16.3.0
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 1
+    patch: 22
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: ValheimModding-Jotunn
+  authorName: ValheimModding
+  websiteUrl: https://thunderstore.io/c/valheim/p/ValheimModding/Jotunn/
+  displayName: Jotunn
+  description: >-
+    Jötunn (/ˈjɔːtʊn/, 'giant'), the Valheim Library was created with the goal
+    of making the lives of mod developers easier. It enables you to create mods
+    for Valheim using an abstracted API so you can focus on the actual content
+    creation.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643895500
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2333
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 2
+    minor: 30
+    patch: 2
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: ZenDragon-Zen_ModLib
+  authorName: ZenDragon
+  websiteUrl: https://thunderstore.io/c/valheim/p/ZenDragon/Zen_ModLib/
+  displayName: Zen_ModLib
+  description: Shared code library used in all ZenMods.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643895537
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2351
+    - ValheimModding-Jotunn-2.30.0
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 14
+    patch: 17
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: ZenDragon-ZenHoverItem
+  authorName: ZenDragon
+  websiteUrl: https://thunderstore.io/c/valheim/p/ZenDragon/ZenHoverItem/
+  displayName: ZenHoverItem
+  description: >-
+    Show hover icons on the cursor.  Quickly identify things via the inventory
+    item icon. The human brain recognizes images much faster than it recognizes
+    text.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643895575
+  loaders: []
+  dependencies:
+    - ZenDragon-Zen_ModLib-1.14.0
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 3
+    patch: 0
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: RandyKnapp-EquipmentAndQuickSlots
+  authorName: RandyKnapp
+  websiteUrl: https://thunderstore.io/c/valheim/p/RandyKnapp/EquipmentAndQuickSlots/
+  displayName: EquipmentAndQuickSlots
+  description: >-
+    Give equipped items their own dedicated inventory slots, plus up to six
+    hotkeyable quick slots.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790643982908
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2201
+    - ValheimModding-Jotunn-2.29.2
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 3
+    minor: 1
+    patch: 3
+  enabled: true
+  onlineSource: true
+- manifestVersion: 1
+  name: MidnightMods-AchievementEnabler
+  authorName: MidnightMods
+  websiteUrl: https://thunderstore.io/c/valheim/p/MidnightMods/AchievementEnabler/
+  displayName: AchievementEnabler
+  description: >-
+    Earn Valheim achievements with mods installed, and clear old cheat marks
+    from characters, worlds and items.
+  gameVersion: '0'
+  networkMode: both
+  packageType: other
+  installMode: managed
+  installedAtTime: 1790644216060
+  loaders: []
+  dependencies:
+    - denikson-BepInExPack_Valheim-5.4.2350
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 0
+    minor: 4
+    patch: 1
+  enabled: true
+  onlineSource: true

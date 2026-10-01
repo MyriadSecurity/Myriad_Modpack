@@ -2,8 +2,8 @@
     "name": "Myriad_Lite",
     "author": "Myriad",
     "version_number": "0.1.0",
-    "website_url": "https://github.com/MyriadSecurity/Myriad_Modpack",
-    "description": "A very lightweightVanilla+ server pack: QoL, StarLevelSystem, materials-only EpicLoot. Pair with the Myriad Lite Client Mods for the optional full experience.",
+    "website_url": "https://github.com/MyriadSecurity/Myriads-Valheim-Mods",
+    "description": "A very lightweight Vanilla+ server pack: QoL, StarLevelSystem, materials-only EpicLoot. Pair with the Myriad Lite Client Mods for the optional full experience.",
     "dependencies": [
         "denikson-BepInExPack_Valheim-5.4.2351",
         "Nosferatu-SmoothServer-0.6.1",

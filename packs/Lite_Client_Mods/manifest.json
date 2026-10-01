@@ -1,0 +1,24 @@
+{
+    "name": "Myriad_Lite_Client_Mods",
+    "author": "Myriad",
+    "version_number": "0.1.0",
+    "website_url": "https://github.com/MyriadSecurity/Myriads-Valheim-Mods",
+    "description": "Optional client-side extras for Myriad Lite (HUD, build cam, quickslots, hover info).",
+    "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.2351",
+        "Zenox-BetterUI-1.0.13",
+        "sighsorry-LoadTimeProfiler-1.3.2",
+        "JereKuusela-Ore_Support-1.12.0",
+        "Advize-PlantEasily-2.2.2",
+        "Stonaar-ValheimBuildCamera-1.9.0",
+        "ValheimModding-YamlDotNet-16.3.1",
+        "ValheimModding-JsonDotNET-13.0.4",
+        "shudnal-ConditionalConfigSync-1.0.9",
+        "shudnal-ConfigurationManager-1.1.22",
+        "ValheimModding-Jotunn-2.30.2",
+        "ZenDragon-Zen_ModLib-1.14.17",
+        "ZenDragon-ZenHoverItem-1.3.0",
+        "RandyKnapp-EquipmentAndQuickSlots-3.1.3",
+        "MidnightMods-AchievementEnabler-0.4.1"
+    ]
+}

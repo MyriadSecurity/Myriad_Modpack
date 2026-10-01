@@ -1,0 +1,10 @@
+{
+    "name": "MapPinSelectorFix",
+    "author": "Myriad",
+    "version_number": "1.4.0",
+    "website_url": "https://github.com/MyriadSecurity/Myriads-Valheim-Mods",
+    "description": "Manual OffsetX/OffsetY/Scale for the Valheim large-map pin selector column (IconPanel). Use when the pin icons sit off-screen on ultrawide or after other map UI mods.",
+    "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.2202"
+    ]
+}

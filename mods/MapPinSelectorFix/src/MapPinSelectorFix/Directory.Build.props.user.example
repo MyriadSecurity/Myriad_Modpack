@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <ValheimDir>$(HOME)/.local/share/Steam/steamapps/common/Valheim</ValheimDir>
+    <BepInExDir>$(HOME)/.var/app/io.github.ebkr.r2modman/config/r2modmanPlus-local/Valheim/profiles/MLite Profile/BepInEx</BepInExDir>
+  </PropertyGroup>
+</Project>

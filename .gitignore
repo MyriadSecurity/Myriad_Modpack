@@ -24,18 +24,6 @@ Myriad_Modpack.code-workspace
 # Research / analysis / local tooling (not shipped)
 idealized/
 scripts/
-all_mods_descriptions.csv
-all_mods_with_themes.csv
-balrond_mods_inventory.csv
-balrond_mods_not_in_analyzed_packs.csv
-mod_theme_by_pack.csv
-mod_theme_stats.json
-mod_theme_summary.csv
-modpack_mod_frequency.csv
-modpack_mod_stats.json
-top5_amazing_nature_modpacks.xlsx
-top5_amazing_nature_modpacks_dependencies.csv
-top5_amazing_nature_modpacks_summary.csv
 
 # Runtime / cache never ship
 **/config/**/Cache/
@@ -45,8 +33,14 @@ Lite/config/Seasonality/
 Lite/config/LivingMap/
 Myriad/config/wackysDatabase/Cache/
 
-# MyriadJewels build
+# MyriadJewels / MapPinSelectorFix build
+mods/MyriadJewels/src/**/bin/
+mods/MyriadJewels/src/**/obj/
+mods/MapPinSelectorFix/src/**/bin/
+mods/MapPinSelectorFix/src/**/obj/
 MyriadJewels/src/**/bin/
 MyriadJewels/src/**/obj/
+MapPinSelectorFix/src/**/bin/
+MapPinSelectorFix/src/**/obj/
 Directory.Build.props.user
 **/Directory.Build.props.user

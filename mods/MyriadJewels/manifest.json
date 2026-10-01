@@ -2,7 +2,7 @@
     "name": "MyriadJewels",
     "author": "Myriad",
     "version_number": "0.1.4",
-    "website_url": "https://github.com/MyriadSecurity/Myriad_Modpack",
+    "website_url": "https://github.com/MyriadSecurity/Myriads-Valheim-Mods",
     "description": "Seven custom Jewelcrafting stones for Myriad (Howlite, Carnelian, Bloodstone, Pyrite, Hematite, Tourmaline, Moss Agate) with synergies and biome spawns. Requires Jewelcrafting.",
     "dependencies": [
         "Smoothbrain-Jewelcrafting-2.0.1"
